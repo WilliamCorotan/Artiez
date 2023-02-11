@@ -11,7 +11,7 @@
  Target Server Version : 100424
  File Encoding         : 65001
 
- Date: 11/02/2023 17:19:48
+ Date: 11/02/2023 21:27:52
 */
 
 SET NAMES utf8mb4;
@@ -85,6 +85,21 @@ CREATE TABLE `ordered_item_table`  (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for password_resets
+-- ----------------------------
+DROP TABLE IF EXISTS `password_resets`;
+CREATE TABLE `password_resets`  (
+  `email` varchar(320) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `created_at` datetime NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of password_resets
+-- ----------------------------
+INSERT INTO `password_resets` VALUES ('williamcorotan@gmail.com', '$2y$10$AisZh6/Q7RhAmKxMRbLhqucD0N6sZOwa876TiDTUtoaVIZuGcGtXu', '2023-02-11 10:34:37');
+
+-- ----------------------------
 -- Table structure for payment_method_table
 -- ----------------------------
 DROP TABLE IF EXISTS `payment_method_table`;
@@ -130,7 +145,7 @@ CREATE TABLE `product_table`  (
   INDEX `medium_id`(`medium_id`) USING BTREE,
   CONSTRAINT `product_table_ibfk_2` FOREIGN KEY (`medium_id`) REFERENCES `medium_table` (`medium_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `product_table_ibfk_3` FOREIGN KEY (`base_id`) REFERENCES `base_table` (`base_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `product_table_ibfk_4` FOREIGN KEY (`artist_id`) REFERENCES `user_table` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  CONSTRAINT `product_table_ibfk_4` FOREIGN KEY (`artist_id`) REFERENCES `users` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 37 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -153,7 +168,7 @@ CREATE TABLE `transaction_table`  (
   INDEX `order_item_id`(`order_item_id`) USING BTREE,
   INDEX `payment_method_id`(`payment_method_id`) USING BTREE,
   CONSTRAINT `transaction_table_ibfk_3` FOREIGN KEY (`payment_method_id`) REFERENCES `payment_method_table` (`payment_method_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `transaction_table_ibfk_4` FOREIGN KEY (`buyer_id`) REFERENCES `user_table` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  CONSTRAINT `transaction_table_ibfk_4` FOREIGN KEY (`buyer_id`) REFERENCES `users` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -161,10 +176,10 @@ CREATE TABLE `transaction_table`  (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for user_table
+-- Table structure for users
 -- ----------------------------
-DROP TABLE IF EXISTS `user_table`;
-CREATE TABLE `user_table`  (
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users`  (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `last_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `first_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
@@ -180,10 +195,11 @@ CREATE TABLE `user_table`  (
   `updated_at` datetime NULL DEFAULT NULL,
   `created_at` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of user_table
+-- Records of users
 -- ----------------------------
+INSERT INTO `users` VALUES (1, 'Corotan', 'William Anthony', '09478051730', 'williamcorotan@gmail.com', '$2y$10$xG/zwPw2xWSwVekFrQHjcOsLtJt83XW19muSiQ/aMG4JQEl43/jHG', NULL, 'test st add', 'brgy', 'city', 'province', '1920', '2023-02-11 10:11:29', '2023-02-11 10:11:29');
 
 SET FOREIGN_KEY_CHECKS = 1;
