@@ -38,11 +38,10 @@ class RegisteredUserController extends Controller
             'last_name' => ['required', 'string', 'max:255'],
             'first_name' => ['required', 'string', 'max:255'],
             'contact_number' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'], 
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'street_address' => ['required', 'string', 'max:255'], 
-            'district' => ['required', 'string', 'max:255'],
-            'barangay' => ['required', 'string', 'max:255'], 
+            'street_address' => ['required', 'string', 'max:255'],
+            'barangay' => ['required', 'string', 'max:255'],
             'city' => ['required', 'string', 'max:255'],
             'province' => ['required', 'string', 'max:255'],
             'postal_code' => ['required', 'string', 'max:255'],
@@ -53,12 +52,11 @@ class RegisteredUserController extends Controller
             'last_name' => $request['last_name'],
             'contact_number' => $request['contact_number'],
             'email' => $request['email'],
-            'password' => Hash::make($request['password']),            
+            'password' => Hash::make($request['password']),
             'street_address' => $request['street_address'],
-            'district' => $request['district'], 
-            'barangay' => $request['barangay'], 
-            'city' => $request['city'], 
-            'province' => $request['province'], 
+            'barangay' => $request['barangay'],
+            'city' => $request['city'],
+            'province' => $request['province'],
             'postal_code' => $request['postal_code'],
 
 
@@ -67,7 +65,7 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
-        
+
 
         return redirect(RouteServiceProvider::HOME);
     }
@@ -97,7 +95,7 @@ class RegisteredUserController extends Controller
     // }
 
 
-     /**
+    /**
      * Display the registration view.
      */
     public function createArtist(): View
@@ -120,12 +118,12 @@ class RegisteredUserController extends Controller
             'last_name' => ['required', 'string', 'max:255'],
             'first_name' => ['required', 'string', 'max:255'],
             'contact_number' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'], 
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             // 'pass' => ['required', 'string', 'min:8', 'confirmed'], 
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'street_address' => ['required', 'string', 'max:255'], 
+            'street_address' => ['required', 'string', 'max:255'],
             'district' => ['required', 'string', 'max:255'],
-            'barangay' => ['required', 'string', 'max:255'], 
+            'barangay' => ['required', 'string', 'max:255'],
             'city' => ['required', 'string', 'max:255'],
             'province' => ['required', 'string', 'max:255'],
             'postal_code' => ['required', 'string', 'max:255'],
@@ -139,21 +137,20 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request['password']),
             'role' => '1',
             'street_address' => $request['street_address'],
-            'district' => $request['district'], 
-            'barangay' => $request['barangay'], 
-            'city' => $request['city'], 
-            'province' => $request['province'], 
+            'district' => $request['district'],
+            'barangay' => $request['barangay'],
+            'city' => $request['city'],
+            'province' => $request['province'],
             'postal_code' => $request['postal_code'],
-            
+
 
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
-        
+
 
         return redirect(RouteServiceProvider::HOME_ARTIST);
     }
-
 }

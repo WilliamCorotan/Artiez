@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArtistsController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Artist\ArtistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,25 @@ Route::middleware('auth')->group(function () {
 
 Route::post('/login', [LoginController::class, ('login')]);
 
-require __DIR__.'/auth.php';
+// Custom Routes
+Route::get('/artists', [ArtistsController::class, 'index']);
+
+Route::get('/artists/{id}', [ArtistsController::class, 'show']);
+
+Route::get('/artworks', [ProductsController::class, 'index']);
+
+Route::get('/artworks/{product_id}', [ProductsController::class, 'show']);
+Route::get('/display', [ArtistController::class, 'index']);
+// Route::get('dashboard', [ArtistController::class, 'index']);
+Route::get('/artworks/add', [ArtistController::class, 'create']);
+Route::post('/artworks/add', [ArtistController::class, 'store']);
+
+Route::get('artworks/{product}/edit', [ArtistController::class, 'edit']);
+
+Route::patch('artworks/{product}/edit', [ArtistController::class, 'update']);
+
+Route::delete('artworks/{product}/delete', [ArtistController::class, 'destroy']);
 
 
+
+require __DIR__ . '/auth.php';

@@ -12,32 +12,26 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
 
     /**
-     * The attributes that are mass assignable.
+     * The primary key for the model.
      *
-     * @var array<int, string>
+     * @var string
      */
-    // protected $fillable = [
-    //         'last_name',
-    //         'first_name',
-    //         'contact_number', 
-    //         'email', 
-    //         'pass', 
-    //         'street_address', 
-    //         'role',
-    //         'district', 
-    //         'barangay', 
-    //         'city', 
-    //         'province', 
-    //         'postal_code',
-           
-    // ];
+    protected $primaryKey = 'user_id';
 
-    protected $guarded = [
-        
-    ];
+    /**
+     * @var array
+     */
+    // protected $fillable = ['last_name', 'first_name', 'contact_number', 'email', 'pass', 'street_address', 'district', 'barangay', 'city', 'province', 'postal_code', 'open_for_commission'];
 
+    protected $guarded = [];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -56,11 +50,34 @@ class User extends Authenticatable
     // protected $casts = [
     //     'email_verified_at' => 'datetime',
     // ];
+    public function scopeFilter($query, array $filters)
+    {
+        // if ($filters['tag'] ?? false) {
+        //     $query->where('tags', 'like', '%' . request('tag') . '%' );
+        // }
+        if ($filters['search'] ?? false) {
+            $query->where('last_name', 'like', '%' . request('search') . '%')
+                ->orWhere('first_name', 'like', '%' . request('search') . '%')
+                ->orWhere('street_address', 'like', '%' . request('search') . '%')
+                ->orWhere('barangay', 'like', '%' . request('search') . '%')
+                ->orWhere('city', 'like', '%' . request('search') . '%')
+                ->orWhere('province', 'like', '%' . request('search') . '%')
+                ->orWhere('postal_code', 'like', '%' . request('search') . '%')
+                ->orWhere('open_for_commission', 'like', '%' . request('search') . '%');
+        }
+    }
 
-    protected function role():Attribute
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function productTables()
+    {
+        return $this->hasMany(Product::class, 'artist_id', 'user_id');
+    }
+    protected function role(): Attribute
     {
         return new Attribute(
-            get: fn($value) => ["buyer", "artist"][$value]
+            get: fn ($value) => ["buyer", "artist"][$value]
         );
     }
 }
