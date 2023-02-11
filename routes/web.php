@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArtistsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\Artist\ArtistController;
 
 /*
@@ -39,7 +40,7 @@ Route::get('/artists/{id}', [ArtistsController::class, 'show']);
 
 Route::get('/artworks', [ProductsController::class, 'index']);
 
-Route::get('/artworks/{product_id}', [ProductsController::class, 'show']);
+// Route::get('/artworks/{product_id}', [ProductsController::class, 'show']);
 Route::get('/display', [ArtistController::class, 'index']);
 // Route::get('dashboard', [ArtistController::class, 'index']);
 Route::get('/artworks/add', [ArtistController::class, 'create']);

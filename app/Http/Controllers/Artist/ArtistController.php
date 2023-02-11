@@ -55,7 +55,7 @@ class ArtistController extends Controller
 
 
         //insert user_id from auth()
-        $formFields['artist_id'] = 2;
+        $formFields['artist_id'] = 1;
 
         $formFields['sold'] = 0;
         // dd($formFields);
