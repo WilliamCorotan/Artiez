@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArtistController extends Controller
 {
@@ -54,8 +55,9 @@ class ArtistController extends Controller
         ]);
 
 
+        // dd(Auth::id());
         //insert user_id from auth()
-        $formFields['artist_id'] = 1;
+        $formFields['artist_id'] = Auth::id();
 
         $formFields['sold'] = 0;
         // dd($formFields);
@@ -113,11 +115,18 @@ class ArtistController extends Controller
 
 
         //insert user_id from auth()
-        $formFields['artist_id'] = 2;
+        // $formFields['artist_id'] = auth()->user_id;
 
 
         $formFields['sold'] = 0;
         // dd($formFields);
+
+        if ($request->hasFile('coa')) {
+            $formFields['coa'] = $request->file('coa')->store('assets.coa', 'public');
+        }
+        if ($request->hasFile('product_preview')) {
+            $formFields['product_preview'] = $request->file('product_preview')->store('assets.product_preview', 'public');
+        }
 
         $product->update($formFields);
         return view('test');

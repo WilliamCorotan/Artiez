@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ArtistsController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\Artist\ArtistController;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +17,16 @@ use App\Http\Controllers\Artist\ArtistController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -30,28 +34,4 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-Route::post('/login', [LoginController::class, ('login')]);
-
-// Custom Routes
-Route::get('/artists', [ArtistsController::class, 'index']);
-
-Route::get('/artists/{id}', [ArtistsController::class, 'show']);
-
-Route::get('/artworks', [ProductsController::class, 'index']);
-
-// Route::get('/artworks/{product_id}', [ProductsController::class, 'show']);
-Route::get('/display', [ArtistController::class, 'index']);
-// Route::get('dashboard', [ArtistController::class, 'index']);
-Route::get('/artworks/add', [ArtistController::class, 'create']);
-Route::post('/artworks/add', [ArtistController::class, 'store']);
-
-Route::get('artworks/{product}/edit', [ArtistController::class, 'edit']);
-
-Route::patch('artworks/{product}/edit', [ArtistController::class, 'update']);
-
-Route::delete('artworks/{product}/delete', [ArtistController::class, 'destroy']);
-
-
-
 require __DIR__ . '/auth.php';

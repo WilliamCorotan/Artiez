@@ -11,16 +11,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
-use Illuminate\View\View;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class RegisteredUserController extends Controller
 {
     /**
      * Display the registration view.
      */
-    public function create(): View
+    public function create(): Response
     {
-        return view('auth.register');
+        return Inertia::render('Auth/Register');
     }
 
     /**
@@ -31,126 +32,22 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            // 'name' => ['required', 'string', 'max:255'],
-            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            // 'password' => ['required', 'confirmed', Rules\Password::defaults()],
-
-            'last_name' => ['required', 'string', 'max:255'],
-            'first_name' => ['required', 'string', 'max:255'],
-            'contact_number' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:' . User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'street_address' => ['required', 'string', 'max:255'],
-            'barangay' => ['required', 'string', 'max:255'],
-            'city' => ['required', 'string', 'max:255'],
-            'province' => ['required', 'string', 'max:255'],
-            'postal_code' => ['required', 'string', 'max:255'],
+            'street_address' => "required|string|min:8|max:255"
         ]);
+
         $user = User::create([
-
-            'first_name' => $request['first_name'],
-            'last_name' => $request['last_name'],
-            'contact_number' => $request['contact_number'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-            'street_address' => $request['street_address'],
-            'barangay' => $request['barangay'],
-            'city' => $request['city'],
-            'province' => $request['province'],
-            'postal_code' => $request['postal_code'],
-
-
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
-
 
         return redirect(RouteServiceProvider::HOME);
-    }
-
-    // public function showArtistRegistration()
-    // {
-    //     return view('auth.register.artist');
-    // }
-    // //
-    // public function registerArtist(Request $request)
-    // {
-    //     $data=new user;
-    //     $data->first_name=$request->first_name;
-    //     $data->last_name=$request->last_name;
-    //     $data->contact_number=$request->contact_number;
-    //     $data->email=$request->email;
-    //     $data->pass=Hash::make($request->pass);
-    //     $data->role='1';
-    //     $data->street_address=$request->street_address;
-    //     $data->district=$request->district;
-    //     $data->barangay=$request->barangay;
-    //     $data->city=$request->city;
-    //     $data->province=$request->province;
-    //     $data->postal_code=$request->postal_code;
-    //     $data->save();
-    //     return redirect()->route('home.artist');
-    // }
-
-
-    /**
-     * Display the registration view.
-     */
-    public function createArtist(): View
-    {
-        return view('auth.registerArtist');
-    }
-
-    /**
-     * Handle an incoming registration request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    public function storeArtist(Request $request): RedirectResponse
-    {
-        $request->validate([
-            // 'name' => ['required', 'string', 'max:255'],
-            // 'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            // 'password' => ['required', 'confirmed', Rules\Password::defaults()],
-
-            'last_name' => ['required', 'string', 'max:255'],
-            'first_name' => ['required', 'string', 'max:255'],
-            'contact_number' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            // 'pass' => ['required', 'string', 'min:8', 'confirmed'], 
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'street_address' => ['required', 'string', 'max:255'],
-            'district' => ['required', 'string', 'max:255'],
-            'barangay' => ['required', 'string', 'max:255'],
-            'city' => ['required', 'string', 'max:255'],
-            'province' => ['required', 'string', 'max:255'],
-            'postal_code' => ['required', 'string', 'max:255'],
-        ]);
-        $user = User::create([
-
-            'first_name' => $request['first_name'],
-            'last_name' => $request['last_name'],
-            'contact_number' => $request['contact_number'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-            'role' => '1',
-            'street_address' => $request['street_address'],
-            'district' => $request['district'],
-            'barangay' => $request['barangay'],
-            'city' => $request['city'],
-            'province' => $request['province'],
-            'postal_code' => $request['postal_code'],
-
-
-        ]);
-
-        event(new Registered($user));
-
-        Auth::login($user);
-
-
-        return redirect(RouteServiceProvider::HOME_ARTIST);
     }
 }
