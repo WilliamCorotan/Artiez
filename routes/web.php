@@ -24,7 +24,7 @@ Route::get('/', function () {
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
-        'products' => Product::select()->join('users', 'artist_id', '=', 'user_id')->get(),
+        'products' => Product::all(),
     ]);
 });
 
@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/artist/dashboard', function () {
     return Inertia::render('Artist/Home');
-});
+})->middleware(['auth', 'verified']);
 Route::get('/artworks/add', [ArtworkController::class, 'create']);
 
 require __DIR__ . '/auth.php';
