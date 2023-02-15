@@ -24,7 +24,7 @@ Route::get('/', function () {
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
-        'products' => Product::select()->join('users', 'artist_id', '=', 'user_id')->get(),
+        'products' => Product::all(),
     ]);
 });
 
