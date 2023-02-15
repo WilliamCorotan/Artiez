@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/artist/dashboard', function () {
     return Inertia::render('Artist/Home');
-});
+})->middleware(['auth', 'verified']);
 Route::get('/artworks/add', [ArtworkController::class, 'create']);
 
 require __DIR__ . '/auth.php';
