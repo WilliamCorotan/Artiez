@@ -17,12 +17,12 @@ class UserRoleMiddleware
      */
     public function handle(Request $request, Closure $next, $role)
     {
-        if(Auth::check() && Auth::user()->role == $role)
-        {
-        return $next($request);
+        if (Auth::check() && Auth::user()->role == $role) {
+            return $next($request);
         }
-        return response()->json(["BALIW KA BA? DI KA PWEDE DITO"]);
-
+        return response()->json(["BALIW KA BA? DI KA PWEDE DITO
+        ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ 
         
+        "]);
     }
 }

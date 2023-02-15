@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Artist;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Inertia\Inertia;
 use App\Models\Product;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ArtistController extends Controller
+class ArtworkController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +16,11 @@ class ArtistController extends Controller
      */
     public function index()
     {
-        $datas = User::all();
-        return view('artist.dashboard', ['dataset' => $datas, 'props' => 'hello world']);
-        // return view('artist.dashboard', ['products' => auth()->user()->product()->get()]);
-    }
+        $artworks = Product::all();
 
+        return Inertia::render('Homepage', ['artworks' => $artworks]);
+    }
+    // ➔
     /**
      * Show the form for creating a new resource.
      *
@@ -29,7 +28,7 @@ class ArtistController extends Controller
      */
     public function create()
     {
-        return view('artist.create');
+        return Inertia::render('Artist/addArtwork');
     }
 
     /**
@@ -62,51 +61,49 @@ class ArtistController extends Controller
         $formFields['sold'] = 0;
         // dd($formFields);
         Product::create($formFields);
-        return view('test');
     }
 
     /**
-     * Display the specified resource. 12
+     * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $artwork)
     {
-        //
+        // $product = Product::findOrFail($id);
+        return Inertia::render('Artist/showArtwork', ['artwork' => $artwork]);
     }
 
     /**
-     * Show the form for editing the specified resource. 13.1
+     * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        // dd($product->product_name);
-        return view('artist.edit', ['product' => $product]);
+        $product = Product::findOrFail();
+        return Inertia::render('Artwork/Edit', ['product' => $product]);
     }
 
     /**
-     * Update the specified resource in storage. 13.2
+     * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-
-        // dd($request);
+        $product  = Product::findOrFail($id);
         $formFields = $request->validate([
             'product_name' => 'required',
             'description' => 'required',
             'width' => 'required',
             'height' => 'required',
-            'base_id' => 'required',
-            'medium_id' => 'required',
-            'medium_id' => 'required',
+            'base' => 'required',
+            'medium' => 'required',
             'art_style' => 'required',
             'coa' => 'required',
             'product_preview' => 'required',
@@ -133,18 +130,14 @@ class ArtistController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage. 14
+     * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //add logic after auth() is finished
-        // if($product->user_id !=auth()->id()) {
-        //     abort(403, 'Unauthorized Action');
-        // }
-
+        $product = Product::findOrFail($id);
         $product->delete();
     }
 }

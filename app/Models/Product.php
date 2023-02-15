@@ -75,13 +75,6 @@ class Product extends Model
         return $this->hasMany(OrderedItem::class, 'product_id', 'product_id');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function baseTable()
-    {
-        return $this->belongsTo(Base::class, 'base_id', 'base_id');
-    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -89,13 +82,5 @@ class Product extends Model
     public function artistTable()
     {
         return $this->belongsTo(Artist::class, 'artist_id', 'user_id');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function mediumTable()
-    {
-        return $this->belongsTo(Medium::class, 'medium_id', 'medium_id');
     }
 }
