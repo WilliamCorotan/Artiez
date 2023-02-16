@@ -1,29 +1,22 @@
-import Navbar from '@/Components/Navbar';
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head, router } from '@inertiajs/react';
-import Layout from '@/Layouts/Layout';
-import { Footer } from '@/Components/Footer';
+import Navbar from "@/Components/Navbar";
+// import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+// import { Head, router } from '@inertiajs/react';
+import { Footer } from "@/Components/Footer";
+import { Hero } from "@/Components/Hero";
+import { Main } from "@/Components/Main";
+// import GuestLayout from "@/Layouts/GuestLayout";
+import { Test } from "@/Components/test";
+import { Link } from "@inertiajs/react";
 
-export default function Dashboard(props) {
-
+export default function Homepage(props) {
+    // console.log(props);
     return (
-        <Layout
-        auth={props.auth}
-        errors={props.errors}
-        header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>}
-        >
-        <Navbar />
-            <Head title="Dashboard" />
-
-            <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900">You're logged in!</div>
-                    </div>
-                </div>
-            </div>
-
-        <Footer/>
-        </Layout>
+        <>
+            <Navbar />
+            <Hero />
+            <Main artworks={props.products} />
+            {/* <Test /> */}
+            <Footer />
+        </>
     );
 }
