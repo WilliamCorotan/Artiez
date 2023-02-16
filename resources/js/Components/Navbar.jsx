@@ -5,13 +5,10 @@ import TextInput from "./TextInput";
 
 const Navbar = () => {
     const [navOpen, setNavOpen] = useState(false);
-    const [searchOpen, setSearchOpen] = useState(false);
     const navBar =
         "items-center justify-between block w-full md:flex md:w-auto md:order-1";
     const navBarClose =
         "items-center justify-between hidden w-full md:flex md:w-auto md:order-1";
-    const searchOn = "relative md:block";
-    const searchOff = "relative hidden";
     return (
         <>
             <nav className="bg-white border-red-800 px-2 sm:px-4 py-2.5 rounded ">

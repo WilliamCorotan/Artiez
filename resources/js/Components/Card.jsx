@@ -35,7 +35,7 @@ export const Card = ({ artworks }) => {
                     </div>
                     <p className="text-sm text-gray-600">
                         <span>
-                            <i className="fas fa-map-marker-alt fa-sm mt-[3px]" />
+                            <i className="fas fa-map-marker-alt fa-sm mt-[3px] mr-1"></i>
                             {artworks.city}, {artworks.province}
                         </span>
                     </p>

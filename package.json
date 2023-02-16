@@ -23,6 +23,7 @@
     "dependencies": {
         "@emotion/react": "^11.10.5",
         "@emotion/styled": "^11.10.5",
-        "@material-tailwind/react": "^1.4.2"
+        "@material-tailwind/react": "^1.4.2",
+        "react-icons": "^4.7.1"
     }
 }

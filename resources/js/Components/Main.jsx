@@ -10,11 +10,11 @@ export const Main = (props) => {
     return (
         <>
             <div className="text-center my-10">
-                <h1 className="font-semibold text-gray-500 text-lg md:text-3xl">
+                <h1 className="font-semibold text-gray-500 text-2xl md:text-3xl">
                     Latest Artwork
                 </h1>
             </div>
-            <div className="flex flex-wrap flex-col-4 mb-20 justify-center xs:flex-col gap-6">
+            <div className="grid grid-cols-1 w-fit gap-x-8 gap-y-6 mx-auto sm:grid-cols-2 md:grid-cols-3 mb-20 justify-center">
                 {ArtworkCards}
             </div>
 
