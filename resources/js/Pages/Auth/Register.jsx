@@ -5,8 +5,10 @@ import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import { Head, Link, useForm } from "@inertiajs/react";
+import Navbar from "@/Components/Navbar";
+import { Footer2, Footer } from "@/Components/Footer";
 
-export default function Register() {
+export default function Register(props) {
     const { data, setData, post, processing, errors, reset } = useForm({
         first_name: "",
         last_name: "",
@@ -20,7 +22,6 @@ export default function Register() {
         province: "",
         postal_code: "",
     });
-
     useEffect(() => {
         return () => {
             reset("password", "password_confirmation");
@@ -45,8 +46,8 @@ export default function Register() {
     return (
         <>
             <Head title="Register" />
-
-            <form onSubmit={submit} className="min-h-screen">
+            <Navbar/>
+            <form onSubmit={submit}>
                 <section class="bg-gray-100 flex place-items-center">
                     <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
                         <div class="grid grid-cols-1 gap-x-16 gap-y-8">
@@ -219,7 +220,7 @@ export default function Register() {
                                             />
                                         </div>
                                     </div>
-                                    <div className="flex justify-between text-sm">
+                                    <div className="flex justify-between text-sm text-gray-900">
                                         <div className="flex gap-1 items-center">
                                             <input
                                                 type="checkbox"
@@ -237,10 +238,10 @@ export default function Register() {
                                         </div>
 
                                         <p>
-                                            Already have an account?
-                                            <a href="" className="underline">
+                                            Already have an account? {""}
+                                            <Link href="/login" className="underline">
                                                 Sign up! Betch
-                                            </a>
+                                            </Link>
                                         </p>
                                     </div>
                                     <div className="flex justify-end">
@@ -254,6 +255,7 @@ export default function Register() {
                     </div>
                 </section>
             </form>
+            <Footer/>
         </>
     );
 }
