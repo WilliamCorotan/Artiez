@@ -2,7 +2,7 @@ import { Card } from "@/Components/Card";
 import { Link } from "@inertiajs/react";
 
 export const Main = (props) => {
-    const ArtworkCards = props.artworks.map((e) => {
+    const ArtworkCards = props.artworks.slice(0, 6).map((e) => {
         // console.log(<Card artworks={e} />);
         return <Card key={e.product_id} artworks={e} />;
     });
