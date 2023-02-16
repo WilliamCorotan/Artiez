@@ -70,7 +70,7 @@ class RegisteredUserController extends Controller
      */
     public function createArtist(): Response
     {
-        return Inertia::render('Auth/Register');
+        return Inertia::render('Auth/RegisterArtist');
     }
 
     /**

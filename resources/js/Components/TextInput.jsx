@@ -11,6 +11,7 @@ export default forwardRef(function TextInput(
         required,
         isFocused,
         handleChange,
+        placeholder,
     },
     ref
 ) {
@@ -25,6 +26,7 @@ export default forwardRef(function TextInput(
     return (
         <div className="flex flex-col items-start">
             <input
+                placeholder={placeholder}
                 type={type}
                 name={name}
                 id={id}
