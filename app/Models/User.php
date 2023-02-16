@@ -62,8 +62,7 @@ class User extends Authenticatable
                 ->orWhere('barangay', 'like', '%' . request('search') . '%')
                 ->orWhere('city', 'like', '%' . request('search') . '%')
                 ->orWhere('province', 'like', '%' . request('search') . '%')
-                ->orWhere('postal_code', 'like', '%' . request('search') . '%')
-                ->orWhere('open_for_commission', 'like', '%' . request('search') . '%');
+                ->orWhere('postal_code', 'like', '%' . request('search') . '%');
         }
     }
 
