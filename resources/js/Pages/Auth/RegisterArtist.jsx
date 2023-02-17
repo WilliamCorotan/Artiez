@@ -40,7 +40,7 @@ export default function Register(props) {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route("register"));
+        post(route("createArtist"));
     };
 
     return (
@@ -334,7 +334,7 @@ export default function Register(props) {
                                 </div>
                                 <div className="flex justify-end">
                                     <button className="bg-blue-500 p-4 rounded py-1 self-center">
-                                        Register
+                                        Register as Artist
                                     </button>
                                 </div>
                             </form>
