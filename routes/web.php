@@ -39,15 +39,19 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+Route::middleware('auth', 'verified')->group(function () {
+    Route::get('/artist/dashboard', function () {
+        return Inertia::render('Artist/Dashboard', [
+            'artworks' => Product::select()->where('artist_id', '=', auth()->user()->user_id)->get()
+        ]);
+    });
+    Route::get('/artist/activities', function () {
+        sleep(2);
+        return Inertia::render('Artist/Activities');
+    });
+});
 
-Route::get('/artist/dashboard', function () {
-    return Inertia::render('Artist/Home');
-})->middleware(['auth', 'verified']);
 Route::get('/artworks/add', [ArtworkController::class, 'create']);
-Route::get('/about', function () {
-    return Inertia::render('About');
-});
-Route::get('/contact', function () {
-    return Inertia::render('Contact');
-});
+
+
 require __DIR__ . '/auth.php';

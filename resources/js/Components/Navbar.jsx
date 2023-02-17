@@ -5,13 +5,10 @@ import TextInput from "./TextInput";
 
 const Navbar = () => {
     const [navOpen, setNavOpen] = useState(false);
-    const [searchOpen, setSearchOpen] = useState(false);
     const navBar =
         "items-center justify-between block w-full md:flex md:w-auto md:order-1";
     const navBarClose =
         "items-center justify-between hidden w-full md:flex md:w-auto md:order-1";
-    const searchOn = "relative md:block";
-    const searchOff = "relative hidden";
     return (
         <>
             <nav className="bg-white border-red-800 px-2 sm:px-4 py-2.5 rounded ">
@@ -22,7 +19,7 @@ const Navbar = () => {
                             className="h-10 mr-1 sm:h-9"
                             alt="Artiez Logo"
                         />
-                        <span className="uppercase text-2xl font-serif bg-gradient-to-r from-red-800 to-pink-700 bg-clip-text text-transparent">
+                        <span className="uppercase text-3xl font-serif bg-gradient-to-r from-red-800 to-pink-700 bg-clip-text text-transparent">
                             artiez
                         </span>
                     </Link>
@@ -109,7 +106,7 @@ const Navbar = () => {
                             <li>
                                 <Link
                                     to="#"
-                                    className="block py-2 pl-3 pr-4 rounded text-gray-800 hover:text-red-800 hover:bg-gray-100  md:hover:bg-transparent md:hover:text-red-800 md:p-0 "
+                                    className="block text-lg py-2 pl-3 pr-4 rounded text-gray-800 hover:text-red-800 hover:bg-gray-100  md:hover:bg-transparent md:hover:text-red-800 md:p-0 "
                                     aria-current="page"
                                 >
                                     All Artworks
@@ -118,7 +115,7 @@ const Navbar = () => {
                             <li>
                                 <Link
                                     to="#"
-                                    className="block py-2 pl-3 pr-4 rounded text-gray-800 hover:text-red-800 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-800 md:p-0 "
+                                    className="block text-lg py-2 pl-3 pr-4 rounded text-gray-800 hover:text-red-800 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-800 md:p-0 "
                                 >
                                     Artists
                                 </Link>
@@ -126,7 +123,7 @@ const Navbar = () => {
                             <li>
                                 <Link
                                     to="#"
-                                    className="block py-2 pl-3 pr-4 text-gray-800 rounded hover:text-red-800 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-800 md:p-0 "
+                                    className="block text-lg py-2 pl-3 pr-4 text-gray-800 rounded hover:text-red-800 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-800 md:p-0 "
                                 >
                                     About
                                 </Link>
