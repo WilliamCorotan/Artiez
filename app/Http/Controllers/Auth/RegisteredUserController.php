@@ -50,7 +50,7 @@ class RegisteredUserController extends Controller
             'contact_number' => $request['contact_number'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
-            'role' => '0',
+            'role' => 0,
             'street_address' => $request['street_address'],
             'barangay' => $request['barangay'],
             'city' => $request['city'],

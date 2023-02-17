@@ -44,9 +44,8 @@ class ArtworkController extends Controller
             'description' => 'required',
             'width' => 'required',
             'height' => 'required',
-            'base_id' => 'required',
-            'medium_id' => 'required',
-            'medium_id' => 'required',
+            'base' => 'required',
+            'medium' => 'required',
             'art_style' => 'required',
             'coa' => 'required',
             'product_preview' => 'required',
@@ -126,7 +125,7 @@ class ArtworkController extends Controller
         }
 
         $product->update($formFields);
-        return view('test');
+        return Inertia::render('test', ['products' => $product]);
     }
 
     /**
