@@ -44,5 +44,10 @@ Route::get('/artist/dashboard', function () {
     return Inertia::render('Artist/Home');
 })->middleware(['auth', 'verified']);
 Route::get('/artworks/add', [ArtworkController::class, 'create']);
-
+Route::get('/about', function () {
+    return Inertia::render('About');
+});
+Route::get('/contact', function () {
+    return Inertia::render('Contact');
+});
 require __DIR__ . '/auth.php';
