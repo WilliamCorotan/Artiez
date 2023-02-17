@@ -125,7 +125,7 @@ class ArtworkController extends Controller
         }
 
         $product->update($formFields);
-        return view('test');
+        return Inertia::render('test', ['products' => $product]);
     }
 
     /**

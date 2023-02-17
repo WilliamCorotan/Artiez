@@ -3,12 +3,12 @@ export const links = [
     title: 'Dashboard',
     links: [
       {
-        name: 'Home',
-        icon: <FiShoppingBag />,
+        name: 'dashboard',
+        icon: <i className="fa-solid fa-house text-lg group-hover:text-black"></i>,
       },
       {
-        name: 'Activites',
-        icon: <FiShoppingBag />,
+        name: 'activities',
+        icon: <i className="fa-solid fa-chart-line text-lg group-hover:text-black"></i>,
       },
     ],
   },
@@ -17,16 +17,16 @@ export const links = [
     title: 'Art Section',
     links: [
       {
-        name: 'Gallery',
-        icon: <AiOutlineShoppingCart />,
+        name: 'gallery',
+        icon: <i className="fa-solid fa-images text-lg"></i>,
       },
       {
-        name: 'Orders',
-        icon: <IoMdContacts />,
+        name: 'orders',
+        icon: <i className="fa-solid fa-clipboard text-xl"></i>,
       },
       {
-        name: 'Sold Artworks',
-        icon: <RiContactsLine />,
+        name: 'sold-artworks',
+        icon: <i className="fa-solid fa-cart-shopping text-lg"></i>,
       },
     ],
   },
@@ -34,20 +34,16 @@ export const links = [
     title: 'Configuration Section',
     links: [
       {
-        name: 'Profile',
-        icon: <AiOutlineCalendar />,
+        name: 'profile',
+        icon: <i className="fa-solid fa-user"></i>,
       },
       {
-        name: 'Settings',
-        icon: <BsKanban />,
+        name: 'settings',
+        icon: <i className="fa-solid fa-gear"></i>,
       },
       {
-        name: 'Logout',
-        icon: <FiEdit />,
-      },
-      {
-        name: 'color-picker',
-        icon: <BiColorFill />,
+        name: 'logout',
+        icon: <i className="fa-solid fa-right-from-bracket"></i>,
       },
     ],
   },

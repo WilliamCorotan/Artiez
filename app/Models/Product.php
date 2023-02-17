@@ -67,6 +67,12 @@ class Product extends Model
         }
     }
 
+    public function scopeCount($query)
+    {
+        $query->where('artist_id', '=', auth()->user()->user_id);
+    }
+
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
