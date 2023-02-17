@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::middleware('auth', 'verified')->group(function () {
+Route::middleware('auth', 'verified', 'user-role:artist')->group(function () {
     Route::get('/artist/dashboard', function () {
         return Inertia::render('Artist/Dashboard', [
             'artworks' => Product::select()->where('artist_id', '=', auth()->user()->user_id)->get()
