@@ -54,4 +54,9 @@ Route::middleware('auth', 'verified', 'user-role:artist')->group(function () {
 Route::get('/artworks/add', [ArtworkController::class, 'create']);
 
 
+// Route::get('/email/verify', function () {
+//     return view('auth.verify-email');
+// })->middleware('auth')->name('verification.notice');
+
+
 require __DIR__ . '/auth.php';
