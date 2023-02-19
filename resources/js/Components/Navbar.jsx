@@ -1,5 +1,6 @@
 // import '/assets/Artiez Logo.svg'
 import { Link } from "@inertiajs/react";
+import NavLink from "./NavLink";
 import { useState } from "react";
 import TextInput from "./TextInput";
 
@@ -104,29 +105,29 @@ const Navbar = () => {
                         </div>
                         <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
                             <li>
-                                <Link
+                                <NavLink
                                     to="#"
                                     className="block text-lg py-2 pl-3 pr-4 rounded text-gray-800 hover:text-red-800 hover:bg-gray-100  md:hover:bg-transparent md:hover:text-red-800 md:p-0 "
                                     aria-current="page"
                                 >
                                     All Artworks
-                                </Link>
+                                </NavLink>
                             </li>
                             <li>
-                                <Link
+                                <NavLink
                                     to="#"
                                     className="block text-lg py-2 pl-3 pr-4 rounded text-gray-800 hover:text-red-800 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-800 md:p-0 "
                                 >
                                     Artists
-                                </Link>
+                                </NavLink>
                             </li>
                             <li>
-                                <Link
+                                <NavLink
                                     to="#"
                                     className="block text-lg py-2 pl-3 pr-4 text-gray-800 rounded hover:text-red-800 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-red-800 md:p-0 "
                                 >
                                     About
-                                </Link>
+                                </NavLink>
                             </li>
                         </ul>
                     </div>

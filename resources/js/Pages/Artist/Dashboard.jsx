@@ -1,321 +1,126 @@
 import ArtistLayout from "@/Layouts/ArtistLayout"
+import WelcomeBanner from "@/Components/Admin/WelcomeBanner";
+
 import { Head } from "@inertiajs/react"
+import {ArtworkCard} from "../../Components/Admin/ArtworkCard"
+import {Link} from "@inertiajs/react"
+import BarChart01 from "@/Components/Admin/charts/BarChart01";
+import BarChart02 from "@/Components/Admin/charts/BarChart02";
+import BarChart03 from "@/Components/Admin/charts/BarChart03";
+
 const Dashboard = ({auth, artworks}) => {
-  console.log(artworks)
-  // console.log(typeof artworks)
-  const artworksData = [...artworks]
-  // console.log(artworks)
+  let soldArtworks = 0
+  artworks.forEach((item)=>{
+      soldArtworks = item.sold ? soldArtworks + 1 : soldArtworks
+    })
   return (
     <>
     <Head title="Dashboard" />
     <ArtistLayout auth={auth} >
-      <section>
-      <div class="w-full px-4 py-2 bg-gray-200 lg:w-full">
-                <div class="container mx-auto mt-12">
-                    <div class="grid gap-4 lg:grid-cols-3">
-                        <div class="flex items-center px-4 py-6 bg-white rounded-md shadow-md">
-                            <div class="p-3 bg-indigo-600 rounded">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                </svg>
-                            </div>
-                            <div class="mx-4">
-                                <h4 class="text-2xl font-semibold text-gray-700">{artworksData.length}</h4>
-                                <div class="text-gray-500">Total Artworks</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center px-4 py-6 bg-white rounded-md shadow-md">
-                            <div class="p-3 bg-indigo-600 rounded">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                                    <path
-                                        d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-                                </svg>
-                            </div>
-                            <div class="mx-4">
-                                <h4 class="text-2xl font-semibold text-gray-700">{}</h4>
-                                <div class="text-gray-500">Artworks Sold</div>
-                            </div>
-                        </div>
-                        <div class="flex items-center px-4 py-6 bg-white rounded-md shadow-md">
-                            <div class="p-3 bg-indigo-600 rounded">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 8h6m-5 0a3 3 0 110 6H9l3 3m-3-6h6m6 1a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
-                            <div class="mx-4">
-                                <h4 class="text-2xl font-semibold text-gray-700">1000</h4>
-                                <div class="text-gray-500">All Transaction</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-col mt-8">
-                        <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-                            <div
-                                class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
-                                <table class="min-w-full">
-                                    <thead>
-                                        <tr>
-                                            <th
-                                                class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                Name</th>
-                                            <th
-                                                class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                Email</th>
-                                            <th
-                                                class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                Status</th>
-                                            <th
-                                                class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                Edit</th>
-                                            <th
-                                                class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                Delete</th>
-                                        </tr>
-                                    </thead>
+    <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
 
-                                    <tbody class="bg-white">
-                                        <tr>
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <div class="flex items-center">
-                                                    <div class="flex-shrink-0 w-10 h-10">
-                                                        <img class="w-10 h-10 rounded-full"
-                                                            src="https://source.unsplash.com/user/erondu"
-                                                            alt="admin dashboard ui"/>
-                                                    </div>
+            {/* Welcome banner */}
+            <WelcomeBanner auth={auth}/>
 
-                                                    <div class="ml-4">
-                                                        <div class="text-sm font-medium leading-5 text-gray-900">
-                                                            John Doe
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <div class="text-sm leading-5 text-gray-500">john@example.com</div>
-                                            </td>
-
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <span
-                                                    class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">Active</span>
-                                            </td>
-
-                                            <td
-                                                class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                                </svg>
-                                            </td>
-                                            <td
-                                                class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-400"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <div class="flex items-center">
-                                                    <div class="flex-shrink-0 w-10 h-10">
-                                                        <img class="w-10 h-10 rounded-full"
-                                                            src="https://source.unsplash.com/user/erondu"
-                                                            alt="admin dashboard ui"/>
-                                                    </div>
-
-                                                    <div class="ml-4">
-                                                        <div class="text-sm font-medium leading-5 text-gray-900">
-                                                            John Doe
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <div class="text-sm leading-5 text-gray-500">john@example.com</div>
-                                            </td>
-
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <span
-                                                    class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">Active</span>
-                                            </td>
-
-                                            <td
-                                                class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                                </svg>
-                                            </td>
-                                            <td
-                                                class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-400"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <div class="flex items-center">
-                                                    <div class="flex-shrink-0 w-10 h-10">
-                                                        <img class="w-10 h-10 rounded-full"
-                                                            src="https://source.unsplash.com/user/erondu"
-                                                            alt="admin dashboard ui"/>
-                                                    </div>
-
-                                                    <div class="ml-4">
-                                                        <div class="text-sm font-medium leading-5 text-gray-900">
-                                                            John Doe
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <div class="text-sm leading-5 text-gray-500">john@example.com</div>
-                                            </td>
-
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <span
-                                                    class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">Active</span>
-                                            </td>
-
-                                            <td
-                                                class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                                </svg>
-                                            </td>
-                                            <td
-                                                class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-400"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <div class="flex items-center">
-                                                    <div class="flex-shrink-0 w-10 h-10">
-                                                        <img class="w-10 h-10 rounded-full"
-                                                            src="https://source.unsplash.com/user/erondu"
-                                                            alt="admin dashboard ui"/>
-                                                    </div>
-
-                                                    <div class="ml-4">
-                                                        <div class="text-sm font-medium leading-5 text-gray-900">
-                                                            John Doe
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <div class="text-sm leading-5 text-gray-500">john@example.com</div>
-                                            </td>
-
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <span
-                                                    class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">Active</span>
-                                            </td>
-
-                                            <td
-                                                class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                                </svg>
-                                            </td>
-                                            <td
-                                                class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-400"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <div class="flex items-center">
-                                                    <div class="flex-shrink-0 w-10 h-10">
-                                                        <img class="w-10 h-10 rounded-full"
-                                                            src="https://source.unsplash.com/user/erondu"
-                                                            alt="admin dashboard ui" />
-                                                    </div>
-
-                                                    <div class="ml-4">
-                                                        <div class="text-sm font-medium leading-5 text-gray-900">
-                                                            John Doe
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <div class="text-sm leading-5 text-gray-500">john@example.com</div>
-                                            </td>
-
-                                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                                <span
-                                                    class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">Active</span>
-                                            </td>
-
-                                            <td
-                                                class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-blue-400"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                                </svg>
-                                            </td>
-                                            <td
-                                                class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-400"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                </svg>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+            {/* Stats Cards */}
+            <div className="grid sm:grid-flow-col sm:justify-between sm:items-center mb-12 gap-4">
+              {/* Total artworks */}
+              <div className="lg:col-span-4 bg-gradient-to-b  from-rose-200 to-rose-100 border-b-4 border-rose-500  rounded-sm shadow-xl p-5">
+                <div className="flex flex-row items-center">
+                  <div className="flex-shrink pr-4">
+                  <i className="fa-solid fa-palette text-4xl text-rose-500"></i>
+                  </div>
+                  <div className="flex-1 text-right ">
+                    <h5 className="font-bold uppercase text-gray-600">Total Artworks</h5>
+                    <p className="font-bold text-2xl">
+                      {artworks.length}
+                      <span className="text-rose-500"> 
+                      </span>
+                    </p>
+                  </div>
                 </div>
+              </div>
+              {/* Total sold */}
+              <div className="lg:col-span-4 bg-gradient-to-b from-blue-200 to-blue-100 border-b-4 border-blue-500  rounded-sm shadow-xl p-5">
+                <div className="flex flex-row items-center">
+                  <div className="flex-shrink pr-4">
+                  <i className="fa-solid fa-palette text-4xl text-blue-500"></i>
+                  </div>
+                  <div className="flex-1 text-right ">
+                    <h5 className="font-bold uppercase text-gray-600">Artworks Sold</h5>
+                    <h3 className="font-bold text-2xl">
+                      {soldArtworks}
+                      <span className="text-blue-500"> 
+                      </span>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+              {/* Total artworks */}
+              <div className="lg:col-span-4 bg-gradient-to-b from-emerald-200 to-emerald-100 border-b-4 border-emerald-500  rounded-sm shadow-xl p-5">
+                <div className="flex flex-row items-center">
+                  <div className="flex-shrink pr-4">
+                  <i className="fa-solid fa-palette text-4xl text-emerald-500"></i>
+                  </div>
+                  <div className="flex-1 text-right">
+                    <h5 className="font-bold uppercase text-gray-600">Total Followers</h5>
+                    <h3 className="font-bold text-2xl">
+                      249
+                      <span className="text-emerald-500"> 
+                      </span>
+                    </h3>
+                  </div>
+                </div>
+              </div>
             </div>
-      </section>
+
+            
+            <div className="relative grid gap-6">
+
+              {/* Bar chart artworks */}
+              <div className="relative grid col-span-full w-full h-fit bg-white shadow-lg rounded-sm border border-slate-200">
+              <header className="px-5 py-4 border-b border-slate-100">
+                <h2 className="font-semibold text-slate-800">Artworks Sold per Art Style</h2>
+              </header>
+
+              <BarChart01 artworks={artworks}/>       
+
+              </div>
+              {/* Bar chart medium */}
+              <div className="grid bg-white shadow-lg rounded-sm border border-slate-200">
+              <header className="px-5 py-4 border-b border-slate-100">
+                <h2 className="font-semibold text-slate-800">Popular Media</h2>
+              </header>
+
+              <BarChart02 artworks={artworks}/>       
+
+              </div>
+              {/* Bar chart bases */}
+              <div className="grid  w-full bg-white shadow-lg rounded-sm border border-slate-200">
+              <header className="px-5 py-4 border-b border-slate-100">
+                <h2 className="font-semibold text-slate-800">Popular Bases</h2>
+              </header>
+              <BarChart03 artworks={artworks}/>       
+              </div>
+
+              <div className="relative border-t-2 p-4 pt-8 border-rose-200 ">
+              {/* <h3 className="absolute -top-5 right-4 bg-white uppercase font-bold text-sm border-2 border-rose-200 rounded-full p-2">Latest Artworks</h3> */}
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-6">
+
+              <Link href='/artist/artworks/add' className="lg:col-span-3 w-full h-36  mb-5 rounded-md shadow-lg border-2">
+
+              </Link>
+                {/* Total artworks */}
+                {artworks.slice(0,3).map((item)=>{
+                      return (
+                            <ArtworkCard key={item.product_id} artworks={item} className="lg:col-span-3"/>
+                      )
+                  })}
+              </div>
+            </div>
+
+          </div>
     </ArtistLayout>
     </>
   )
