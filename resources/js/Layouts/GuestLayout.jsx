@@ -8,7 +8,7 @@ export default function Guest({ children }) {
         <div className="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
         <div>
             <Link to="/">
-                
+
                 <img
                     src="assets/artiez.svg"
                     alt=""
@@ -17,7 +17,13 @@ export default function Guest({ children }) {
             </Link>
         </div>
 
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
+        {children}
+
+    </div>
+
+    )
+=========
             {/* <div className="w-2/3 min-h-screen flex place-items-center mx-auto">
                 <div className="mt-6 px-6 py-4 shadow-md overflow-hidden sm:rounded-lg"> */}
             {children}
@@ -26,12 +32,6 @@ export default function Guest({ children }) {
             {/* </div> */}
         </div>
     );
-=======
-        {children}
-
-    </div>
-    
-    )
->>>>>>> 8c95af328aee9fba500735747fe8b8a3efee53a8
+>>>>>>>>> Temporary merge branch 2
 }
 
