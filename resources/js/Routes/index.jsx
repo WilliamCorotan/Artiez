@@ -25,7 +25,7 @@ export const links = [
         icon: <i className="fa-solid fa-clipboard text-xl"></i>,
       },
       {
-        name: 'sold-artworks',
+        name: 'sold artworks',
         icon: <i className="fa-solid fa-cart-shopping text-lg"></i>,
       },
     ],

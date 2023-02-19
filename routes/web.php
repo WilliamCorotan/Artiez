@@ -39,16 +39,19 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::middleware('auth', 'verified')->group(function () {
+Route::middleware('auth', 'verified', 'user-role:artist')->group(function () {
     Route::get('/artist/dashboard', function () {
         return Inertia::render('Artist/Dashboard', [
-            'artworks' => Product::select()->where('artist_id', '=', auth()->user()->user_id)->get()
+            'artworks' => Product::latest()->where('artist_id', '=', auth()->user()->user_id)->get()
         ]);
     });
-    Route::get('/artist/activities', function () {
-        sleep(2);
-        return Inertia::render('Artist/Activities');
-    });
+    Route::get('/artist/gallery', function () {
+        return Inertia::render('Artist/Gallery', [
+            'artworks' => Product::latest()->where('artist_id', '=', auth()->user()->user_id)->get()
+        ]);
+    })->name('gallery');
+    Route::get('/artist/artworks/add', [ArtworkController::class, 'create']);
+    Route::post('/artist/artworks/add', [ArtworkController::class, 'store'])->name('artworks.store');
 });
 
 Route::get('/artworks/add', [ArtworkController::class, 'create']);
