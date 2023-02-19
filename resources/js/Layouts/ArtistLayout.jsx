@@ -1,26 +1,32 @@
 import { useState } from 'react';
-import { SideNavBar } from '@/Components/Admin/SideNavBar';
+import Sidebar from '../Components/Admin/Sidebar';
+import Header from '../Components/Admin/Header';
+import { Footer } from '@/Components/Footer';
 
-export default function Layout({ auth, header, children }) {
-    const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
-    const [activeMenu, setActiveMenu] = useState(true);
-    return (
-        <>
-        
-        <div className="flex relative ">
-          {activeMenu ? (
-            <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white ">
-              <SideNavBar auth={auth}/>
-            </div>
-          ) : (
-            <div className="w-0 dark:bg-secondary-dark-bg">
-              <SideNavBar auth={auth}/>
-            </div>
-          )}
-          <main className={activeMenu ? " min-h-screen md:ml-72 w-full  ": " w-full min-h-screen flex-2 "}> {children} </main>
-        </div>
-            {/* <header><SideNavBar auth = {auth}/></header> */}
-            
-        </>
-    );
+
+function ArtistLayout({auth, children}) {
+
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  return (
+    <div className="flex h-screen overflow-hidden">
+
+      {/* Sidebar */}
+      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+
+      {/* Main content area */}
+      <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+
+        {/*  Site header */}
+        <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} auth={auth} />
+
+        <main>
+          {children}
+        </main>
+        <Footer />
+      </div>
+    </div>
+  );
 }
+
+export default ArtistLayout;
