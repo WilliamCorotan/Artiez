@@ -34,6 +34,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        if (Auth::user()->role == 'artist') {
+            return redirect()->intended(RouteServiceProvider::HOME_ARTIST);
+        }
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 

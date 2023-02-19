@@ -6,7 +6,7 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import { Head, Link, useForm } from "@inertiajs/react";
 import Navbar from "@/Components/Navbar";
-import { Footer2, Footer } from "@/Components/Footer";
+import {  Footer } from "@/Components/Footer";
 
 export default function Register(props) {
     const { data, setData, post, processing, errors, reset } = useForm({
