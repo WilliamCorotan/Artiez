@@ -6,6 +6,7 @@ export const Main = (props) => {
         // console.log(<Card artworks={e} />);
         return <Card key={e.product_id} artworks={e} />;
     });
+
     // console.log(ArtworkCards);
     return (
         <>
