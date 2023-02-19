@@ -28,7 +28,7 @@ class ArtworkController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Artist/addArtwork');
+        return Inertia::render('Artist/AddArtwork');
     }
 
     /**
@@ -39,6 +39,7 @@ class ArtworkController extends Controller
      */
     public function store(Request $request)
     {
+
         $formFields = $request->validate([
             'product_name' => 'required',
             'description' => 'required',
@@ -47,12 +48,18 @@ class ArtworkController extends Controller
             'base' => 'required',
             'medium' => 'required',
             'art_style' => 'required',
-            'coa' => 'required',
+            // 'coa' => 'required',
             'product_preview' => 'required',
             'price' => 'required'
         ]);
+        // dd($request->product_preview);
 
-
+        // if ($request->hasFile('product_preview')) {
+        //     $formFields['product_preview'] = $request->file('product_preview')->store('assets/artwork', 'public');
+        // }
+        $fileName = time() . '.' . $request->product_preview->extension();
+        $request->product_preview->move(public_path('assets/artwork'), $fileName);
+        $formFields['product_preview'] = $fileName;
         // dd(Auth::id());
         //insert user_id from auth()
         $formFields['artist_id'] = Auth::id();
@@ -60,6 +67,8 @@ class ArtworkController extends Controller
         $formFields['sold'] = 0;
         // dd($formFields);
         Product::create($formFields);
+
+        return to_route('gallery');
     }
 
     /**
