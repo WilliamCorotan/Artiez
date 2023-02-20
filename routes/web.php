@@ -25,20 +25,19 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
 
-        'products' => Product::select()->join('users', 'artist_id', '=', 'user_id')->get()
+        'products' => Product::select()->join('users', 'artist_id', '=', 'user_id')->orderBy('product_table.created_at', 'desc')->get()
 
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard', ['products' => Product::select()->join('users', 'artist_id', '=', 'user_id')->get()]);
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+//routes for artist 
 Route::middleware('auth', 'verified', 'user-role:artist')->group(function () {
     Route::get('/artist/dashboard', function () {
         return Inertia::render('Artist/Dashboard', [
@@ -54,7 +53,22 @@ Route::middleware('auth', 'verified', 'user-role:artist')->group(function () {
     Route::post('/artist/artworks/add', [ArtworkController::class, 'store'])->name('artworks.store');
 });
 
-Route::get('/artworks/add', [ArtworkController::class, 'create']);
+Route::get('about', function () {
+    return Inertia::render('About', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
+Route::get('contact', function () {
+    return Inertia::render('Contact', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
 
 
 // Route::get('/email/verify', function () {
