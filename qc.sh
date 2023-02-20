@@ -1,4 +1,4 @@
-echo "What is commit message"
+echo "What is your commit message"
 read commitMessage
 cd c/capstone/Artiez
 git add .
