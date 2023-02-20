@@ -1,17 +1,21 @@
 import { useState } from "react";
-import ApplicationLogo from "@/Components/ApplicationLogo";
-import Dropdown from "@/Components/Dropdown";
 import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
+import Navbar from "@/Components/Navbar";
+import { Footer } from "@/Components/Footer";
 
-export default function Layout({ auth, header, children }) {
+export default function Layout({ auth, header, children,  className}) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
 
     return (
-        <div className="min-h-screen bg-gray-100">
+        <>
+        <Navbar auth={auth}/>
+        <div className={`min-h-screen ${className}`}>
             <main>{children}</main>
         </div>
+        <Footer/>
+        </>
     );
 }

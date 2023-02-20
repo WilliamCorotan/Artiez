@@ -53,7 +53,7 @@ export default function Register(props) {
                     <div className="grid grid-cols-1 gap-x-16 gap-y-8">
                         <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
                             <h1 className="pb-4 text-xl font-extrabold">
-                                Register
+                                Sign up
                             </h1>
                             <form
                                 onSubmit={submit}
