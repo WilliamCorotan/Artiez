@@ -1,12 +1,12 @@
 // import '/assets/Artiez Logo.svg'
 import { Link } from "@inertiajs/react";
-import NavLink from "./NavLink";
 import { useState } from "react";
-import TextInput from "./TextInput";
 import UserMenu from "./Admin/header/UserMenu";
+import NavLink from "./NavLink";
+import TextInput from "./TextInput";
 
-const Navbar = ({auth}) => {
-    console.log(auth)
+const Navbar = ({ auth }) => {
+    console.log(auth);
     const [navOpen, setNavOpen] = useState(false);
     const navBar =
         "items-center justify-between block w-full md:flex md:w-auto md:order-1";
@@ -74,7 +74,7 @@ const Navbar = ({auth}) => {
                             </svg>
                         </button>
                     </div>
-                    
+
                     {/* Responsive MenuBar */}
                     <div
                         className={navOpen ? navBar : navBarClose}
@@ -107,29 +107,28 @@ const Navbar = ({auth}) => {
                                 </NavLink>
                             </li>
                             <li>
-                            {auth 
-                                ? <UserMenu auth={auth}/> 
-                                : 
-                                <div className="flex space-x-6">
-                                <li>
-                                    <NavLink
-                                        href="login"
-                                        className="block text-lg py-2 pl-3 pr-4 text-gray-800 rounded hover:text-rose-600 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-rose-600 md:p-0 "
-                                    >
-                                        Sign in
-                                    </NavLink>
-                                  </li>
-                                  <li>
-                                    <NavLink
-                                        href="register"
-                                        className="block text-lg py-2 pl-3 pr-4 text-gray-800 rounded hover:text-rose-600 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-rose-600 md:p-0 "
-                                    >
-                                        Sign up
-                                    </NavLink>
-                                  </li>
-                                </div>
-                            
-                            }
+                                {auth ? (
+                                    <UserMenu auth={auth} />
+                                ) : (
+                                    <div className="flex space-x-6">
+                                        <li>
+                                            <NavLink
+                                                href="login"
+                                                className="block text-lg py-2 pl-3 pr-4 text-gray-800 rounded hover:text-rose-600 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-rose-600 md:p-0 "
+                                            >
+                                                Sign in
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink
+                                                href="register"
+                                                className="block text-lg py-2 pl-3 pr-4 text-gray-800 rounded hover:text-rose-600 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-rose-600 md:p-0 "
+                                            >
+                                                Sign up
+                                            </NavLink>
+                                        </li>
+                                    </div>
+                                )}
                             </li>
                         </ul>
                         <div className="relative mt-3 md:hidden">
