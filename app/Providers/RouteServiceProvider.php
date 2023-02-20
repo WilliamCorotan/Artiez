@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME_ARTIST = '/dashboard';
+    public const HOME_ARTIST = 'artist/dashboard';
     public const HOME = '/';
 
     /**
@@ -49,6 +49,5 @@ class RouteServiceProvider extends ServiceProvider
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
- 
-   }
+    }
 }

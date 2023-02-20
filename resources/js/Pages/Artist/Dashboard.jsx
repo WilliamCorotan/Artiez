@@ -104,7 +104,7 @@ const Dashboard = ({auth, artworks}) => {
               </div>
 
               <div className="relative border-t-2 p-4 pt-8 border-rose-200 ">
-              {/* <h3 className="absolute -top-5 right-4 bg-white uppercase font-bold text-sm border-2 border-rose-200 rounded-full p-2">Latest Artworks</h3> */}
+              <h3 className="absolute -top-5 right-4 bg-white uppercase font-bold text-sm border-2 border-rose-200 rounded-full p-2">Latest Artworks</h3>
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-6">
 

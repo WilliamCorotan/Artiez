@@ -2,7 +2,7 @@ import { Card } from "@/Components/Card";
 import { Link } from "@inertiajs/react";
 
 export const Main = (props) => {
-    const ArtworkCards = props.artworks.slice(0, 6).map((e) => {
+    const ArtworkCards = props.artworks.slice(0,6).map((e) => {
         // console.log(<Card artworks={e} />);
         return <Card key={e.product_id} artworks={e} />;
     });
@@ -16,7 +16,9 @@ export const Main = (props) => {
                     Latest Artwork
                 </h1>
             </div>
-            <div className="grid overflow-hidden grid-cols-1 w-fit gap-x-8 gap-y-6 mx-auto sm:grid-cols-2 md:grid-cols-3 mb-20 justify-center">
+
+            <div className="grid grid-cols-1 w-4/5 gap-x-8 gap-y-6 mx-auto place-items-center sm:grid-cols-2 lg:grid-cols-3 mb-20 justify-center">
+
                 {ArtworkCards}
             </div>
             <Link to="#">
