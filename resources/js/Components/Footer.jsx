@@ -1,3 +1,5 @@
+import { Link } from "@inertiajs/react";
+
 export const Footer = () => {
     return (
         <>
@@ -9,20 +11,20 @@ export const Footer = () => {
                         </h2>
                         <ul className="text-gray-500">
                             <li className="mb-4">
-                                <a
-                                    href="#"
+                                <Link
+                                    href="/about"
                                     className=" hover:underline hover:text-rose-600"
                                 >
                                     About
-                                </a>
+                                </Link>
                             </li>
                             <li className="mb-4">
-                                <a
-                                    href="#"
+                                <Link
+                                    href="contact"
                                     className="hover:underline hover:text-rose-600"
                                 >
-                                    Careers
-                                </a>
+                                    Contact Us
+                                </Link>
                             </li>
                             <li className="mb-4">
                                 <a
@@ -118,12 +120,12 @@ export const Footer = () => {
                         </h2>
                         <ul className="text-gray-500 ">
                             <li className="mb-4">
-                                <a
-                                    href="#"
+                                <Link
+                                    href="artist/dashboard"
                                     className="hover:underline hover:text-rose-600"
                                 >
                                     Dashboard
-                                </a>
+                                </Link>
                             </li>
                             <li className="mb-4">
                                 <a
@@ -135,7 +137,7 @@ export const Footer = () => {
                             </li>
                             <li className="mb-4">
                                 <a
-                                    href="#"
+                                    href="artist/artworks/add"
                                     className="hover:underline hover:text-rose-600"
                                 >
                                     Submit an Artwork
