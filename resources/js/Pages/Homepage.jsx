@@ -5,7 +5,7 @@ import { Main } from "@/Components/Main";
 import Navbar from "@/Components/Navbar";
 
 export default function Homepage(props) {
-    // console.log(props);
+    console.log(props.products);
     return (
         <>
             <Navbar />

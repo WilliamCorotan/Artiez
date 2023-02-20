@@ -25,13 +25,13 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
 
-        'products' => Product::select()->join('users', 'artist_id', '=', 'user_id')->get()
+        'products' => Product::select()->join('users', 'artist_id', '=', 'user_id')->orderBy('product_table.created_at', 'desc')->get()
 
     ]);
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard', ['products' => Product::select()->join('users', 'artist_id', '=', 'user_id')->get()]);
+    return Inertia::render('Dashboard', ['products' => Product::latest()->join('users', 'artist_id', '=', 'user_id')]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
