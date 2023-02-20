@@ -18,6 +18,16 @@ use Inertia\Inertia;
 |
 */
 
+Route::get('artists', function () 
+{
+    return Inertia::render('Partials/ShowArtists');
+});
+
+Route::get('artworks', function () 
+{
+    return Inertia::render('Partials/ShowArtworks');
+});
+
 Route::get('/', function () {
     return Inertia::render('Homepage', [
         'canLogin' => Route::has('login'),
