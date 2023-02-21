@@ -3,13 +3,13 @@ import { Link } from "@inertiajs/react";
 export const Footer = () => {
     return (
         <>
-            <footer className="bg-slate-50">
-                <div className="grid grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4">
-                    <div>
+            <footer className="bg-slate-50  border-t border-gray-500">
+                <div className="w-4/5 mx-auto grid sm:grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4 text-center sm:text-left">
+                    <div className="border-b border-gray-500 pb-4 sm:border-none">
                         <h2 className="mb-6 text-sm font-bold text-rose-600 uppercase">
                             Artiez Gallery
                         </h2>
-                        <ul className="text-gray-500">
+                        <ul className="text-gray-500 ">
                             <li className="mb-4">
                                 <Link
                                     href="/about"
@@ -44,7 +44,7 @@ export const Footer = () => {
                             </li>
                         </ul>
                     </div>
-                    <div>
+                    <div className="border-b border-gray-500 pb-4 sm:border-none">
                         <h2 className="mb-6 text-sm font-bold text-rose-600 uppercase">
                             Help center
                         </h2>
@@ -83,7 +83,7 @@ export const Footer = () => {
                             </li>
                         </ul>
                     </div>
-                    <div>
+                    <div className="border-b border-gray-500 pb-4 sm:border-none">
                         <h2 className="mb-6 text-sm font-bold text-rose-600 uppercase">
                             Legal
                         </h2>
