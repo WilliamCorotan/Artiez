@@ -7,6 +7,7 @@ import TextInput from "@/Components/TextInput";
 import { Head, Link, useForm } from "@inertiajs/react";
 import Navbar from "@/Components/Navbar";
 import { Footer } from "@/Components/Footer";
+import Layout from "@/Layouts/Layout";
 
 export default function Register(props) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -46,8 +47,8 @@ export default function Register(props) {
     return (
         <>
             <Head title="Register" />
-            <Navbar />
 
+            <Layout auth={props.auth}>
             <section className="bg-gray-100 flex place-items-center">
                 <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 gap-x-16 gap-y-8">
@@ -233,7 +234,7 @@ export default function Register(props) {
                 </div>
             </section>
 
-            <Footer />
+            </Layout> 
         </>
     );
 }

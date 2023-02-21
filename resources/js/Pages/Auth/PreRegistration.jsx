@@ -1,9 +1,9 @@
 import React from "react";
 import Layout from "@/Layouts/Layout";
 
-function PreRegistration() {
+function PreRegistration({auth}) {
     return (
-        <Layout className="grid place-items-center " auth={null}>
+        <Layout className="grid place-items-center " auth={auth}>
             <section className="container mx-auto w-10/12 ">
                 <div className=" my-6">
                     <p className=" text-lg">Sign up for an account</p>

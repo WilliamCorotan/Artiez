@@ -6,7 +6,6 @@ import TextInput from "./TextInput";
 import UserMenu from "./Admin/header/UserMenu";
 
 const Navbar = ({auth}) => {
-    console.log(auth)
     const [navOpen, setNavOpen] = useState(false);
     const navBar =
         "items-center justify-between block w-full md:flex md:w-auto md:order-1";
@@ -107,10 +106,8 @@ const Navbar = ({auth}) => {
                                 </NavLink>
                             </li>
                             <li>
-                            {auth 
-                                ? <UserMenu auth={auth}/> 
-                                : 
-                                <div className="flex space-x-6">
+                            {auth.user == null
+                                ? <ul className="flex space-x-6">
                                 <li>
                                     <NavLink
                                         href="login"
@@ -127,8 +124,8 @@ const Navbar = ({auth}) => {
                                         Sign up
                                     </NavLink>
                                   </li>
-                                </div>
-                            
+                                </ul>
+                                : <UserMenu auth={auth}></UserMenu>
                             }
                             </li>
                         </ul>
