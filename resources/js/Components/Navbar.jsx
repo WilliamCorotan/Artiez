@@ -14,15 +14,15 @@ const Navbar = ({ auth }) => {
         "items-center justify-between hidden w-full md:flex md:w-auto md:order-1";
     return (
         <>
-            <nav className="bg-white border-rose-600 px-2 sm:px-4 py-2.5 rounded ">
+            <nav className="bg-white border-b border-rose-600 px-2 sm:px-4 py-2.5 rounded ">
                 {/* Parent Container */}
                 <div className="w-full mx-auto flex flex-wrap items-center justify-between ">
                     {/* Logo */}
                     <div className="mx-8">
-                        <Link href="/" className="flex items-center">
+                        <Link href="/" className="h-full flex items-center">
                             <img
-                                src="assets/artiez logo.svg"
-                                className="h-10 mr-1 sm:h-9"
+                                src="./assets/artiez-full.svg"
+                                className="h-20 mr-1 "
                                 alt="Artiez Logo"
                             />
                         </Link>
@@ -48,7 +48,7 @@ const Navbar = ({ auth }) => {
                             </div>
                             <TextInput
                                 type="text"
-                                className="p-2 pl-10 pr-32 text-sm text-gray-900 border border-rose-600 rounded-lg bg-gray-50 focus:ring-rose-900 focus:border-rose-600"
+                                className="p-2 pl-10 pr-32 text-sm text-gray-900 border border-rose-600 rounded-sm bg-gray-50 focus:ring-rose-900 focus:border-rose-600"
                                 placeholder="Search"
                             />
                         </div>
