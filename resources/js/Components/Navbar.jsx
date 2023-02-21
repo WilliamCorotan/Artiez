@@ -1,11 +1,12 @@
 // import '/assets/Artiez Logo.svg'
 import { Link } from "@inertiajs/react";
-import NavLink from "./NavLink";
 import { useState } from "react";
-import TextInput from "./TextInput";
 import UserMenu from "./Admin/header/UserMenu";
+import NavLink from "./NavLink";
+import TextInput from "./TextInput";
 
 const Navbar = ({ auth }) => {
+    console.log(auth);
     const [navOpen, setNavOpen] = useState(false);
     const navBar =
         "items-center justify-between block w-full md:flex md:w-auto md:order-1";
