@@ -32,7 +32,7 @@ export default forwardRef(function TextInput(
                 id={id}
                 value={value}
                 className={
-                    `border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm ` +
+                    `border-gray-300 focus:border-rose-500 focus:ring-rose-500 rounded-md shadow-sm ` +
                     className
                 }
                 ref={input}
