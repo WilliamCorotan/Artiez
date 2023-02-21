@@ -1,5 +1,5 @@
-import Navbar from "@/Components/Navbar";
 import { Footer } from "@/Components/Footer";
+import Navbar from "@/Components/Navbar";
 import Layout from "@/Layouts/Layout";
 
 export default function About({ auth }) {
