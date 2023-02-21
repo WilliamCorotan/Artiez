@@ -125,7 +125,7 @@ const Navbar = ({ auth }) => {
                                                 Sign up
                                             </NavLink>
                                         </li>
-                                    </ul>s
+                                    </ul>
                                 ) : (
                                     <UserMenu auth={auth}></UserMenu>
                                 )}

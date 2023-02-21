@@ -19,6 +19,7 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
+<<<<<<< HEAD
 Route::get('artists', function ()
 {
     return Inertia::render('Partials/ShowArtists');
@@ -33,8 +34,18 @@ Route::get('artworks', function (Request $request)
         ->orWhere('width', 'like', '%' . request('search') . '%')
         ->orWhere('height', 'like', '%' . request('search') . '%')
         ->orWhere('price', 'like', '%' . request('search') . '%');
+=======
+Route::get('artists', function () {
+    return Inertia::render('Partials/ShowArtists');
+});
 
-    })]);
+Route::get('artworks', function (Request $request) {
+    $search = Product::select()->where('product_name', 'like', '%' . $request->search . '%')->orderBy('created_at', 'desc')->get();
+>>>>>>> 9944264a14effc7e4a506240014dc576e06d6b4d
+
+    return Inertia::render('Partials/ShowArtworks', [
+        'artworks' => $search
+    ]);
 });
 
 Route::get('/', function () {
