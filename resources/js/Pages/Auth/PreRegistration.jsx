@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "@/Layouts/Layout";
 
-function PreRegistration({auth}) {
+function PreRegistration({ auth }) {
     return (
         <Layout className="grid place-items-center " auth={auth}>
             <section className="container mx-auto w-10/12 ">
