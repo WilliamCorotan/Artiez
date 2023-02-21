@@ -1,11 +1,12 @@
 <?php
 
+use Inertia\Inertia;
+use App\Models\Product;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
 use App\Http\Controllers\ArtworkController;
 use App\Http\Controllers\ProfileController;
-use App\Models\Product;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +24,17 @@ Route::get('artists', function ()
     return Inertia::render('Partials/ShowArtists');
 });
 
-Route::get('artworks', function () 
+Route::get('artworks', function (Request $request) 
 {
-    return Inertia::render('Partials/ShowArtworks');
+    return Inertia::render('Partials/ShowArtworks', ['artworks' => Product::latest()->when($request->input('search'), function($query)
+    {
+        Product::select()->where('product_name', 'like', '%' . request('search') . '%')
+        ->orWhere('art_style', 'like', '%' . request('search') . '%')
+        ->orWhere('width', 'like', '%' . request('search') . '%')
+        ->orWhere('height', 'like', '%' . request('search') . '%')
+        ->orWhere('price', 'like', '%' . request('search') . '%');
+
+    })]);
 });
 
 Route::get('/', function () {
