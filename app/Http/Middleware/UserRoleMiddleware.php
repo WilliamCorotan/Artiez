@@ -20,9 +20,6 @@ class UserRoleMiddleware
         if (Auth::check() && Auth::user()->role == $role) {
             return $next($request);
         }
-        return response()->json(["BALIW KA BA? DI KA PWEDE DITO
-        ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ ♿︎ 
-        
-        "]);
+        return response()->file('/project_resources/pepe.jpg');
     }
 }

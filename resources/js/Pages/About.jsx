@@ -1,5 +1,4 @@
 import { Footer } from "@/Components/Footer";
-<<<<<<< HEAD
 import Navbar from "@/Components/Navbar";
 
 export default function About() {
@@ -143,7 +142,6 @@ export default function About() {
         </div>
     );
 }
-=======
 import Layout from "@/Layouts/Layout";
 
 export default function About({auth}) {
@@ -210,4 +208,3 @@ export default function About({auth}) {
    </Layout>
   );
 };
->>>>>>> f027d71f87160c308b62affe687f80a79505d126

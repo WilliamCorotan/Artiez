@@ -10,12 +10,16 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 Route::middleware('guest')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])
-                ->name('register');
+    Route::get('/register', function(){
+        return Inertia::render('Auth/PreRegistration');
+    });
+    Route::get('/register/user', [RegisteredUserController::class, 'create'])
+                ->name('register/user');
 
-    Route::post('register', [RegisteredUserController::class, 'store']);
+    Route::post('/register/user', [RegisteredUserController::class, 'store']);
 
     Route::get('register/artist', [RegisteredUserController::class, 'createArtist'])
     ->name('createArtist');
