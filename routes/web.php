@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -19,8 +20,20 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('artists', function () {
-    return Inertia::render('ShowArtists');
+Route::get('artists', function (Request $request) {
+    $query = User::select()->where('role', '1');
+
+    if($request->has('search')){
+        $query->where('first_name', 'like', '%' . $request->search . '%')->orWhere('last_name', 'like', '%' . $request->search . '%')->orderBy('created_at', 'desc');
+    }
+
+    if($request->has('art_style')){
+        $query->where('art_style', 'like', '%' . $request->art_style . '%');
+    }
+    $data = $query->orderBy('created_at', 'desc')->get();
+    return Inertia::render('ShowArtists', [
+        'artists' => $data
+    ]);
 });
 
 Route::get('artworks', function (Request $request) {

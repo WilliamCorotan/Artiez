@@ -12,6 +12,7 @@ const Navbar = ({ auth }) => {
     const navBarClose =
         "items-center justify-between hidden w-full md:flex md:w-auto ";
 
+    const asset = (path) => `${window.location.origin}/${path}`;
     const { data, setData, get, processing, errors, reset } = useForm({
         search: "",
     });
@@ -37,7 +38,7 @@ const Navbar = ({ auth }) => {
                     <div className="mx-8">
                         <Link href="/" className="h-full flex items-center">
                             <img
-                                src="./assets/artiez-full.svg"
+                                src={asset("assets/Artiez-Full.svg")}
                                 className="h-20 mr-1 "
                                 alt="Artiez Logo"
                             />

@@ -46,7 +46,7 @@ function ShowArtworks({ auth, artworks }) {
                         {/*  filters Button (md and plus Screen) */}
                         <button
                             onClick={() => setShowfilters(!showFilters)}
-                            className=" cursor-pointer sm:flex hidden hover:bg-gray-700 focus:ring focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-4 px-6 bg-gray-800 flex text-base leading-4 font-normal text-white justify-center items-center "
+                            className=" cursor-pointer sm:flex hidden hover:bg-gray-700 focus:ring  focus:ring-offset-2 focus:ring-gray-800 py-4 px-6 bg-gray-800 text-base leading-4 font-normal text-white justify-center items-center "
                         >
                             <svg
                                 className=" mr-2"
@@ -133,7 +133,7 @@ function ShowArtworks({ auth, artworks }) {
 
                     <button
                         onClick={() => setShowfilters(!showFilters)}
-                        className="cursor-pointer mt-6 block sm:hidden hover:bg-gray-700 focus:ring focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-2 w-full bg-gray-800 flex text-base leading-4 font-normal text-white justify-center items-center"
+                        className="cursor-pointer mt-6 sm:hidden hover:bg-gray-700 focus:ring  focus:ring-offset-2 focus:ring-gray-800 py-2 w-full bg-gray-800 flex text-base leading-4 font-normal text-white justify-center items-center"
                     >
                         <svg
                             className=" mr-2"
@@ -218,36 +218,7 @@ function ShowArtworks({ auth, artworks }) {
                         (showFilters ? "block" : "hidden")
                     }
                 >
-                    {/* Cross button Code  */}
-                    <div
-                        onClick={() => setShowfilters(!showFilters)}
-                        className=" cursor-pointer absolute right-0 top-0 md:py-10 lg:px-20 md:px-6 py-9 px-4"
-                    >
-                        <svg
-                            className=" lg:w-6 lg:h-6 w-4 h-4"
-                            viewBox="0 0 26 26"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M25 1L1 25"
-                                stroke="#1F2937"
-                                strokeWidth="1.25"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                            <path
-                                d="M1 1L25 25"
-                                stroke="#27272A"
-                                strokeWidth="1.25"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
-                    </div>
-
-                    {/* Material Section */}
-
+                    {/* Filters Section */}
                     <div className="grid w-full gap-4">
                         {/* Medium filter */}
                         <div className=" flex space-x-2">
@@ -775,9 +746,7 @@ function ShowArtworks({ auth, artworks }) {
                             />
                         </div>
                     </div>
-
                     <hr className=" bg-gray-200 lg:w-6/12 w-full md:my-10 my-8" />
-
                     <div className="px-0 mt-10 w-full md:w-auto md:mt-0 md:absolute md:right-0 md:bottom-0 md:py-10 lg:px-20 md:px-6">
                         <button
                             onClick={applyFilters}
