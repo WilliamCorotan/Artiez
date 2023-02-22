@@ -14,10 +14,11 @@ export default function UpdateProfileInformation({
 
     const { data, setData, patch, errors, processing, recentlySuccessful } =
         useForm({
-            first_name: user.first_name,
-            last_name: user.last_name,
-            contact_number: user.contact_number,
-            email: user.email,
+            street_address: user.street_address,
+            barangay: user.barangay,
+            province: user.province,
+            city: user.city,
+            postal_code: user.postal_code,
         });
 
     const submit = (e) => {
@@ -30,86 +31,104 @@ export default function UpdateProfileInformation({
         <section className={className}>
             <header>
                 <h2 className="text-lg font-medium text-gray-900">
-                    Profile Information
+                    Delivery Address
                 </h2>
 
                 <p className="mt-1 text-sm text-gray-600">
-                    Update your account's profile information and email address.
+                    Update your account's delivery address.
                 </p>
             </header>
 
             <form onSubmit={submit} className="mt-6 space-y-6">
-                {/* First name field */}
+                {/* Street address field */}
                 <div>
-                    <InputLabel for="first_name" value="First Name" />
+                    <InputLabel for="street_address" value="Street Address" />
 
                     <TextInput
-                        id="first_name"
+                        id="street_address"
                         className="mt-1 block w-full"
-                        value={data.first_name}
+                        value={data.street_address}
                         handleChange={(e) =>
-                            setData("first_name", e.target.value)
+                            setData("street_address", e.target.value)
                         }
                         required
                         isFocused
-                    />
-
-                    <InputError className="mt-2" message={errors.first_name} />
-                </div>
-                {/* Last name field */}
-                <div>
-                    <InputLabel for="last_name" value="Last Name" />
-
-                    <TextInput
-                        id="last_name"
-                        className="mt-1 block w-full"
-                        value={data.last_name}
-                        handleChange={(e) =>
-                            setData("last_name", e.target.value)
-                        }
-                        required
-                        isFocused
-                    />
-
-                    <InputError className="mt-2" message={errors.last_name} />
-                </div>
-
-                {/* Contact number field */}
-                <div>
-                    <InputLabel for="contact_number" value="Contact Number" />
-
-                    <TextInput
-                        id="contact_number"
-                        type="text"
-                        className="mt-1 block w-full"
-                        value={data.contact_number}
-                        handleChange={(e) =>
-                            setData("contact_number", e.target.value)
-                        }
-                        required
                     />
 
                     <InputError
                         className="mt-2"
-                        message={errors.contact_number}
+                        message={errors.street_address}
                     />
                 </div>
-
-                {/* Email field */}
+                {/* Barangay field */}
                 <div>
-                    <InputLabel for="email" value="Email" />
+                    <InputLabel for="barangay" value="Barangay" />
 
                     <TextInput
-                        id="email"
-                        type="email"
+                        id="barangay"
                         className="mt-1 block w-full"
-                        value={data.email}
-                        handleChange={(e) => setData("email", e.target.value)}
+                        value={data.barangay}
+                        handleChange={(e) =>
+                            setData("barangay", e.target.value)
+                        }
+                        required
+                        isFocused
+                    />
+
+                    <InputError className="mt-2" message={errors.barangay} />
+                </div>
+
+                {/* Province field */}
+                <div>
+                    <InputLabel for="province" value="Province" />
+
+                    <TextInput
+                        id="province"
+                        type="text"
+                        className="mt-1 block w-full"
+                        value={data.province}
+                        handleChange={(e) =>
+                            setData("province", e.target.value)
+                        }
+                        required
+                    />
+
+                    <InputError className="mt-2" message={errors.province} />
+                </div>
+
+                {/* Province field */}
+                <div>
+                    <InputLabel for="city" value="City" />
+
+                    <TextInput
+                        id="city"
+                        type="text"
+                        className="mt-1 block w-full"
+                        value={data.city}
+                        handleChange={(e) => setData("city", e.target.value)}
+                        required
+                    />
+
+                    <InputError className="mt-2" message={errors.city} />
+                </div>
+
+                {/* Postal Code field */}
+                <div>
+                    <InputLabel for="postal_code" value="Postal Code" />
+
+                    <TextInput
+                        id="postal_code"
+                        type="text"
+                        className="mt-1 block w-full"
+                        value={data.postal_code}
+                        handleChange={(e) =>
+                            setData("postal_code", e.target.value)
+                        }
                         required
                         autoComplete="username"
                     />
 
-                    <InputError className="mt-2" message={errors.email} />
+                    <InputError className="mt-2" message={errors.postal_code} />
                 </div>
 
                 {mustVerifyEmail && user.email_verified_at === null && (

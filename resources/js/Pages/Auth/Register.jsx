@@ -40,7 +40,7 @@ export default function Register(props) {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route("register"));
+        post(route("register/user"));
     };
 
     return (
@@ -53,7 +53,7 @@ export default function Register(props) {
                     <div className="grid grid-cols-1 gap-x-16 gap-y-8">
                         <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
                             <h1 className="pb-4 text-xl font-extrabold">
-                                Register
+                                Sign up
                             </h1>
                             <form
                                 onSubmit={submit}
@@ -102,242 +102,139 @@ export default function Register(props) {
                                             handleChange={onHandleChange}
                                         />
                                     </div>
-                                    <InputError
-                                        message={errors.last_name}
-                                        className="mt-2"
-                                    />
-                                </div>
 
-                                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                                    <div>
-                                        <label className="sr-only" for="email">
-                                            Email
-                                        </label>
-                                        <TextInput
-                                            className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                                            placeholder="Email address"
-                                            type="email"
-                                            id="email"
-                                            name="email"
-                                            value={data.email}
-                                            required
-                                            handleChange={onHandleChange}
+                                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                                        <div>
+                                            <label
+                                                className="sr-only"
+                                                for="email"
+                                            >
+                                                Email
+                                            </label>
+                                            <TextInput
+                                                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                                                placeholder="Email address"
+                                                type="email"
+                                                id="email"
+                                                name="email"
+                                                value={data.email}
+                                                required
+                                                handleChange={onHandleChange}
+                                            />
+                                        </div>
+                                        <InputError
+                                            message={errors.email}
+                                            className="mt-2"
                                         />
-                                    </div>
-                                    <InputError
-                                        message={errors.email}
-                                        className="mt-2"
-                                    />
 
-                                    <div>
-                                        <label className="sr-only" for="phone">
-                                            Phone
-                                        </label>
-                                        <TextInput
-                                            className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                                            placeholder="Phone Number"
-                                            type="tel"
-                                            id="phone"
-                                            name="contact_number"
-                                            value={data.contact_number}
-                                            required
-                                            handleChange={onHandleChange}
+                                        <div>
+                                            <label
+                                                className="sr-only"
+                                                for="phone"
+                                            >
+                                                Phone
+                                            </label>
+                                            <TextInput
+                                                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                                                placeholder="Phone Number"
+                                                type="tel"
+                                                id="phone"
+                                                name="contact_number"
+                                                value={data.contact_number}
+                                                required
+                                                handleChange={onHandleChange}
+                                            />
+                                        </div>
+                                        <InputError
+                                            message={errors.contact_number}
+                                            className="mt-2"
                                         />
                                     </div>
-                                    <InputError
-                                        message={errors.contact_number}
-                                        className="mt-2"
-                                    />
-                                </div>
 
-                                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                                    <div>
-                                        <label
-                                            className="sr-only"
-                                            for="password"
-                                        >
-                                            Password
-                                        </label>
-                                        <TextInput
-                                            className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                                            placeholder="Password"
-                                            type="password"
-                                            id="password"
-                                            name="password"
-                                            value={data.password}
-                                            required
-                                            handleChange={onHandleChange}
+                                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                                        <div>
+                                            <label
+                                                className="sr-only"
+                                                for="password"
+                                            >
+                                                Password
+                                            </label>
+                                            <TextInput
+                                                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                                                placeholder="Password"
+                                                type="password"
+                                                id="password"
+                                                name="password"
+                                                value={data.password}
+                                                required
+                                                handleChange={onHandleChange}
+                                            />
+                                        </div>
+                                        <InputError
+                                            message={errors.password}
+                                            className="mt-2"
                                         />
-                                    </div>
-                                    <InputError
-                                        message={errors.password}
-                                        className="mt-2"
-                                    />
 
-                                    <div>
-                                        <label
-                                            className="sr-only"
-                                            for="password_confirmation"
-                                        >
-                                            Confirm Password
-                                        </label>
-                                        <TextInput
-                                            className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                                            placeholder="Confirm Password"
-                                            type="password"
-                                            id="password_confirmation"
-                                            name="password_confirmation"
-                                            value={data.password_confirmation}
-                                            required
-                                            handleChange={onHandleChange}
+                                        <div>
+                                            <label
+                                                className="sr-only"
+                                                for="password_confirmation"
+                                            >
+                                                Confirm Password
+                                            </label>
+                                            <TextInput
+                                                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                                                placeholder="Confirm Password"
+                                                type="password"
+                                                id="password_confirmation"
+                                                name="password_confirmation"
+                                                value={
+                                                    data.password_confirmation
+                                                }
+                                                required
+                                                handleChange={onHandleChange}
+                                            />
+                                        </div>
+                                        <InputError
+                                            message={errors.password}
+                                            className="mt-2"
                                         />
                                     </div>
-                                    <InputError
-                                        message={errors.password}
-                                        className="mt-2"
-                                    />
-                                </div>
 
-                                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                                    <div>
-                                        <label
-                                            className="sr-only"
-                                            for="street_address"
-                                        >
-                                            Street Address
-                                        </label>
-                                        <TextInput
-                                            className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                                            placeholder="Street Address"
-                                            type="text"
-                                            id="street_address"
-                                            name="street_address"
-                                            value={data.street_address}
-                                            required
-                                            handleChange={onHandleChange}
-                                        />
-                                    </div>
-                                    <InputError
-                                        message={errors.street_address}
-                                        className="mt-2"
-                                    />
-                                    <div>
-                                        <label
-                                            className="sr-only"
-                                            for="barangay"
-                                        >
-                                            Barangay
-                                        </label>
-                                        <TextInput
-                                            className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                                            placeholder="Barangay"
-                                            type="text"
-                                            id="barangay"
-                                            name="barangay"
-                                            value={data.barangay}
-                                            required
-                                            handleChange={onHandleChange}
-                                        />
-                                    </div>
-                                    <InputError
-                                        message={errors.barangay}
-                                        className="mt-2"
-                                    />
-                                </div>
+                                    <div className="flex justify-between text-sm text-gray-900">
+                                        <div className="flex gap-1 items-center">
+                                            <TextInput
+                                                type="checkbox"
+                                                className="rounded"
+                                            />
+                                            <p>
+                                                Agree to {""}
+                                                <a
+                                                    href=""
+                                                    className="underline"
+                                                >
+                                                    Terms and Conditions
+                                                </a>
+                                            </p>
+                                        </div>
 
-                                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                                    <div>
-                                        <label className="sr-only" for="city">
-                                            City
-                                        </label>
-                                        <TextInput
-                                            className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                                            placeholder="City"
-                                            type="text"
-                                            id="city"
-                                            name="city"
-                                            value={data.city}
-                                            required
-                                            handleChange={onHandleChange}
-                                        />
-                                    </div>
-                                    <InputError
-                                        message={errors.city}
-                                        className="mt-2"
-                                    />
-
-                                    <div>
-                                        <label
-                                            className="sr-only"
-                                            for="province"
-                                        >
-                                            Province
-                                        </label>
-                                        <TextInput
-                                            className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                                            placeholder="Province"
-                                            type="text"
-                                            id="province"
-                                            name="province"
-                                            value={data.province}
-                                            required
-                                            handleChange={onHandleChange}
-                                        />
-                                    </div>
-                                    <InputError
-                                        message={errors.province}
-                                        className="mt-2"
-                                    />
-
-                                    <div>
-                                        <label
-                                            className="sr-only"
-                                            for="postal_code"
-                                        >
-                                            Postal Code
-                                        </label>
-                                        <TextInput
-                                            className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                                            placeholder="Postal Code"
-                                            type="text"
-                                            id="postal_code"
-                                            name="postal_code"
-                                            value={data.postal_code}
-                                            required
-                                            handleChange={onHandleChange}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="flex justify-between text-sm text-gray-900">
-                                    <div className="flex gap-1 items-center">
-                                        <TextInput
-                                            type="checkbox"
-                                            className="rounded"
-                                        />
                                         <p>
-                                            Agree to {""}
-                                            <a href="" className="underline">
-                                                Terms and Conditions
-                                            </a>
+                                            Already have an account? {""}
+                                            <Link
+                                                href="/login"
+                                                className="underline"
+                                            >
+                                                Sign up! as Betch
+                                            </Link>
                                         </p>
                                     </div>
-
-                                    <p>
-                                        Already have an account? {""}
-                                        <Link
-                                            href="/login"
-                                            className="underline"
-                                        >
-                                            Sign up! as Betch
-                                        </Link>
-                                    </p>
-                                </div>
-                                <div className="flex justify-end">
-                                    <button className="bg-blue-500 p-4 rounded py-1 self-center">
-                                        Register
-                                    </button>
-                                </div>
-                            </form>
+                                    <div className="flex justify-end">
+                                        <button className="bg-blue-500 p-4 rounded py-1 self-center">
+                                            Register
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
