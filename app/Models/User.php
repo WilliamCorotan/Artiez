@@ -9,7 +9,11 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+<<<<<<< HEAD
 class User extends Authenticatable
+=======
+class User extends Authenticatable 
+>>>>>>> 1b83e1e161150f15f9ddcde72eb8df582ac4bb46
 {
     use HasApiTokens, HasFactory, Notifiable;
     /**

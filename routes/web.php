@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -19,15 +20,42 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('artists', function () {
-    return Inertia::render('Partials/ShowArtists');
+Route::get('artists', function (Request $request) {
+    $query = User::select()->where('role', '1');
+
+    if($request->has('search')){
+        $query->where('first_name', 'like', '%' . $request->search . '%')->orWhere('last_name', 'like', '%' . $request->search . '%')->orderBy('created_at', 'desc');
+    }
+
+    if($request->has('art_style')){
+        $query->where('art_style', 'like', '%' . $request->art_style . '%');
+    }
+    $data = $query->orderBy('created_at', 'desc')->get();
+    return Inertia::render('ShowArtists', [
+        'artists' => $data
+    ]);
 });
 
 Route::get('artworks', function (Request $request) {
-    $search = Product::select()->where('product_name', 'like', '%' . $request->search . '%')->orderBy('created_at', 'desc')->get();
+    // dd($request);
+    $query = Product::select();
 
-    return Inertia::render('Partials/ShowArtworks', [
-        'artworks' => $search
+    if($request->has('search')){
+        $query->where('product_name', 'like', '%' . $request->search . '%')->orderBy('created_at', 'desc');
+    }
+
+    if($request->has('medium')){
+        $query->where('medium', 'like', '%' . $request->medium . '%');
+    }
+    if($request->has('base')){
+        $query->where('base', 'like', '%' . $request->base . '%');
+    }
+    if($request->has('art_style')){
+        $query->where('art_style', 'like', '%' . $request->art_style . '%');
+    }
+    $data = $query->orderBy('created_at', 'desc')->get();
+    return Inertia::render('ShowArtworks', [
+        'artworks' => $data
     ]);
 });
 
