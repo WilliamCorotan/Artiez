@@ -20,7 +20,7 @@ export default function Edit({ auth, mustVerifyEmail, status }) {
  
             
            
-            <ArtistLayout auth={auth}>
+          
                 <section className='py-1 '>
                 <div className='w-full lg:w-8/12 px-4 mx-auto mt-6 '>
                    <div className='relative flex flex-col min-w-0 break-words w-full mb-6 '>
@@ -96,7 +96,7 @@ export default function Edit({ auth, mustVerifyEmail, status }) {
                     </div> 
                 </div>
                 </section>
-            </ArtistLayout>
+           
        
             
        

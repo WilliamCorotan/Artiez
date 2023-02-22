@@ -1,0 +1,229 @@
+
+ [   
+     {
+        "id":"",
+        "artist":"Ariosto Dale Bagtas",
+        "title" : "BETWEEN HEAVEN AND EARTH.",
+        "base":"canvas" ,
+        "medium": "oil paint",
+        "image": "/art1.jpg"
+    },
+
+    {
+        "id":"",
+        "artist":"Jane Mykee Lopez",
+        "title":"Anxiety",
+        "base":"canvas" ,
+        "medium": "oil paint",
+        "image": "/art2.jpg"  
+    },
+
+    {
+        "id":"",
+        "artist":"Abelardo Maceda Jr.",
+        "title":"Sisa S5 - Lumang Pahina ng Kasaysayan",
+        "base":"canvas" ,
+        "medium": "oil paint",
+        "image": "/art3.jpg"  
+    },
+
+    {
+        "id":"",
+        "artist":" Mildred Pasites ",
+        "title":"flower",
+        "base":"canvas" ,
+        "medium": "oil paint",
+        "image": "/art4.jpg"  
+    },
+    
+    {
+        "id":"",
+        "artist":"Aaron Blaise ",
+        "title":" Nubian Warriors",
+        "base":"canvas" ,
+        "medium": "oil paint",
+        "image": "/art5.jpg"  
+    },
+
+    {
+        "id":"",
+        "artist":"Scott Listfield",
+        "title":"Men's Room Canvas Print",
+        "base":"canvas print" ,
+        "medium": "oil paint",
+        "image": "/art6.jpg"  
+    },
+
+    {
+        "id":"",
+        "artist":"Andoni Barrenechea",
+        "title":"Divine Connection",
+        "base":"canvas" ,
+        "medium": "oil paint",
+        "image": "/art7.jpg"  
+    },
+
+    {
+        "id":"",
+        "artist":"Miguel Ginhwell Garcia",
+        "title":"Sa Ibabaw ng Kubyerta",
+        "base":"canvas" ,
+        "medium": "oil paint",
+        "image": "/art8.jpg"  
+    },
+
+    {
+        "id":"",
+        "artist":"​Goldwynn Navarro",
+        "title":"",
+        "base":"" ,
+        "medium": "",
+        "image": "/art9.jpg"  
+    },
+
+    {
+        "id":"",
+        "artist":"",
+        "title":"",
+        "base":"" ,
+        "medium": "",
+        "image": "/art10.jpg"  
+    },
+
+    {
+        "id":"",
+        "artist":"",
+        "title":"",
+        "base":"" ,
+        "medium": "",
+        "image": "/art11.jpg"  
+    },
+
+    {
+        "id":"",
+        "artist":"",
+        "title":"",
+        "base":"" ,
+        "medium": "",
+        "image": "/art12.jpg"  
+    },
+
+    {
+        "id":"",
+        "artist":"",
+        "title":"",
+        "base":"" ,
+        "medium": "",
+        "image": "/art13.jpg"  
+    },
+
+    {
+        "id":"",
+        "artist":"",
+        "title":"",
+
+        "base":"" ,
+        "medium": "",
+        "image": "/art14.jpg"  
+    },
+
+    {
+        "id":"",
+        "artist":"",
+        "title":"",
+        "base":"" ,
+        "medium": "",
+        "image": "/art15.jpg"  
+    },
+
+    {
+        "id":"",
+        "artist":"",
+         "title":"",
+        "base":"" ,
+        "medium": "",
+        "image": "/art16.jpg"  
+    },
+
+    {
+        "id":"",
+        "artist":"",
+        "title":"",
+        "base":"" ,
+        "medium": "",
+        "image": "/art17.jpg"  
+    },
+
+    {
+        "id":"",
+        "artist":"",
+        "title":"",
+        "base":"" ,
+        "medium": "",
+        "image": "/art18.jpg"  
+    },
+
+    {
+        "id":"",
+        "artist":"",
+        "title":"",
+        "base":"" ,
+        "medium": "",
+        "image": "/art19.jpg"  
+    },
+    
+    {
+        "id":"",
+        "artist":"",
+        "title":"",
+        "base":"" ,
+        "medium": "",
+        "image": "/art20.jpg"  
+    },
+    
+    {
+        "id":"",
+        "artist":"",
+        "title":"",
+        "base":"" ,
+        "medium": "",
+        "image": "/art21.jpg"  
+    },
+    
+    {
+        "id":"",
+        "artist":"",
+        "title":"",
+        "base":"" ,
+        "medium": "",
+        "image": "/art22.jpg"  
+    },
+    
+    {
+        "id":"",
+        "artist":"",
+        "title":"",
+        "base":"" ,
+        "medium": "",
+        "image": "/art23.jpg"  
+    },
+    
+    {
+        "id":"",
+        "artist":"",
+        "title":"",
+        "base":"" ,
+        "medium": "",
+        "image": "/art24.jpg"  
+    },
+    
+    {
+        "id":"",
+        "artist":"",
+        "title":"",
+        "base":"" ,
+        "medium": "",
+        "image": "/art25.jpg"  
+    }
+    
+ ]
