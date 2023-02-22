@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : MyLocalDB
+ Source Server         : MySQL-LOCAL
  Source Server Type    : MariaDB
  Source Server Version : 100427
  Source Host           : localhost:3306
- Source Schema         : finalcapstone
+ Source Schema         : capstone
 
  Target Server Type    : MariaDB
  Target Server Version : 100427
  File Encoding         : 65001
 
- Date: 16/02/2023 13:28:31
+ Date: 21/02/2023 13:13:28
 */
 
 SET NAMES utf8mb4;
@@ -92,32 +92,45 @@ CREATE TABLE `product_table`  (
   INDEX `base_id`(`base`) USING BTREE,
   INDEX `medium_id`(`medium`) USING BTREE,
   CONSTRAINT `product_table_ibfk_4` FOREIGN KEY (`artist_id`) REFERENCES `users` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product_table
 -- ----------------------------
-INSERT INTO `product_table` VALUES (1, 'Saccharum alopecuroides (L.) Nutt.', 'erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc', 20, 47, 42, 'canvas', 'Acrylic', 'Mélissandre', 'gravida', 'scelerisque', 37046.21, 0, '2022-12-14 04:32:09', '2020-10-10 14:34:12');
-INSERT INTO `product_table` VALUES (2, 'Stellaria crassifolia Ehrh.', 'convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id', 17, 44, 26, 'paper', 'Oil paint', 'Styrbjörn', 'magnis dis', 'morbi', 18196.19, 0, '2022-12-30 13:37:14', '2021-07-23 13:15:44');
-INSERT INTO `product_table` VALUES (3, 'Amomum gracile Blume', 'curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque', 18, 29, 22, 'canvas', 'Acrylic', 'Lorène', 'turpis', 'morbi', 15630.86, 1, '2022-10-27 13:14:27', '2021-11-18 23:37:04');
-INSERT INTO `product_table` VALUES (4, 'Urochloa platyphylla (Munro ex C. Wright) R.D. Webster', 'vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam', 14, 45, 40, 'paper', 'Acrylic', 'Ruì', 'lobortis sapien', 'felis eu', 24662.87, 1, '2023-02-03 00:01:38', '2019-01-22 14:37:53');
-INSERT INTO `product_table` VALUES (5, 'Spergularia maritima (All.) Chiov.', 'quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non', 19, 29, 48, 'canvas', 'Oil paint', 'Régine', 'ac', 'tellus nulla', 38835.36, 0, '2023-01-25 20:54:54', '2021-03-05 20:11:20');
-INSERT INTO `product_table` VALUES (6, 'Berteroa DC.', 'eu felis fusce posuere felis sed lacus morbi sem mauris', 3, 22, 13, 'canvas', 'Acrylic', 'Simplifiés', 'quam pede', 'sagittis', 31378.33, 1, '2023-01-31 01:50:05', '2021-09-17 19:35:22');
-INSERT INTO `product_table` VALUES (7, 'Castilleja linariifolia Benth.', 'dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique', 12, 39, 28, 'wood', 'Watercolor', 'Tán', 'quisque porta', 'velit', 48904.1, 0, '2023-01-27 00:55:36', '2021-09-11 11:04:12');
-INSERT INTO `product_table` VALUES (8, 'Penstemon richardsonii Douglas ex Lindl. var. curtiflorus (D.D. Keck) Cronquist', 'eleifend quam a odio in hac habitasse platea dictumst maecenas', 11, 35, 23, 'paper', 'Acrylic', 'Célestine', 'nunc nisl', 'odio', 34435.28, 1, '2022-11-04 07:26:38', '2019-08-19 08:45:52');
-INSERT INTO `product_table` VALUES (9, 'Panicum virgatum L.', 'vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc', 12, 45, 13, 'canvas', 'Acrylic', 'Zhì', 'ut erat', 'in leo', 17439.95, 1, '2022-12-17 06:03:03', '2019-08-21 22:30:19');
-INSERT INTO `product_table` VALUES (10, 'Pteridium arachnoideum (Kaulf.) Maxon', 'faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut', 13, 21, 26, 'canvas', 'Oil paint', 'Liè', 'ut', 'ipsum', 28021.35, 0, '2023-01-28 20:48:35', '2021-10-22 19:59:22');
-INSERT INTO `product_table` VALUES (11, 'Trichomanes punctatum Poir. ssp. floridanum W. Boer', 'nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit', 8, 37, 36, 'paper', 'Acrylic', 'Kallisté', 'in lacus', 'id nisl', 29525.52, 1, '2022-11-22 01:53:50', '2021-01-03 02:31:46');
-INSERT INTO `product_table` VALUES (12, 'Bacidia rubella (Hoffm.) A. Massal.', 'euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis', 8, 21, 23, 'canvas', 'Acrylic', 'Léana', 'est lacinia', 'sed augue', 8235.75, 1, '2022-12-13 13:53:49', '2021-01-25 02:15:34');
-INSERT INTO `product_table` VALUES (13, 'Myriophyllum ussuriense (Regel) Maxim.', 'in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin', 6, 16, 43, 'canvas', 'Watercolor', 'Garçon', 'augue a', 'purus', 11191.29, 0, '2022-10-13 17:08:53', '2021-03-19 23:40:30');
-INSERT INTO `product_table` VALUES (14, 'Ruellia purshiana Fernald', 'porttitor lacus at turpis donec posuere metus vitae ipsum aliquam', 1, 46, 24, 'canvas', 'Acrylic', 'Andrée', 'eu', 'cras in', 23650.76, 1, '2022-11-04 19:40:29', '2020-01-06 07:59:19');
-INSERT INTO `product_table` VALUES (15, 'Carex bulbostylis Mack.', 'lacinia aenean sit amet justo morbi ut odio cras mi', 13, 36, 26, 'paper', 'Acrylic', 'Ruò', 'rutrum neque', 'integer aliquet', 32659.02, 1, '2022-11-23 05:38:56', '2019-10-17 23:40:52');
-INSERT INTO `product_table` VALUES (16, 'Huperzia nutans (Brack.) Rothm.', 'eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a', 8, 27, 34, 'wood', 'Acrylic', 'Léonie', 'eget', 'tincidunt', 24610.25, 0, '2023-02-02 21:02:35', '2021-07-01 06:03:42');
-INSERT INTO `product_table` VALUES (17, 'Myrsine knudsenii (Rock) Hosaka', 'suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean', 11, 16, 32, 'paper', 'Oil paint', 'Chloé', 'gravida', 'ultrices', 30275.85, 0, '2023-01-19 07:33:44', '2020-03-21 04:41:50');
-INSERT INTO `product_table` VALUES (18, 'Rubus curtipes L.H. Bailey', 'dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur', 16, 44, 47, 'canvas', 'Acrylic', 'Marie-thérèse', 'quis justo', 'nulla tellus', 31020.44, 1, '2022-12-13 05:29:56', '2021-08-03 10:28:52');
-INSERT INTO `product_table` VALUES (19, 'Polygonum capitatum Buch.-Ham. ex D. Don', 'vulputate elementum nullam varius nulla facilisi cras non velit nec nisi', 16, 32, 25, 'wood', 'Oil paint', 'Stévina', 'ipsum primis', 'neque', 44664.27, 1, '2022-12-08 08:27:24', '2020-08-15 02:59:05');
-INSERT INTO `product_table` VALUES (20, 'Rhynchospora solitaria Harper', 'libero ut massa volutpat convallis morbi odio odio elementum eu', 16, 23, 31, 'paper', 'Oil paint', 'Maëlys', 'eu magna', 'nulla', 36856.55, 0, '2023-01-12 06:52:37', '2020-09-15 17:20:20');
-INSERT INTO `product_table` VALUES (21, 'test 2', 'test 2', 26, 18, 13, 'canvas', 'Acrylic', 'Avant-garde', 'N/A', 'N/A', 12000, 0, '2023-02-13 06:51:09', '2023-02-13 06:51:09');
+INSERT INTO `product_table` VALUES (1, 'Saccharum alopecuroides (L.) Nutt.', 'erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc', 26, 47, 42, '11', '7', 'Mélissandre', 'gravida', 'art2.avif', 37046.21, 0, '2022-12-14 04:32:09', '2020-10-10 14:34:12');
+INSERT INTO `product_table` VALUES (2, 'Stellaria crassifolia Ehrh.', 'convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id', 17, 44, 26, '7', '2', 'Styrbjörn', 'magnis dis', 'art3.avif', 18196.19, 0, '2022-12-30 13:37:14', '2021-07-23 13:15:44');
+INSERT INTO `product_table` VALUES (3, 'Amomum gracile Blume', 'curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque', 26, 29, 22, '1', '3', 'Lorène', 'turpis', 'morbi', 15630.86, 1, '2022-10-27 13:14:27', '2021-11-18 23:37:04');
+INSERT INTO `product_table` VALUES (4, 'Urochloa platyphylla (Munro ex C. Wright) R.D. Webster', 'vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam', 14, 45, 40, '5', '6', 'Ruì', 'lobortis sapien', 'felis eu', 24662.87, 1, '2023-02-03 00:01:38', '2019-01-22 14:37:53');
+INSERT INTO `product_table` VALUES (5, 'Spergularia maritima (All.) Chiov.', 'quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non', 19, 29, 48, '3', '6', 'Régine', 'ac', 'tellus nulla', 38835.36, 0, '2023-01-25 20:54:54', '2021-03-05 20:11:20');
+INSERT INTO `product_table` VALUES (6, 'Berteroa DC.', 'eu felis fusce posuere felis sed lacus morbi sem mauris', 26, 22, 13, '6', '8', 'Simplifiés', 'quam pede', 'sagittis', 31378.33, 1, '2023-01-31 01:50:05', '2021-09-17 19:35:22');
+INSERT INTO `product_table` VALUES (7, 'Castilleja linariifolia Benth.', 'dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique', 12, 39, 28, '11', '1', 'Tán', 'quisque porta', 'velit', 48904.1, 0, '2023-01-27 00:55:36', '2021-09-11 11:04:12');
+INSERT INTO `product_table` VALUES (8, 'Penstemon richardsonii Douglas ex Lindl. var. curtiflorus (D.D. Keck) Cronquist', 'eleifend quam a odio in hac habitasse platea dictumst maecenas', 11, 35, 23, '9', '5', 'Célestine', 'nunc nisl', 'odio', 34435.28, 1, '2022-11-04 07:26:38', '2019-08-19 08:45:52');
+INSERT INTO `product_table` VALUES (9, 'Panicum virgatum L.', 'vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc', 12, 45, 13, '1', '3', 'Zhì', 'ut erat', 'in leo', 17439.95, 1, '2022-12-17 06:03:03', '2019-08-21 22:30:19');
+INSERT INTO `product_table` VALUES (10, 'Pteridium arachnoideum (Kaulf.) Maxon', 'faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut', 13, 21, 26, '10', '2', 'Liè', 'ut', 'ipsum', 28021.35, 0, '2023-01-28 20:48:35', '2021-10-22 19:59:22');
+INSERT INTO `product_table` VALUES (11, 'Trichomanes punctatum Poir. ssp. floridanum W. Boer', 'nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit', 8, 37, 36, '3', '10', 'Kallisté', 'in lacus', 'id nisl', 29525.52, 1, '2022-11-22 01:53:50', '2021-01-03 02:31:46');
+INSERT INTO `product_table` VALUES (12, 'Bacidia rubella (Hoffm.) A. Massal.', 'euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis', 26, 21, 23, 'Canvas', 'Oil', 'Avant-garde', 'est lacinia', 'art3.avif', 8235.75, 1, '2022-12-13 13:53:49', '2021-01-25 02:15:34');
+INSERT INTO `product_table` VALUES (13, 'Myriophyllum ussuriense (Regel) Maxim.', 'in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin', 6, 16, 43, '7', '1', 'Garçon', 'augue a', 'purus', 11191.29, 0, '2022-10-13 17:08:53', '2021-03-19 23:40:30');
+INSERT INTO `product_table` VALUES (14, 'Ruellia purshiana Fernald', 'porttitor lacus at turpis donec posuere metus vitae ipsum aliquam', 1, 46, 24, '3', '3', 'Andrée', 'eu', 'cras in', 23650.76, 1, '2022-11-04 19:40:29', '2020-01-06 07:59:19');
+INSERT INTO `product_table` VALUES (15, 'Carex bulbostylis Mack.', 'lacinia aenean sit amet justo morbi ut odio cras mi', 13, 36, 26, '10', '3', 'Ruò', 'rutrum neque', 'integer aliquet', 32659.02, 1, '2022-11-23 05:38:56', '2019-10-17 23:40:52');
+INSERT INTO `product_table` VALUES (16, 'Huperzia nutans (Brack.) Rothm.', 'eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a', 8, 27, 34, '8', '7', 'Léonie', 'eget', 'tincidunt', 24610.25, 0, '2023-02-02 21:02:35', '2021-07-01 06:03:42');
+INSERT INTO `product_table` VALUES (17, 'Myrsine knudsenii (Rock) Hosaka', 'suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean', 26, 16, 32, '12', '9', 'Chloé', 'gravida', 'ultrices', 30275.85, 0, '2023-01-19 07:33:44', '2020-03-21 04:41:50');
+INSERT INTO `product_table` VALUES (18, 'Rubus curtipes L.H. Bailey', 'dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur', 16, 44, 47, '11', '4', 'Marie-thérèse', 'quis justo', 'nulla tellus', 31020.44, 1, '2022-12-13 05:29:56', '2021-08-03 10:28:52');
+INSERT INTO `product_table` VALUES (19, 'Polygonum capitatum Buch.-Ham. ex D. Don', 'vulputate elementum nullam varius nulla facilisi cras non velit nec nisi', 16, 32, 25, '5', '6', 'Stévina', 'ipsum primis', 'neque', 44664.27, 1, '2022-12-08 08:27:24', '2020-08-15 02:59:05');
+INSERT INTO `product_table` VALUES (20, 'Rhynchospora solitaria Harper', 'libero ut massa volutpat convallis morbi odio odio elementum eu', 16, 23, 31, '7', '1', 'Maëlys', 'eu magna', 'nulla', 36856.55, 0, '2023-01-12 06:52:37', '2020-09-15 17:20:20');
+INSERT INTO `product_table` VALUES (21, 'test 2', 'test 2', 26, 18, 13, '6', '4', 'Avant-garde', 'N/A', 'N/A', 12000, 0, '2023-02-13 06:51:09', '2023-02-13 06:51:09');
+INSERT INTO `product_table` VALUES (22, 'demo artwork', 'desc', 26, 11, 13, 'Glass', 'Digital', 'Conceptual', NULL, 'blob:http://127.0.0.1:8000/b51875ad-ae69-4f7c-ab4e-2bcbb3e0b3a5', 12999, 0, '2023-02-19 10:05:57', '2023-02-19 10:05:57');
+INSERT INTO `product_table` VALUES (23, 'demo artwork 2', 'desc 2', 26, 12, 18, 'Cardboard', 'Pastel', 'Minimalism', NULL, 'blob:http://127.0.0.1:8000/8893e23b-2415-491c-8ed5-32b31c25c899', 10233, 0, '2023-02-19 10:15:39', '2023-02-19 10:15:39');
+INSERT INTO `product_table` VALUES (24, 'demo artwork 3', 'qweasd', 26, 12, 12, 'Canvas', 'Oil', '3D Art', NULL, 'blob:http://127.0.0.1:8000/003d4ea5-2024-4dd0-9c01-ccf10ebe7f38', 12345, 0, '2023-02-19 10:19:48', '2023-02-19 10:19:48');
+INSERT INTO `product_table` VALUES (25, 'demo artwork', 'qweqwe', 26, 11, 13, 'Canvas', 'Charcoal', 'Abstract Expressionism', NULL, 'assets/artwork/qt5EZHff4gNzmsCxlIfqV0TwjLMiPzwX1YzMFlsr.jpg', 12345, 0, '2023-02-19 10:32:54', '2023-02-19 10:32:54');
+INSERT INTO `product_table` VALUES (26, 'demo artwork', 'qweqwe', 26, 12, 12, 'Cardboard', 'Oil', 'Abstract Expressionism', NULL, 'C:\\xampp\\tmp\\phpB4BD.tmp', 123123, 0, '2023-02-19 10:35:16', '2023-02-19 10:35:16');
+INSERT INTO `product_table` VALUES (27, 'test data', 'qweqwe', 26, 12, 13, 'Cardboard', 'Digital', 'Abstract Expressionism', NULL, 'assets/artwork/aHY14ZJ91wZ24XLvOUevY7IY5B6Jo9V58CeVtHHL.jpg', 4321, 0, '2023-02-19 10:48:22', '2023-02-19 10:48:22');
+INSERT INTO `product_table` VALUES (28, 'demo artwork', 'qweqwe', 26, 12, 13, 'Cardboard', 'Oil', 'Avant-garde', NULL, 'C:\\xampp\\tmp\\php6A4F.tmp', 123123, 0, '2023-02-19 10:53:31', '2023-02-19 10:53:31');
+INSERT INTO `product_table` VALUES (29, 'test data', 'qweqwe', 26, 123, 123, 'Board', 'Oil', 'Classicism', NULL, 'C:\\xampp\\tmp\\php2E7B.tmp', 123123, 0, '2023-02-19 10:54:21', '2023-02-19 10:54:21');
+INSERT INTO `product_table` VALUES (30, 'test 3', 'qweqwe', 26, 12, 13, 'Fabric', 'Pastel', 'Abstract Expressionism', NULL, '1676804139.jpg', 123123, 0, '2023-02-19 10:55:39', '2023-02-19 10:55:39');
+INSERT INTO `product_table` VALUES (31, 'demo artwork 23', 'rtest', 26, 18, 13, 'Special Paper', 'Pastel', 'Classicism', NULL, '1676804509.png', 123456, 0, '2023-02-19 11:01:49', '2023-02-19 11:01:49');
+INSERT INTO `product_table` VALUES (32, 'demo artwork', 'qweqweqw', 26, 12, 13, 'Cardboard', 'Digital', 'Abstract Expressionism', NULL, '1676815021.png', 62312, 0, '2023-02-19 13:57:01', '2023-02-19 13:57:01');
+INSERT INTO `product_table` VALUES (33, 'test image', 'test description', 26, 4, 4, 'Paper', 'Digital', 'Illustration', NULL, '1676824828.png', 12000, 0, '2023-02-19 16:40:28', '2023-02-19 16:40:28');
+INSERT INTO `product_table` VALUES (34, 'Coffeee!!!', 'Para saan ka bumabangon', 26, 12, 18, 'Canvas', 'Pastel', 'Expressionism', NULL, '1676864817.jpg', 1000000, 0, '2023-02-20 03:46:57', '2023-02-20 03:46:57');
 
 -- ----------------------------
 -- Table structure for transaction_table
@@ -162,7 +175,7 @@ CREATE TABLE `users`  (
   `updated_at` datetime NULL DEFAULT NULL,
   `created_at` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
@@ -187,8 +200,9 @@ INSERT INTO `users` VALUES (17, 'Lune', 'Arturo', '09146472956', 'aluneg@canalbl
 INSERT INTO `users` VALUES (18, 'Beazleigh', 'Deni', '09115939061', 'dbeazleighh@bbb.org', 'Plg4JZO0PSV', 1, '014 Truax Plaza', 'Stephen', 'Sabaneta', 'Bicol', '055457', '2022-03-30 14:42:16', '2021-10-25 10:10:15');
 INSERT INTO `users` VALUES (19, 'Vivians', 'Else', '09411207219', 'eviviansi@squidoo.com', '9UkZNhjUODh', 0, '57332 Calypso Alley', 'Hoffman', 'Llaillay', 'Bicol', NULL, '2022-06-18 16:44:14', '2021-06-09 03:02:51');
 INSERT INTO `users` VALUES (20, 'Raittie', 'Remy', '09178898436', 'rraittiej@nymag.com', 'B2oBp2Jg', 1, '3 Knutson Trail', 'Hovde', 'Bogoroditsk', 'NCR', '301839', '2022-03-25 07:26:53', '2020-07-01 07:04:56');
-INSERT INTO `users` VALUES (26, 'Corotan', 'William Anthony', '09478051730', 'williamcorotan@gmail.com', '$2y$10$VXax4Ms1.E1/Upb52SdzHOCGaFqKZ1YpGoN631OjSmPAH9fA3kn3O', 0, 'test st add', 'brgy', 'city', 'province', '1920', '2023-02-13 05:10:25', '2023-02-13 05:10:25');
-INSERT INTO `users` VALUES (27, 'Corotan', 'William Anthony', '+639478051730', 'test@email.com', '$2y$10$egdWUVzbc/vxj8KXloQizeTRALZ4p7q6ekwKQGIBix6gYiDzBH68S', 1, 'test st add', 'brgy', 'city', 'province', '1920', '2023-02-14 06:07:50', '2023-02-14 06:07:50');
-INSERT INTO `users` VALUES (28, 'Del', 'Ram', '09883432232', 'ramuel@gmail.com', '$2y$10$y9xKH5O8IthZVo4Dvv6vr.OyLX7czHjpBUdRG7ArPzThKC49Hwd/6', 0, '09', 'laon', 'abucay', 'batangas', '4232', '2023-02-15 03:30:03', '2023-02-15 03:30:03');
+INSERT INTO `users` VALUES (26, 'Corotan', 'William Anthony', '09478051730', 'williamcorotan@gmail.com', '$2y$10$VXax4Ms1.E1/Upb52SdzHOCGaFqKZ1YpGoN631OjSmPAH9fA3kn3O', 1, 'test st add', 'brgy', 'city', 'province', '1920', '2023-02-13 05:10:25', '2023-02-13 05:10:25');
+INSERT INTO `users` VALUES (27, 'Corotan', 'William Anthony', '+639478051730', 'test@email.com', '$2y$10$egdWUVzbc/vxj8KXloQizeTRALZ4p7q6ekwKQGIBix6gYiDzBH68S', 0, 'test st add', 'brgy', 'city', 'province', '1920', '2023-02-14 06:07:50', '2023-02-14 06:07:50');
+INSERT INTO `users` VALUES (28, 'Mei', 'Stella', '09123456789', 'stellamei@gmail.com', '$2y$10$nNGfgxB6.alN6cc72f7eHuWVj7U6bkSgxc95laWY1uioGDHjVZkAu', 1, 'st', 'brgy', 'city', 'province', '1001', '2023-02-15 07:42:55', '2023-02-15 07:42:55');
+INSERT INTO `users` VALUES (29, 'buyer', 'buyer', '09123456789', 'buyer@gmail.com', '$2y$10$IDqZmEQ2rC7bHRX4NAMD/.9O9.AT6TMJdWWOewZf0kE6MsvYi7wWe', 0, 'test st add', 'brgy', 'city', 'province', '1920', '2023-02-20 05:03:03', '2023-02-20 05:03:03');
 
 SET FOREIGN_KEY_CHECKS = 1;

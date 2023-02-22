@@ -7,7 +7,6 @@ import TextInput from "@/Components/TextInput";
 import { Head, Link, useForm } from "@inertiajs/react";
 import Navbar from "@/Components/Navbar";
 import { Footer } from "@/Components/Footer";
-import Layout from "@/Layouts/Layout";
 
 export default function Register(props) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -47,65 +46,60 @@ export default function Register(props) {
     return (
         <>
             <Head title="Register" />
+            <Navbar />
 
-            <Layout auth={props.auth}>
-                <section className="bg-gray-100 flex place-items-center">
-                    <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-                        <div className="grid grid-cols-1 gap-x-16 gap-y-8">
-                            <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
-                                <h1 className="pb-4 text-xl font-extrabold">
-                                    Sign up
-                                </h1>
-                                <form
-                                    onSubmit={submit}
-                                    action=""
-                                    className="space-y-4"
-                                >
-                                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                                        <div>
-                                            <InputLabel
-                                                className="sr-only"
-                                                forInput="first_name"
-                                                value="First Name"
-                                            >
-                                                First Name
-                                            </InputLabel>
-                                            <TextInput
-                                                className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                                                placeholder="First Name"
-                                                type="text"
-                                                name="first_name"
-                                                id="first_name"
-                                                value={data.first_name}
-                                                required
-                                                handleChange={onHandleChange}
-                                            />
-                                        </div>
-                                        <InputError
-                                            message={errors.first_name}
-                                            className="mt-2"
+            <section className="bg-gray-100 flex place-items-center">
+                <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 gap-x-16 gap-y-8">
+                        <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
+                            <h1 className="pb-4 text-xl font-extrabold">
+                                Sign up
+                            </h1>
+                            <form
+                                onSubmit={submit}
+                                action=""
+                                className="space-y-4"
+                            >
+                                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                                    <div>
+                                        <InputLabel
+                                            className="sr-only"
+                                            forInput="first_name"
+                                            value="First Name"
+                                        >
+                                            First Name
+                                        </InputLabel>
+                                        <TextInput
+                                            className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                                            placeholder="First Name"
+                                            type="text"
+                                            name="first_name"
+                                            id="first_name"
+                                            value={data.first_name}
+                                            required
+                                            handleChange={onHandleChange}
                                         />
-                                        <div>
-                                            <label
-                                                className="sr-only"
-                                                for="last_name"
-                                            >
-                                                Last Name
-                                            </label>
-                                            <TextInput
-                                                className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                                                placeholder="Last Name"
-                                                type="text"
-                                                id="last_name"
-                                                name="last_name"
-                                                value={data.last_name}
-                                                required
-                                                handleChange={onHandleChange}
-                                            />
-                                        </div>
-                                        <InputError
-                                            message={errors.last_name}
-                                            className="mt-2"
+                                    </div>
+                                    <InputError
+                                        message={errors.first_name}
+                                        className="mt-2"
+                                    />
+                                    <div>
+                                        <label
+                                            className="sr-only"
+                                            for="last_name"
+                                        >
+                                            Last Name
+                                        </label>
+                                        <TextInput
+                                            className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                                            placeholder="Last Name"
+                                            type="text"
+                                            id="last_name"
+                                            name="last_name"
+                                            value={data.last_name}
+                                            required
+                                            handleChange={onHandleChange}
                                         />
                                     </div>
 
@@ -243,8 +237,10 @@ export default function Register(props) {
                             </div>
                         </div>
                     </div>
-                </section>
-            </Layout>
+                </div>
+            </section>
+
+            <Footer />
         </>
     );
 }

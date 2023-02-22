@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -19,22 +20,49 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('artists', function () 
-{
-    return Inertia::render('Partials/ShowArtists');
+Route::get('artists', function (Request $request) {
+    
+    $user = User::select()->where('role', '1')->get();
+    
+    $query = User::select()->where('role', '1');
+    if($request->has('search')){
+        $query->where('first_name', 'like', '%' . $request->search . '%')->orWhere('last_name', 'like', '%' . $request->search . '%')->orderBy('created_at', 'desc');
+    }
+
+    if($request->has('art_style')){
+        $query->where('art_style', 'like', '%' . $request->art_style . '%');
+    }
+    $data = $query->orderBy('created_at', 'desc')->get();
+    $artworks = Product::whereBelongsTo($user)->orderBy('created_at', 'desc')->get();
+
+    return Inertia::render('ShowArtists', [
+        'artists' => $data,
+        'artworks' => $artworks
+    ]);
 });
 
-Route::get('artworks', function (Request $request) 
-{
-    return Inertia::render('Partials/ShowArtworks', ['artworks' => Product::latest()->when($request->input('search'), function($query)
-    {
-        Product::select()->where('product_name', 'like', '%' . request('search') . '%')
-        ->orWhere('art_style', 'like', '%' . request('search') . '%')
-        ->orWhere('width', 'like', '%' . request('search') . '%')
-        ->orWhere('height', 'like', '%' . request('search') . '%')
-        ->orWhere('price', 'like', '%' . request('search') . '%');
+Route::get('artworks', function (Request $request) {
+    // dd($request);
+    $query = Product::select();
 
-    })]);
+    if($request->has('search')){
+        $query->where('product_name', 'like', '%' . $request->search . '%')->orderBy('created_at', 'desc');
+    }
+
+    if($request->has('medium')){
+        $query->where('medium', 'like', '%' . $request->medium . '%');
+    }
+    if($request->has('base')){
+        $query->where('base', 'like', '%' . $request->base . '%');
+    }
+    if($request->has('art_style')){
+        $query->where('art_style', 'like', '%' . $request->art_style . '%');
+    }
+    $data = $query->orderBy('created_at', 'desc')->get();
+    
+    return Inertia::render('ShowArtworks', [
+        'artworks' => $data
+    ]);
 });
 
 Route::get('/', function () {
@@ -56,7 +84,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-//routes for artist 
+//routes for artist
 Route::middleware('auth', 'verified', 'user-role:artist')->group(function () {
     Route::get('/artist/dashboard', function () {
         return Inertia::render('Artist/Dashboard', [

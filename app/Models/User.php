@@ -7,9 +7,10 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends Authenticatable 
 {
     use HasApiTokens, HasFactory, Notifiable;
     /**
@@ -69,9 +70,9 @@ class User extends Authenticatable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function productTables()
+    public function product() : HasMany
     {
-        return $this->hasMany(Product::class, 'artist_id', 'user_id');
+        return $this->hasMany(Product::class, 'user_id', 'artist_id');
     }
     protected function role(): Attribute
     {
