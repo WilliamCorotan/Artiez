@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property integer $product_id
@@ -85,8 +86,8 @@ class Product extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function artistTable()
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(Artist::class, 'artist_id', 'user_id');
+        return $this->belongsTo(User::class, 'artist_id', 'user_id');
     }
 }

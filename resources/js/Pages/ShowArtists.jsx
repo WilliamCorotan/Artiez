@@ -5,14 +5,16 @@ import TextInput from "@/Components/TextInput";
 import { Card } from "@/Components/Card";
 import { Radio } from "@material-tailwind/react";
 import ArtistCard from "@/Components/ArtistCard";
+import ArtistLayout from "@/Layouts/ArtistLayout";
 
-function ShowArtists({ auth, artists }) {
+function ShowArtists({ auth, artists, artworks }) {
     const [showFilters, setShowfilters] = useState(false);
     const { data, setData, get, processing, errors, reset } = useForm({
         medium: "",
         base: "",
         art_style: "",
     });
+    // console.log(artworks);
 
     const handleMediumFilter = (e) => {
         setData(e.target.name, e.target.value);
@@ -26,8 +28,21 @@ function ShowArtists({ auth, artists }) {
     // console.log(medium);
 
     const ArtistsCards = artists.map((artist) => {
-        return <ArtistCard key={artist.user_id} artist={artist} />;
+        const artistArtworks = [];
+        artworks.slice(0, 2).map((artwork) => {
+            if (artwork.artist_id == artist.user_id) {
+                artistArtworks.push(artwork);
+            }
+        });
+        return (
+            <ArtistCard
+                key={artist.user_id}
+                artist={artist}
+                artworks={artistArtworks}
+            />
+        );
     });
+
     const applyFilters = (e) => {
         e.preventDefault();
         get("/artworks", data);

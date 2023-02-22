@@ -21,8 +21,10 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('artists', function (Request $request) {
+    
+    $user = User::select()->where('role', '1')->get();
+    
     $query = User::select()->where('role', '1');
-
     if($request->has('search')){
         $query->where('first_name', 'like', '%' . $request->search . '%')->orWhere('last_name', 'like', '%' . $request->search . '%')->orderBy('created_at', 'desc');
     }
@@ -31,8 +33,11 @@ Route::get('artists', function (Request $request) {
         $query->where('art_style', 'like', '%' . $request->art_style . '%');
     }
     $data = $query->orderBy('created_at', 'desc')->get();
+    $artworks = Product::whereBelongsTo($user)->orderBy('created_at', 'desc')->get();
+
     return Inertia::render('ShowArtists', [
-        'artists' => $data
+        'artists' => $data,
+        'artworks' => $artworks
     ]);
 });
 
@@ -54,6 +59,7 @@ Route::get('artworks', function (Request $request) {
         $query->where('art_style', 'like', '%' . $request->art_style . '%');
     }
     $data = $query->orderBy('created_at', 'desc')->get();
+    
     return Inertia::render('ShowArtworks', [
         'artworks' => $data
     ]);
