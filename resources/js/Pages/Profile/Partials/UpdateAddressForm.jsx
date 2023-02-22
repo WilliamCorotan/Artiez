@@ -17,6 +17,7 @@ export default function UpdateProfileInformation({
             street_address: user.street_address,
             barangay: user.barangay,
             province: user.province,
+            city: user.city,
             postal_code: user.postal_code,
         });
 
@@ -93,6 +94,22 @@ export default function UpdateProfileInformation({
                     />
 
                     <InputError className="mt-2" message={errors.province} />
+                </div>
+
+                {/* Province field */}
+                <div>
+                    <InputLabel for="city" value="City" />
+
+                    <TextInput
+                        id="city"
+                        type="text"
+                        className="mt-1 block w-full"
+                        value={data.city}
+                        handleChange={(e) => setData("city", e.target.value)}
+                        required
+                    />
+
+                    <InputError className="mt-2" message={errors.city} />
                 </div>
 
                 {/* Postal Code field */}
