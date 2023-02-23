@@ -1,7 +1,8 @@
-<<<<<<< HEAD
+
 import { Footer } from "@/Components/Footer";
 import Navbar from "@/Components/Navbar";
 import TextInput from "@/Components/TextInput";
+import Layout from "@/Layouts/Layout";
 
 export default function Contact() {
     return (
@@ -67,8 +68,6 @@ export default function Contact() {
         </>
     );
 }
-=======
-import Layout from "@/Layouts/Layout";
 
 
 export default function Contact({auth}) {
@@ -132,4 +131,3 @@ export default function Contact({auth}) {
     </Layout>
   );
 };
->>>>>>> f027d71f87160c308b62affe687f80a79505d126

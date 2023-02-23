@@ -11,7 +11,7 @@ export default function Guest({ children }) {
                         src="assets/artiez.svg"
                         alt=""
                         className="w-20 h-20 fill-current "
-                    /
+                    />
                 </Link>
             </div>
 
