@@ -41,6 +41,12 @@ Route::get('artists', function (Request $request) {
     ]);
 });
 
+
+Route::get('artworks/{product}', [ArtworkController::class, 'show']
+);
+
+
+
 Route::get('artists/artist' , function (User $artists) {
     // $product= Product::findOrFail();
     $artists = User::select()->where('user_id', $artists->artist_id)->get();
@@ -49,6 +55,7 @@ Route::get('artists/artist' , function (User $artists) {
     return Inertia::render('Artists',  [
         'artists' => $artists]);
 });
+
 
 Route::get('artworks', function (Request $request) {
     // dd($request);
@@ -73,6 +80,8 @@ Route::get('artworks', function (Request $request) {
         'artworks' => $data
     ]);
 });
+
+
 
 Route::get('/', function () {
     return Inertia::render('Homepage', [
