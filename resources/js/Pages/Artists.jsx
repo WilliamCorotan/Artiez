@@ -1,9 +1,9 @@
 import Layout from "@/Layouts/Layout";
-export const Artists = () => {
-
+import React from "react";
+const Artists = ({ auth }) => {
     return (
         <>
-            <Layout>
+            <Layout auth={auth}>
                 <section className="w-full h-screen mt-10 mx-auto container">
                     <div className="p-5">
                         <h1 className="text-2xl text-bold">Ramuel De Luna</h1>
@@ -18,14 +18,14 @@ export const Artists = () => {
                             <div className="flex px-3 py-5">
                                 <img
                                     className="w-48 h-48 object-cover object-center"
-                                    src="/public/assets/artwork/art3.jpg"
+                                    src="artwork/art3.jpg"
                                     alt=""
                                 />
                                 <div className="ml-3">
                                     <p className="flex">
                                         <img
                                             className="w-6 h-6"
-                                            src="/public/assets/canvas.png"
+                                            src="assets/canvas.png"
                                             alt=""
                                         />
                                         1 Artwork for sale
@@ -41,7 +41,7 @@ export const Artists = () => {
                             </div>
                         </div>
                         <div className="col-span-2 w-full p-5 text-gray-600">
-                            <img src="/public/assets/hero-bg.avif" alt="" />
+                            <img src="assets/hero-bg.avif" alt="" />
                             <p className="pt-10">
                                 Lorem ipsum dolor sit amet consectetur
                                 adipisicing elit. Velit odio voluptate nulla
@@ -65,3 +65,5 @@ export const Artists = () => {
         </>
     );
 };
+
+export default Artists;

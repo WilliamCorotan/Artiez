@@ -41,6 +41,15 @@ Route::get('artists', function (Request $request) {
     ]);
 });
 
+Route::get('artists/artist' , function (User $artists) {
+    // $product= Product::findOrFail();
+    $artists = User::select()->where('user_id', $artists->artist_id)->get();
+
+
+    return Inertia::render('Artists',  [
+        'artists' => $artists]);
+});
+
 Route::get('artworks', function (Request $request) {
     // dd($request);
     $query = Product::select();
@@ -116,9 +125,7 @@ Route::get('contact', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
-Route::get('artists/artists', function (){
-    return Inertia::render('Artists');
-});
+
 
 
 // Route::get('/email/verify', function () {

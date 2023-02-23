@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Artist;
 use App\Models\User;
+use Inertia\Inertia;
+use App\Models\Artist;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 
@@ -24,4 +26,6 @@ class ArtistsController extends Controller
             'buyer' => $buyer
         ]);
     }
+
+
 }
