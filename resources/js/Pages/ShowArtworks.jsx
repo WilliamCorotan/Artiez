@@ -4,6 +4,7 @@ import { useForm } from "@inertiajs/react";
 import TextInput from "@/Components/TextInput";
 import { Card } from "@/Components/Card";
 import { Radio } from "@material-tailwind/react";
+import Pagination from "@/Components/Pagination";
 
 function ShowArtworks({ auth, artworks }) {
     const [showFilters, setShowfilters] = useState(false);
@@ -28,8 +29,8 @@ function ShowArtworks({ auth, artworks }) {
         e.preventDefault();
         get("/artworks", data);
     };
-
-    const ArtworkCards = artworks.map((e) => {
+    console.log(artworks);
+    const ArtworkCards = artworks.data.map((e) => {
         // console.log(<Card artworks={e} />);
         return <Card key={e.product_id} artworks={e} />;
     });
@@ -124,9 +125,9 @@ function ShowArtworks({ auth, artworks }) {
                         </button>
                     </div>
                     <p className=" text-xl leading-5 text-gray-600 font-medium">
-                        {artworks.length == 1
-                            ? `${artworks.length} artwork`
-                            : `${artworks.length} artworks`}
+                        {artworks.total == 1
+                            ? `1 artwork`
+                            : `${artworks.total} artworks`}
                     </p>
 
                     {/* Filters Button (Small Screen)  */}
@@ -760,6 +761,10 @@ function ShowArtworks({ auth, artworks }) {
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 mx-auto place-items-center md:grid-cols-2 lg:grid-cols-3 mb-20 justify-center">
                 {ArtworkCards}
+            </div>
+            {/* <div>{artworks.links()}</div> */}
+            <div>
+                <Pagination links={artworks.links} />
             </div>
         </Layout>
     );

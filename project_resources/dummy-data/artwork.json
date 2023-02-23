@@ -1,228 +1,226 @@
-
- [   
-     {
-        "id":"",
-        "artist":"Ariosto Dale Bagtas",
-        "title" : "BETWEEN HEAVEN AND EARTH.",
-        "base":"canvas" ,
+[
+    {
+        "id": "",
+        "artist": "Ariosto Dale Bagtas",
+        "title": "BETWEEN HEAVEN AND EARTH.",
+        "base": "canvas",
         "medium": "oil paint",
         "image": "/art1.jpg"
     },
 
     {
-        "id":"",
-        "artist":"Jane Mykee Lopez",
-        "title":"Anxiety",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "Jane Mykee Lopez",
+        "title": "Anxiety",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art2.jpg"  
+        "image": "/art2.jpg"
     },
 
     {
-        "id":"",
-        "artist":"Abelardo Maceda Jr.",
-        "title":"Sisa S5 - Lumang Pahina ng Kasaysayan",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "Abelardo Maceda Jr.",
+        "title": "Sisa S5 - Lumang Pahina ng Kasaysayan",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art3.jpg"  
+        "image": "/art3.jpg"
     },
 
     {
-        "id":"",
-        "artist":" Mildred Pasites ",
-        "title":"flower",
-        "base":"canvas" ,
+        "id": "",
+        "artist": " Mildred Pasites ",
+        "title": "flower",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art4.jpg"  
-    },
-    
-    {
-        "id":"",
-        "artist":"Aaron Blaise ",
-        "title":" Nubian Warriors",
-        "base":"canvas" ,
-        "medium": "oil paint",
-        "image": "/art5.jpg"  
+        "image": "/art4.jpg"
     },
 
     {
-        "id":"",
-        "artist":"Scott Listfield",
-        "title":"Men's Room Canvas Print",
-        "base":"canvas print" ,
+        "id": "",
+        "artist": "Aaron Blaise ",
+        "title": " Nubian Warriors",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art6.jpg"  
+        "image": "/art5.jpg"
     },
 
     {
-        "id":"",
-        "artist":"Andoni Barrenechea",
-        "title":"Divine Connection",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "Scott Listfield",
+        "title": "Men's Room Canvas Print",
+        "base": "canvas print",
         "medium": "oil paint",
-        "image": "/art7.jpg"  
+        "image": "/art6.jpg"
     },
 
     {
-        "id":"",
-        "artist":"Miguel Ginhwell Garcia",
-        "title":"Sa Ibabaw ng Kubyerta",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "Andoni Barrenechea",
+        "title": "Divine Connection",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art8.jpg"  
+        "image": "/art7.jpg"
     },
 
     {
-        "id":"",
-        "artist":"Goldwynn Navarro",
-        "title":"Behind Closed Doors",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "Miguel Ginhwell Garcia",
+        "title": "Sa Ibabaw ng Kubyerta",
+        "base": "canvas",
+        "medium": "oil paint",
+        "image": "/art8.jpg"
+    },
+
+    {
+        "id": "",
+        "artist": "Goldwynn Navarro",
+        "title": "Behind Closed Doors",
+        "base": "canvas",
         "medium": "oil pastels",
-        "image": "/art9.jpg"  
+        "image": "/art9.jpg"
     },
 
     {
-        "id":"",
-        "artist":"April Gaye Sta. Maria",
-        "title":"Nanny Bunny",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "April Gaye Sta. Maria",
+        "title": "Nanny Bunny",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art10.jpg"  
+        "image": "/art10.jpg"
     },
 
     {
-        "id":"",
-        "artist":"Abelardo Maceda Jr.",
-        "title":"Ikaw at Ako sa Gitna ng Pandemya",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "Abelardo Maceda Jr.",
+        "title": "Ikaw at Ako sa Gitna ng Pandemya",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art11.jpg"  
+        "image": "/art11.jpg"
     },
 
     {
-        "id":"",
-        "artist":"Dominic Escobar",
-        "title":"Economic Warrior",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "Dominic Escobar",
+        "title": "Economic Warrior",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art12.jpg"  
+        "image": "/art12.jpg"
     },
 
     {
-        "id":"",
-        "artist":"Joel Panarigan ",
-        "title":"Mother and Child (Loved While Waiting)",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "Joel Panarigan ",
+        "title": "Mother and Child (Loved While Waiting)",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art13.jpg"  
+        "image": "/art13.jpg"
     },
 
     {
-        "id":"",
-        "artist":"Abelardo Maceda Jr.",
-        "title":"Lakay s2",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "Abelardo Maceda Jr.",
+        "title": "Lakay s2",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art14.jpg"  
+        "image": "/art14.jpg"
     },
 
     {
-        "id":"",
-        "artist":"Jose Ehric Egualada",
-        "title":"Unang Paaralan",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "Jose Ehric Egualada",
+        "title": "Unang Paaralan",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art15.jpg"  
+        "image": "/art15.jpg"
     },
 
     {
-        "id":"",
-        "artist":"none",
-         "title":"Spring Flower Girl with Magnolias",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "none",
+        "title": "Spring Flower Girl with Magnolias",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art16.jpg"  
+        "image": "/art16.jpg"
     },
 
     {
-        "id":"",
-        "artist":"Abelardo Maceda Jr",
-        "title":"Himlay",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "Abelardo Maceda Jr",
+        "title": "Himlay",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art17.jpg"  
+        "image": "/art17.jpg"
     },
 
     {
-        "id":"",
-        "artist":"Noah Sian",
-        "title":"Cockfight",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "Noah Sian",
+        "title": "Cockfight",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art18.jpg"  
+        "image": "/art18.jpg"
     },
 
     {
-        "id":"",
-        "artist":"Jay Vincent Gatdula",
-        "title":"Ang Turo ni Ina, Ituro Natin sa Kanila",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "Jay Vincent Gatdula",
+        "title": "Ang Turo ni Ina, Ituro Natin sa Kanila",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art19.jpg"  
+        "image": "/art19.jpg"
     },
-    
+
     {
-        "id":"",
-        "artist":"Eunice Mishael Flores",
-        "title":"Sun Valley",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "Eunice Mishael Flores",
+        "title": "Sun Valley",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art20.jpg"  
+        "image": "/art20.jpg"
     },
-    
+
     {
-        "id":"",
-        "artist":"Roselle Manalastas",
-        "title":"Hollywood Boulevard",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "Roselle Manalastas",
+        "title": "Hollywood Boulevard",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art21.jpg"  
+        "image": "/art21.jpg"
     },
-    
+
     {
-        "id":"",
-        "artist":"Ritzmond Rei Depra",
-        "title":"Dichotomy of Life and Death",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "Ritzmond Rei Depra",
+        "title": "Dichotomy of Life and Death",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art22.jpg"  
+        "image": "/art22.jpg"
     },
-    
+
     {
-        "id":"",
-        "artist":"Hancel Quinicio",
-        "title":"Bakhawan River",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "Hancel Quinicio",
+        "title": "Bakhawan River",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art23.jpg"  
+        "image": "/art23.jpg"
     },
-    
+
     {
-        "id":"",
-        "artist":"Billy Abogadie II",
-        "title":"Vigan",
-        "base":"canvas print" ,
+        "id": "",
+        "artist": "Billy Abogadie II",
+        "title": "Vigan",
+        "base": "canvas print",
         "medium": "oil paint",
-        "image": "/art24.jpg"  
+        "image": "/art24.jpg"
     },
-    
+
     {
-        "id":"",
-        "artist":"Billy Abogadie II",
-        "title":"Tarot",
-        "base":"canvas" ,
+        "id": "",
+        "artist": "Billy Abogadie II",
+        "title": "Tarot",
+        "base": "canvas",
         "medium": "oil paint",
-        "image": "/art25.jpg"  
+        "image": "/art25.jpg"
     }
-    
- ]
+]

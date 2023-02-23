@@ -24,15 +24,13 @@ Route::get('artists', function (Request $request) {
 
     $user = User::select()->where('role', '1')->get();
 
-    $query = User::select()->where('role', '1');
+    $query = User::where('role', '1');
     if($request->has('search')){
-        $query->where('first_name', 'like', '%' . $request->search . '%')->orWhere('last_name', 'like', '%' . $request->search . '%')->orderBy('created_at', 'desc');
+        $query->where('first_name', 'like', '%' . $request->search . '%')
+        ->orWhere('last_name', 'like', '%' . $request->search . '%')
+        ->orderBy('created_at', 'desc');
     }
-
-    if($request->has('art_style')){
-        $query->where('art_style', 'like', '%' . $request->art_style . '%');
-    }
-    $data = $query->orderBy('created_at', 'desc')->get();
+    $data = $query->orderBy('created_at', 'desc')->paginate(10);
     $artworks = Product::whereBelongsTo($user)->orderBy('created_at', 'desc')->get();
 
     return Inertia::render('ShowArtists', [
@@ -59,10 +57,10 @@ Route::get('artists/artist' , function (User $artists) {
 
 Route::get('artworks', function (Request $request) {
     // dd($request);
-    $query = Product::select();
+    $query = new Product;
 
     if($request->has('search')){
-        $query->where('product_name', 'like', '%' . $request->search . '%')->orderBy('created_at', 'desc');
+        $query->where('product_name', 'like', '%' . $request->search . '%');
     }
 
     if($request->has('medium')){
@@ -74,7 +72,7 @@ Route::get('artworks', function (Request $request) {
     if($request->has('art_style')){
         $query->where('art_style', 'like', '%' . $request->art_style . '%');
     }
-    $data = $query->orderBy('created_at', 'desc')->get();
+    $data = $query->join('users', 'artist_id', '=', 'user_id')->orderBy('product_table.created_at', 'desc')->paginate(9);
 
     return Inertia::render('ShowArtworks', [
         'artworks' => $data
@@ -90,7 +88,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
 
-        'products' => Product::select()->join('users', 'artist_id', '=', 'user_id')->orderBy('product_table.created_at', 'desc')->get()
+        'products' => Product::select('product_table.product_name','product_table.product_preview','product_table.medium','product_table.base','product_table.height','product_table.width','users.first_name','users.last_name','users.city','users.province','product_table.price')->join('users', 'artist_id', '=', 'user_id')->orderBy('product_table.created_at', 'desc')->get()
 
     ]);
 });

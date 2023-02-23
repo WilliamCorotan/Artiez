@@ -164,7 +164,7 @@ const Navbar = ({ auth }) => {
                             <ul className="flex space-x-6">
                                 <li>
                                     <NavLink
-                                        href="login"
+                                        href="/login"
                                         className="block text-lg py-2 pl-3 pr-4 text-gray-800 rounded hover:text-rose-600 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-rose-600 md:p-0 "
                                     >
                                         Sign in
@@ -172,7 +172,7 @@ const Navbar = ({ auth }) => {
                                 </li>
                                 <li>
                                     <NavLink
-                                        href="register"
+                                        href="/register"
                                         className="block text-lg py-2 pl-3 pr-4 text-gray-800 rounded hover:text-rose-600 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-rose-600 md:p-0 "
                                     >
                                         Sign up

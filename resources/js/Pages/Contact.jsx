@@ -1,6 +1,3 @@
-import { Footer } from "@/Components/Footer";
-import Navbar from "@/Components/Navbar";
-import TextInput from "@/Components/TextInput";
 import Layout from "@/Layouts/Layout";
 
 export default function Contact({ auth }) {

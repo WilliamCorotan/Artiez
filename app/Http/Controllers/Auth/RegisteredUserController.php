@@ -37,11 +37,7 @@ class RegisteredUserController extends Controller
             'contact_number' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'street_address' => ['required', 'string', 'max:255'],
-            'barangay' => ['required', 'string', 'max:255'],
-            'city' => ['required', 'string', 'max:255'],
-            'province' => ['required', 'string', 'max:255'],
-            'postal_code' => ['required', 'string', 'max:255'],
+            
         ]);
 
         $user = User::create([
@@ -51,11 +47,11 @@ class RegisteredUserController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
             'role' => 0,
-            'street_address' => $request['street_address'],
-            'barangay' => $request['barangay'],
-            'city' => $request['city'],
-            'province' => $request['province'],
-            'postal_code' => $request['postal_code'],
+            'street_address' => '',
+            'barangay' => '',
+            'city' => '',
+            'province' => '',
+            'postal_code' => '',
         ]);
 
         event(new Registered($user));

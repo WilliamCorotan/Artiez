@@ -27,7 +27,7 @@ function ShowArtists({ auth, artists, artworks }) {
     };
     // console.log(medium);
 
-    const ArtistsCards = artists.map((artist) => {
+    const ArtistsCards = artists.data.map((artist) => {
         const artistArtworks = [];
         artworks.slice(0, 2).map((artwork) => {
             if (artwork.artist_id == artist.user_id) {
@@ -35,7 +35,7 @@ function ShowArtists({ auth, artists, artworks }) {
             }
         });
         return (
-            <ArtistCard
+            <ArtistsCard
                 key={artist.user_id}
                 artist={artist}
                 artworks={artistArtworks}
@@ -138,9 +138,9 @@ function ShowArtists({ auth, artists, artworks }) {
                         </button>
                     </div>
                     <p className=" text-xl leading-5 text-gray-600 font-medium">
-                        {artists.length == 1
-                            ? `${artists.length} artist`
-                            : `${artists.length} artists`}
+                        {artists.total == 1
+                            ? `1 artist`
+                            : `${artists.total} artists`}
                     </p>
 
                     {/* Filters Button (Small Screen)  */}
