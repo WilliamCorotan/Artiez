@@ -48,20 +48,20 @@ export default function Register(props) {
         <>
             <Head title="Register" />
 
-            <Layout auth={props.auth}>
-                <section className="bg-gray-100 flex place-items-center">
-                    <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+            <Layout auth={props.auth} className="min-h-fit">
+                <section className="flex place-items-center">
+                    <div className="w-4/5 mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
                         <div className="grid grid-cols-1 gap-x-16 gap-y-8">
-                            <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
+                            <div className="rounded-lg bg-whiteshadow-lg lg:col-span-3 ">
                                 <h1 className="pb-4 text-xl font-extrabold">
-                                    Register
+                                    Sign Up
                                 </h1>
                                 <form
                                     onSubmit={submit}
-                                    action=""
-                                    className="space-y-4"
+                                    className="w-full space-y-4"
                                 >
                                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                                        {/* First name field */}
                                         <div>
                                             <InputLabel
                                                 className="sr-only"
@@ -77,14 +77,14 @@ export default function Register(props) {
                                                 name="first_name"
                                                 id="first_name"
                                                 value={data.first_name}
-                                                required
                                                 handleChange={onHandleChange}
                                             />
+                                            <InputError
+                                                message={errors.first_name}
+                                                className="mt-2"
+                                            />
                                         </div>
-                                        <InputError
-                                            message={errors.first_name}
-                                            className="mt-2"
-                                        />
+                                        {/* Last name field */}
                                         <div>
                                             <label
                                                 className="sr-only"
@@ -99,7 +99,6 @@ export default function Register(props) {
                                                 id="last_name"
                                                 name="last_name"
                                                 value={data.last_name}
-                                                required
                                                 handleChange={onHandleChange}
                                             />
                                         </div>
@@ -109,6 +108,7 @@ export default function Register(props) {
                                         />
                                     </div>
 
+                                    {/* Email field */}
                                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                         <div>
                                             <label
@@ -124,15 +124,14 @@ export default function Register(props) {
                                                 id="email"
                                                 name="email"
                                                 value={data.email}
-                                                required
                                                 handleChange={onHandleChange}
                                             />
+                                            <InputError
+                                                message={errors.email}
+                                                className="mt-2"
+                                            />
                                         </div>
-                                        <InputError
-                                            message={errors.email}
-                                            className="mt-2"
-                                        />
-
+                                        {/* Contact number field */}
                                         <div>
                                             <label
                                                 className="sr-only"
@@ -147,17 +146,17 @@ export default function Register(props) {
                                                 id="phone"
                                                 name="contact_number"
                                                 value={data.contact_number}
-                                                required
                                                 handleChange={onHandleChange}
                                             />
+                                            <InputError
+                                                message={errors.contact_number}
+                                                className="mt-2"
+                                            />
                                         </div>
-                                        <InputError
-                                            message={errors.contact_number}
-                                            className="mt-2"
-                                        />
                                     </div>
 
                                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                                        {/* Password field */}
                                         <div>
                                             <label
                                                 className="sr-only"
@@ -172,15 +171,14 @@ export default function Register(props) {
                                                 id="password"
                                                 name="password"
                                                 value={data.password}
-                                                required
                                                 handleChange={onHandleChange}
                                             />
+                                            <InputError
+                                                message={errors.password}
+                                                className="mt-2"
+                                            />
                                         </div>
-                                        <InputError
-                                            message={errors.password}
-                                            className="mt-2"
-                                        />
-
+                                        {/* Confirm password field */}
                                         <div>
                                             <label
                                                 className="sr-only"
@@ -197,17 +195,20 @@ export default function Register(props) {
                                                 value={
                                                     data.password_confirmation
                                                 }
-                                                required
                                                 handleChange={onHandleChange}
                                             />
+                                            <InputError
+                                                message={
+                                                    errors.password_confirmation
+                                                }
+                                                className="mt-2"
+                                            />
                                         </div>
-                                        <InputError
-                                            message={errors.password}
-                                            className="mt-2"
-                                        />
                                     </div>
 
+                                    <hr />
                                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                                        {/* Street address field */}
                                         <div>
                                             <label
                                                 className="sr-only"
@@ -222,14 +223,14 @@ export default function Register(props) {
                                                 id="street_address"
                                                 name="street_address"
                                                 value={data.street_address}
-                                                required
                                                 handleChange={onHandleChange}
                                             />
+                                            <InputError
+                                                message={errors.street_address}
+                                                className="mt-2"
+                                            />
                                         </div>
-                                        <InputError
-                                            message={errors.street_address}
-                                            className="mt-2"
-                                        />
+                                        {/* Barangay field */}
                                         <div>
                                             <label
                                                 className="sr-only"
@@ -244,17 +245,17 @@ export default function Register(props) {
                                                 id="barangay"
                                                 name="barangay"
                                                 value={data.barangay}
-                                                required
                                                 handleChange={onHandleChange}
                                             />
+                                            <InputError
+                                                message={errors.barangay}
+                                                className="mt-2"
+                                            />
                                         </div>
-                                        <InputError
-                                            message={errors.barangay}
-                                            className="mt-2"
-                                        />
                                     </div>
 
                                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                                        {/* City field */}
                                         <div>
                                             <label
                                                 className="sr-only"
@@ -269,15 +270,14 @@ export default function Register(props) {
                                                 id="city"
                                                 name="city"
                                                 value={data.city}
-                                                required
                                                 handleChange={onHandleChange}
                                             />
+                                            <InputError
+                                                message={errors.city}
+                                                className="mt-2"
+                                            />
                                         </div>
-                                        <InputError
-                                            message={errors.city}
-                                            className="mt-2"
-                                        />
-
+                                        {/* Province field */}
                                         <div>
                                             <label
                                                 className="sr-only"
@@ -292,15 +292,14 @@ export default function Register(props) {
                                                 id="province"
                                                 name="province"
                                                 value={data.province}
-                                                required
                                                 handleChange={onHandleChange}
                                             />
+                                            <InputError
+                                                message={errors.province}
+                                                className="mt-2"
+                                            />
                                         </div>
-                                        <InputError
-                                            message={errors.province}
-                                            className="mt-2"
-                                        />
-
+                                        {/* Postal code field */}
                                         <div>
                                             <label
                                                 className="sr-only"
@@ -315,42 +314,50 @@ export default function Register(props) {
                                                 id="postal_code"
                                                 name="postal_code"
                                                 value={data.postal_code}
-                                                required
                                                 handleChange={onHandleChange}
+                                            />
+                                            <InputError
+                                                message={errors.postal_code}
+                                                className="mt-2"
                                             />
                                         </div>
                                     </div>
-                                    <div className="flex justify-between text-sm text-gray-900">
+                                    {/* Terms and conditions */}
+                                    <div className="grid lg:grid-flow-col  text-sm text-gray-900">
                                         <div className="flex gap-1 items-center">
                                             <TextInput
                                                 type="checkbox"
-                                                className="rounded"
+                                                className="rounded mr-1 accent-rose-600 "
+                                                required
                                             />
                                             <p>
-                                                Agree to {""}
-                                                <a
+                                                Agree to{" "}
+                                                <Link
                                                     href=""
                                                     className="underline"
                                                 >
                                                     Terms and Conditions
-                                                </a>
+                                                </Link>
                                             </p>
                                         </div>
 
-                                        <p>
+                                        <p className="mt-2 ml-2 lg:place-self-end">
                                             Already have an account? {""}
                                             <Link
                                                 href="/login"
                                                 className="underline"
                                             >
-                                                Sign up! as Betch
+                                                Sign up!
                                             </Link>
                                         </p>
                                     </div>
-                                    <div className="flex justify-end">
-                                        <button className="bg-blue-500 p-4 rounded py-1 self-center">
-                                            Register as Artist
-                                        </button>
+                                    {/* Submit button */}
+                                    <div className="w-full flex justify-end">
+                                        <TextInput
+                                            type="submit"
+                                            className="text-lg w-full text-white bg-rose-600 py-3 px-4 rounded self-center"
+                                            value="Sign up"
+                                        />
                                     </div>
                                 </form>
                             </div>

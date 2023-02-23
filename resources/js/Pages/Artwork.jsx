@@ -22,7 +22,7 @@ function Artwork({ auth, artwork, artist, artworks }) {
                                 `assets/artwork/${artwork.product_preview}`
                             )}
                             alt=""
-                            className=" h-full max-w-screen"
+                            className="w-full aspect-square max-w-screen"
                         />
                     </div>
                     <article className="">
