@@ -13,7 +13,7 @@ export default function Edit({ auth, mustVerifyEmail, status }) {
     return (
         <>
             <Head title="Profile" />
-            <ArtistLayout auth={auth}>
+            <Layout auth={auth}>
                 <div className="py-12">
                     <div className="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
                         <div className="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
@@ -41,7 +41,7 @@ export default function Edit({ auth, mustVerifyEmail, status }) {
                         </div>
                     </div>
                 </div>
-            </ArtistLayout>
+            </Layout>
         </>
     );
 }

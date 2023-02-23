@@ -78,7 +78,7 @@ function Artwork({ auth, artworks, artwork }) {
             <section className="mx-auto container bg-slate-50">
                 <div className=" text-2xl p-2">
                     More artworks from{" "}
-                    <span className=" text-red-600">{`${artworkDetails.first_name}
+                    <span className=" text-rose-600">{`${artworkDetails.first_name}
                             ${artworkDetails.last_name}`}</span>
                 </div>
                 <div className="grid grid-cols-1 w-4/5 lg:w-11/12 gap-x-8 gap-y-6 mx-auto place-items-center sm:grid-cols-2 lg:grid-cols-4 mb-20 justify-center">

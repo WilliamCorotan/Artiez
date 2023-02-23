@@ -40,18 +40,20 @@ Route::get('artists', function (Request $request) {
 });
 
 
-Route::get('artworks/{product}', [ArtworkController::class, 'show']
-);
+Route::get('artworks/{product}', [ArtworkController::class, 'show']);
 
 
 
-Route::get('artists/artist' , function (User $artists) {
+Route::get('artists/{artist}' , function (User $artist) {
     // $product= Product::findOrFail();
-    $artists = User::select()->where('user_id', $artists->artist_id)->get();
-
-
+    // $artist = User::select()->where('user_id', $artists->artist_id)->get();
+    // dd($artists);
+    $product = new Product;
+    $artworks = $product->where('artist_id', $artist->user_id)->orderBy('product_table.created_at', 'desc')->paginate(8);
+    // dd($artworks);
     return Inertia::render('Artists',  [
-        'artists' => $artists]);
+        'artist' => $artist,
+        'artworks' => $artworks]);
 });
 
 
