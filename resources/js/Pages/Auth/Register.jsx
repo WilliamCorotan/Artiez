@@ -1,12 +1,12 @@
-import { useEffect } from "react";
-import GuestLayout from "@/Layouts/GuestLayout";
+import { Footer } from "@/Components/Footer";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
+import Navbar from "@/Components/Navbar";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
+import GuestLayout from "@/Layouts/GuestLayout";
 import { Head, Link, useForm } from "@inertiajs/react";
-import Navbar from "@/Components/Navbar";
-import { Footer } from "@/Components/Footer";
+import { useEffect } from "react";
 
 export default function Register(props) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -233,8 +233,8 @@ export default function Register(props) {
                                             Register
                                         </button>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
