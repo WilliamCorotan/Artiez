@@ -24,15 +24,13 @@ Route::get('artists', function (Request $request) {
 
     $user = User::select()->where('role', '1')->get();
 
-    $query = User::select()->where('role', '1');
+    $query = User::where('role', '1');
     if($request->has('search')){
-        $query->where('first_name', 'like', '%' . $request->search . '%')->orWhere('last_name', 'like', '%' . $request->search . '%')->orderBy('created_at', 'desc');
+        $query->where('first_name', 'like', '%' . $request->search . '%')
+        ->orWhere('last_name', 'like', '%' . $request->search . '%')
+        ->orderBy('created_at', 'desc');
     }
-
-    if($request->has('art_style')){
-        $query->where('art_style', 'like', '%' . $request->art_style . '%');
-    }
-    $data = $query->orderBy('created_at', 'desc')->get();
+    $data = $query->orderBy('created_at', 'desc')->paginate(10);
     $artworks = Product::whereBelongsTo($user)->orderBy('created_at', 'desc')->get();
 
     return Inertia::render('ShowArtists', [
