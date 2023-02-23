@@ -5,7 +5,7 @@ export const ArtworkCard = ({ artworks, className }) => {
     return (
         <>
             <div
-                className={`w-full grid mb-5 transition ease-in-out delay-15 hover:-translate-y-0.5 hover:scale-110 hover:bg-white duration-300 rounded-md shadow-lg border-2 ${className}`}
+                className={`w-full h-full grid mb-5 transition ease-in-out delay-15 hover:-translate-y-0.5 hover:scale-110 hover:bg-white duration-300 rounded-md shadow-lg border-2 ${className}`}
             >
                 <div className="h-64 rounded-t-md">
                     <img
@@ -17,12 +17,12 @@ export const ArtworkCard = ({ artworks, className }) => {
                     />
                 </div>
 
-                <div className="p-5 h-28 grid text-gray-800">
+                <div className="p-5 self-end h-28 grid text-gray-900 bg-slate-50/60 ">
                     <h5 className="text-lg font-bold mb-2">
                         {artworks.product_name}
                     </h5>
                     <div className="flex justify-between self-end">
-                        <p className="text-xs text-gray-600">
+                        <p className="text-xs text-gray-800">
                             <span>{`${artworks.medium} on ${artworks.base}`}</span>
                             <span> | </span>
                             <span>{`${artworks.height}h x ${artworks.width}w in`}</span>

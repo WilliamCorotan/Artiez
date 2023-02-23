@@ -1,6 +1,5 @@
 import { Link } from "@inertiajs/react";
 import { ArtworkCard } from "./Admin/ArtworkCard";
-import { Card } from "./Card";
 
 const ArtistCard = ({ artist, artworks }) => {
     return (

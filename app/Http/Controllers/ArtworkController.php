@@ -82,7 +82,7 @@ class ArtworkController extends Controller
     {
         // $product = Product::findOrFail($id);
         $artist = User::select()->where('user_id', $product->artist_id)->get();
-        $artworks = Product::select()->where('artist_id', $product->artist_id)->orderBy('created_at', 'asc')->get();
+        $artworks = Product::select()->where('artist_id', $product->artist_id)->where('product_id', '!=', $product->product_id)->orderBy('created_at', 'desc')->get();
         return Inertia::render('Artwork', 
         ['artwork' => $product,
          'artist' => $artist,
