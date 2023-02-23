@@ -37,6 +37,7 @@ const Artists = ({ auth }) => {
                                 </div>
                             </div>
                             <div className="uppercase px-3">
+                                <h1></h1>
                                 <a href="#">Follow Artist</a>
                             </div>
                         </div>
