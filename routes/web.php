@@ -21,9 +21,9 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('artists', function (Request $request) {
-    
+
     $user = User::select()->where('role', '1')->get();
-    
+
     $query = User::select()->where('role', '1');
     if($request->has('search')){
         $query->where('first_name', 'like', '%' . $request->search . '%')->orWhere('last_name', 'like', '%' . $request->search . '%')->orderBy('created_at', 'desc');
@@ -40,6 +40,22 @@ Route::get('artists', function (Request $request) {
         'artworks' => $artworks
     ]);
 });
+
+
+Route::get('artworks/{product}', [ArtworkController::class, 'show']
+);
+
+
+
+Route::get('artists/artist' , function (User $artists) {
+    // $product= Product::findOrFail();
+    $artists = User::select()->where('user_id', $artists->artist_id)->get();
+
+
+    return Inertia::render('Artists',  [
+        'artists' => $artists]);
+});
+
 
 Route::get('artworks', function (Request $request) {
     // dd($request);
@@ -59,11 +75,13 @@ Route::get('artworks', function (Request $request) {
         $query->where('art_style', 'like', '%' . $request->art_style . '%');
     }
     $data = $query->orderBy('created_at', 'desc')->get();
-    
+
     return Inertia::render('ShowArtworks', [
         'artworks' => $data
     ]);
 });
+
+
 
 Route::get('/', function () {
     return Inertia::render('Homepage', [
@@ -116,6 +134,7 @@ Route::get('contact', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
 
 
 // Route::get('/email/verify', function () {

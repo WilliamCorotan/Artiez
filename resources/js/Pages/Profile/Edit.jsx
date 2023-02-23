@@ -13,20 +13,17 @@ export default function Edit({ auth, mustVerifyEmail, status }) {
     return (
         <>
             <Head title="Profile" />
-            <Layout auth={auth}>
-                {/* <section className="py-1 ">
-                    <div className="w-full lg:w-8/12 px-4 mx-auto mt-6 ">
-                        <div className="relative flex flex-col min-w-0 break-words w-full mb-6 ">
-                            <div className="rounded-t  mb-0 px-6 py-6">
-                                <div className="text-center flex justify-between">
-                                    <h1 className="text-roseGray-700 text-3xl font-bold">
-                                        Profile
-                                    </h1>
-                                    <button className=" px-6 py-2.5 bg-rose-600 text-white font-medium text-xs leading-tight uppercase rounded-md shadow-md hover:bg-rose-700 hover:shadow-lg focus:bg-rose-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-rose-800 active:shadow-lg transition duration-150 ease-in-out ">
-                                        Edit
-                                    </button>
-                                </div>
-                            </div>
+ 
+            
+           
+            <ArtistLayout auth={auth}>
+                <section className='py-1 '>
+                <div className='w-full lg:w-8/12 px-4 mx-auto mt-6 '>
+                   <div className='relative flex flex-col min-w-0 break-words w-full mb-6 '>
+                    <div className='rounded-t  mb-0 px-6 py-6'>
+                        <div className='text-center flex justify-between'>
+                            <h1 className='text-blueGray-700 text-3xl font-bold'>Profile</h1>
+                            <button className=' px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out '>Edit</button>
                         </div>
                         <div className="flex-auto px-4 lg:px-10 py-10 pt-0 ">
                             <form>
@@ -197,7 +194,11 @@ export default function Edit({ auth, mustVerifyEmail, status }) {
                         </div>
                     </div>
                 </div>
-            </Layout>
-        </>
+                </section>
+            </ArtistLayout>
+       
+            
+       
+        </AuthenticatedLayout>
     );
 }

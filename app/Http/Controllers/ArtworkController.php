@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -77,10 +78,15 @@ class ArtworkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $artwork)
+    public function show(Product $product)
     {
         // $product = Product::findOrFail($id);
-        return Inertia::render('Artist/showArtwork', ['artwork' => $artwork]);
+        $artist = User::select()->where('user_id', $product->artist_id)->get();
+        $artworks = Product::select()->where('artist_id', $product->artist_id)->orderBy('created_at', 'asc')->get();
+        return Inertia::render('Artwork', 
+        ['artwork' => $product,
+         'artist' => $artist,
+        'artworks' => $artworks]);
     }
 
     /**
