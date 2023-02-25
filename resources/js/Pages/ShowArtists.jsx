@@ -35,7 +35,7 @@ function ShowArtists({ auth, artists, artworks }) {
             }
         });
         return (
-            <ArtistsCard
+            <ArtistCard
                 key={artist.user_id}
                 artist={artist}
                 artworks={artistArtworks}
