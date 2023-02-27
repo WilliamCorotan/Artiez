@@ -11,11 +11,82 @@
  Target Server Version : 100427
  File Encoding         : 65001
 
- Date: 21/02/2023 13:13:28
+ Date: 28/02/2023 07:38:40
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for ch_favorites
+-- ----------------------------
+DROP TABLE IF EXISTS `ch_favorites`;
+CREATE TABLE `ch_favorites`  (
+  `id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `favorite_id` bigint(20) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of ch_favorites
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for ch_messages
+-- ----------------------------
+DROP TABLE IF EXISTS `ch_messages`;
+CREATE TABLE `ch_messages`  (
+  `id` bigint(20) NOT NULL,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `from_id` bigint(20) NOT NULL,
+  `to_id` bigint(20) NOT NULL,
+  `body` varchar(5000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `attachment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `seen` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of ch_messages
+-- ----------------------------
+INSERT INTO `ch_messages` VALUES (1679428124, 'user', 29, 26, 'hi', NULL, 1, '2023-02-27 07:12:44', '2023-02-27 07:16:43');
+INSERT INTO `ch_messages` VALUES (1846191465, 'user', 26, 29, '1', NULL, 1, '2023-02-27 07:19:53', '2023-02-27 07:20:08');
+INSERT INTO `ch_messages` VALUES (1994742701, 'user', 29, 29, 'hi', NULL, 0, '2023-02-27 09:33:11', '2023-02-27 09:33:11');
+INSERT INTO `ch_messages` VALUES (2093633143, 'user', 26, 29, 'test 2', NULL, 1, '2023-02-27 07:19:41', '2023-02-27 07:20:08');
+INSERT INTO `ch_messages` VALUES (2107712888, 'user', 26, 29, 'test', NULL, 1, '2023-02-27 09:05:24', '2023-02-27 09:16:24');
+INSERT INTO `ch_messages` VALUES (2197243993, 'user', 29, 26, 'hello', NULL, 1, '2023-02-27 07:11:20', '2023-02-27 07:16:43');
+INSERT INTO `ch_messages` VALUES (2214388846, 'user', 29, 26, 'test', NULL, 1, '2023-02-27 07:26:23', '2023-02-27 07:30:51');
+INSERT INTO `ch_messages` VALUES (2333494403, 'user', 26, 29, 'test', NULL, 1, '2023-02-27 07:16:53', '2023-02-27 07:17:05');
+INSERT INTO `ch_messages` VALUES (2365364114, 'user', 29, 26, '1', NULL, 1, '2023-02-27 07:33:30', '2023-02-27 07:43:19');
+INSERT INTO `ch_messages` VALUES (2377104943, 'user', 29, 26, 'test', NULL, 0, '2023-02-27 09:16:27', '2023-02-27 09:16:27');
+INSERT INTO `ch_messages` VALUES (2387017400, 'user', 29, 26, 'test2', NULL, 0, '2023-02-27 09:20:47', '2023-02-27 09:20:47');
+
+-- ----------------------------
+-- Table structure for migrations
+-- ----------------------------
+DROP TABLE IF EXISTS `migrations`;
+CREATE TABLE `migrations`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of migrations
+-- ----------------------------
+INSERT INTO `migrations` VALUES (1, '2019_12_14_000001_create_personal_access_tokens_table', 1);
+INSERT INTO `migrations` VALUES (2, '2023_02_27_999999_add_active_status_to_users', 1);
+INSERT INTO `migrations` VALUES (3, '2023_02_27_999999_add_avatar_to_users', 1);
+INSERT INTO `migrations` VALUES (4, '2023_02_27_999999_add_dark_mode_to_users', 1);
+INSERT INTO `migrations` VALUES (5, '2023_02_27_999999_add_messenger_color_to_users', 1);
+INSERT INTO `migrations` VALUES (6, '2023_02_27_999999_create_favorites_table', 1);
+INSERT INTO `migrations` VALUES (7, '2023_02_27_999999_create_messages_table', 1);
 
 -- ----------------------------
 -- Table structure for ordered_item_table
@@ -68,6 +139,30 @@ INSERT INTO `payment_method_table` VALUES (4, 'Money Transfer');
 INSERT INTO `payment_method_table` VALUES (5, 'Pay Later');
 
 -- ----------------------------
+-- Table structure for personal_access_tokens
+-- ----------------------------
+DROP TABLE IF EXISTS `personal_access_tokens`;
+CREATE TABLE `personal_access_tokens`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `tokenable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `expires_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `personal_access_tokens_token_unique`(`token`) USING BTREE,
+  INDEX `personal_access_tokens_tokenable_type_tokenable_id_index`(`tokenable_type`, `tokenable_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of personal_access_tokens
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for product_table
 -- ----------------------------
 DROP TABLE IF EXISTS `product_table`;
@@ -91,46 +186,18 @@ CREATE TABLE `product_table`  (
   INDEX `artist_id`(`artist_id`) USING BTREE,
   INDEX `base_id`(`base`) USING BTREE,
   INDEX `medium_id`(`medium`) USING BTREE,
-  CONSTRAINT `product_table_ibfk_4` FOREIGN KEY (`artist_id`) REFERENCES `users` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 35 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+  CONSTRAINT `product_table_ibfk_4` FOREIGN KEY (`artist_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 43 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product_table
 -- ----------------------------
-INSERT INTO `product_table` VALUES (1, 'Saccharum alopecuroides (L.) Nutt.', 'erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc', 26, 47, 42, '11', '7', 'Mélissandre', 'gravida', 'art2.avif', 37046.21, 0, '2022-12-14 04:32:09', '2020-10-10 14:34:12');
-INSERT INTO `product_table` VALUES (2, 'Stellaria crassifolia Ehrh.', 'convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id', 17, 44, 26, '7', '2', 'Styrbjörn', 'magnis dis', 'art3.avif', 18196.19, 0, '2022-12-30 13:37:14', '2021-07-23 13:15:44');
-INSERT INTO `product_table` VALUES (3, 'Amomum gracile Blume', 'curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque', 26, 29, 22, '1', '3', 'Lorène', 'turpis', 'morbi', 15630.86, 1, '2022-10-27 13:14:27', '2021-11-18 23:37:04');
-INSERT INTO `product_table` VALUES (4, 'Urochloa platyphylla (Munro ex C. Wright) R.D. Webster', 'vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam', 14, 45, 40, '5', '6', 'Ruì', 'lobortis sapien', 'felis eu', 24662.87, 1, '2023-02-03 00:01:38', '2019-01-22 14:37:53');
-INSERT INTO `product_table` VALUES (5, 'Spergularia maritima (All.) Chiov.', 'quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non', 19, 29, 48, '3', '6', 'Régine', 'ac', 'tellus nulla', 38835.36, 0, '2023-01-25 20:54:54', '2021-03-05 20:11:20');
-INSERT INTO `product_table` VALUES (6, 'Berteroa DC.', 'eu felis fusce posuere felis sed lacus morbi sem mauris', 26, 22, 13, '6', '8', 'Simplifiés', 'quam pede', 'sagittis', 31378.33, 1, '2023-01-31 01:50:05', '2021-09-17 19:35:22');
-INSERT INTO `product_table` VALUES (7, 'Castilleja linariifolia Benth.', 'dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique', 12, 39, 28, '11', '1', 'Tán', 'quisque porta', 'velit', 48904.1, 0, '2023-01-27 00:55:36', '2021-09-11 11:04:12');
-INSERT INTO `product_table` VALUES (8, 'Penstemon richardsonii Douglas ex Lindl. var. curtiflorus (D.D. Keck) Cronquist', 'eleifend quam a odio in hac habitasse platea dictumst maecenas', 11, 35, 23, '9', '5', 'Célestine', 'nunc nisl', 'odio', 34435.28, 1, '2022-11-04 07:26:38', '2019-08-19 08:45:52');
-INSERT INTO `product_table` VALUES (9, 'Panicum virgatum L.', 'vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc', 12, 45, 13, '1', '3', 'Zhì', 'ut erat', 'in leo', 17439.95, 1, '2022-12-17 06:03:03', '2019-08-21 22:30:19');
-INSERT INTO `product_table` VALUES (10, 'Pteridium arachnoideum (Kaulf.) Maxon', 'faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut', 13, 21, 26, '10', '2', 'Liè', 'ut', 'ipsum', 28021.35, 0, '2023-01-28 20:48:35', '2021-10-22 19:59:22');
-INSERT INTO `product_table` VALUES (11, 'Trichomanes punctatum Poir. ssp. floridanum W. Boer', 'nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit', 8, 37, 36, '3', '10', 'Kallisté', 'in lacus', 'id nisl', 29525.52, 1, '2022-11-22 01:53:50', '2021-01-03 02:31:46');
-INSERT INTO `product_table` VALUES (12, 'Bacidia rubella (Hoffm.) A. Massal.', 'euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis', 26, 21, 23, 'Canvas', 'Oil', 'Avant-garde', 'est lacinia', 'art3.avif', 8235.75, 1, '2022-12-13 13:53:49', '2021-01-25 02:15:34');
-INSERT INTO `product_table` VALUES (13, 'Myriophyllum ussuriense (Regel) Maxim.', 'in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin', 6, 16, 43, '7', '1', 'Garçon', 'augue a', 'purus', 11191.29, 0, '2022-10-13 17:08:53', '2021-03-19 23:40:30');
-INSERT INTO `product_table` VALUES (14, 'Ruellia purshiana Fernald', 'porttitor lacus at turpis donec posuere metus vitae ipsum aliquam', 1, 46, 24, '3', '3', 'Andrée', 'eu', 'cras in', 23650.76, 1, '2022-11-04 19:40:29', '2020-01-06 07:59:19');
-INSERT INTO `product_table` VALUES (15, 'Carex bulbostylis Mack.', 'lacinia aenean sit amet justo morbi ut odio cras mi', 13, 36, 26, '10', '3', 'Ruò', 'rutrum neque', 'integer aliquet', 32659.02, 1, '2022-11-23 05:38:56', '2019-10-17 23:40:52');
-INSERT INTO `product_table` VALUES (16, 'Huperzia nutans (Brack.) Rothm.', 'eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a', 8, 27, 34, '8', '7', 'Léonie', 'eget', 'tincidunt', 24610.25, 0, '2023-02-02 21:02:35', '2021-07-01 06:03:42');
-INSERT INTO `product_table` VALUES (17, 'Myrsine knudsenii (Rock) Hosaka', 'suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean', 26, 16, 32, '12', '9', 'Chloé', 'gravida', 'ultrices', 30275.85, 0, '2023-01-19 07:33:44', '2020-03-21 04:41:50');
-INSERT INTO `product_table` VALUES (18, 'Rubus curtipes L.H. Bailey', 'dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur', 16, 44, 47, '11', '4', 'Marie-thérèse', 'quis justo', 'nulla tellus', 31020.44, 1, '2022-12-13 05:29:56', '2021-08-03 10:28:52');
-INSERT INTO `product_table` VALUES (19, 'Polygonum capitatum Buch.-Ham. ex D. Don', 'vulputate elementum nullam varius nulla facilisi cras non velit nec nisi', 16, 32, 25, '5', '6', 'Stévina', 'ipsum primis', 'neque', 44664.27, 1, '2022-12-08 08:27:24', '2020-08-15 02:59:05');
-INSERT INTO `product_table` VALUES (20, 'Rhynchospora solitaria Harper', 'libero ut massa volutpat convallis morbi odio odio elementum eu', 16, 23, 31, '7', '1', 'Maëlys', 'eu magna', 'nulla', 36856.55, 0, '2023-01-12 06:52:37', '2020-09-15 17:20:20');
-INSERT INTO `product_table` VALUES (21, 'test 2', 'test 2', 26, 18, 13, '6', '4', 'Avant-garde', 'N/A', 'N/A', 12000, 0, '2023-02-13 06:51:09', '2023-02-13 06:51:09');
-INSERT INTO `product_table` VALUES (22, 'demo artwork', 'desc', 26, 11, 13, 'Glass', 'Digital', 'Conceptual', NULL, 'blob:http://127.0.0.1:8000/b51875ad-ae69-4f7c-ab4e-2bcbb3e0b3a5', 12999, 0, '2023-02-19 10:05:57', '2023-02-19 10:05:57');
-INSERT INTO `product_table` VALUES (23, 'demo artwork 2', 'desc 2', 26, 12, 18, 'Cardboard', 'Pastel', 'Minimalism', NULL, 'blob:http://127.0.0.1:8000/8893e23b-2415-491c-8ed5-32b31c25c899', 10233, 0, '2023-02-19 10:15:39', '2023-02-19 10:15:39');
-INSERT INTO `product_table` VALUES (24, 'demo artwork 3', 'qweasd', 26, 12, 12, 'Canvas', 'Oil', '3D Art', NULL, 'blob:http://127.0.0.1:8000/003d4ea5-2024-4dd0-9c01-ccf10ebe7f38', 12345, 0, '2023-02-19 10:19:48', '2023-02-19 10:19:48');
-INSERT INTO `product_table` VALUES (25, 'demo artwork', 'qweqwe', 26, 11, 13, 'Canvas', 'Charcoal', 'Abstract Expressionism', NULL, 'assets/artwork/qt5EZHff4gNzmsCxlIfqV0TwjLMiPzwX1YzMFlsr.jpg', 12345, 0, '2023-02-19 10:32:54', '2023-02-19 10:32:54');
-INSERT INTO `product_table` VALUES (26, 'demo artwork', 'qweqwe', 26, 12, 12, 'Cardboard', 'Oil', 'Abstract Expressionism', NULL, 'C:\\xampp\\tmp\\phpB4BD.tmp', 123123, 0, '2023-02-19 10:35:16', '2023-02-19 10:35:16');
-INSERT INTO `product_table` VALUES (27, 'test data', 'qweqwe', 26, 12, 13, 'Cardboard', 'Digital', 'Abstract Expressionism', NULL, 'assets/artwork/aHY14ZJ91wZ24XLvOUevY7IY5B6Jo9V58CeVtHHL.jpg', 4321, 0, '2023-02-19 10:48:22', '2023-02-19 10:48:22');
-INSERT INTO `product_table` VALUES (28, 'demo artwork', 'qweqwe', 26, 12, 13, 'Cardboard', 'Oil', 'Avant-garde', NULL, 'C:\\xampp\\tmp\\php6A4F.tmp', 123123, 0, '2023-02-19 10:53:31', '2023-02-19 10:53:31');
-INSERT INTO `product_table` VALUES (29, 'test data', 'qweqwe', 26, 123, 123, 'Board', 'Oil', 'Classicism', NULL, 'C:\\xampp\\tmp\\php2E7B.tmp', 123123, 0, '2023-02-19 10:54:21', '2023-02-19 10:54:21');
-INSERT INTO `product_table` VALUES (30, 'test 3', 'qweqwe', 26, 12, 13, 'Fabric', 'Pastel', 'Abstract Expressionism', NULL, '1676804139.jpg', 123123, 0, '2023-02-19 10:55:39', '2023-02-19 10:55:39');
-INSERT INTO `product_table` VALUES (31, 'demo artwork 23', 'rtest', 26, 18, 13, 'Special Paper', 'Pastel', 'Classicism', NULL, '1676804509.png', 123456, 0, '2023-02-19 11:01:49', '2023-02-19 11:01:49');
-INSERT INTO `product_table` VALUES (32, 'demo artwork', 'qweqweqw', 26, 12, 13, 'Cardboard', 'Digital', 'Abstract Expressionism', NULL, '1676815021.png', 62312, 0, '2023-02-19 13:57:01', '2023-02-19 13:57:01');
-INSERT INTO `product_table` VALUES (33, 'test image', 'test description', 26, 4, 4, 'Paper', 'Digital', 'Illustration', NULL, '1676824828.png', 12000, 0, '2023-02-19 16:40:28', '2023-02-19 16:40:28');
-INSERT INTO `product_table` VALUES (34, 'Coffeee!!!', 'Para saan ka bumabangon', 26, 12, 18, 'Canvas', 'Pastel', 'Expressionism', NULL, '1676864817.jpg', 1000000, 0, '2023-02-20 03:46:57', '2023-02-20 03:46:57');
+INSERT INTO `product_table` VALUES (37, 'Self Portrait', 'This self-portrait is a striking depiction of the artist, captured in vivid detail with bold brushstrokes and vibrant colors. The subject\'s intense gaze meets the viewer\'s eyes, conveying a sense of introspection and contemplation. The portrait is a masterful exploration of identity and self-expression, inviting the viewer to reflect on their own sense of self.', 33, 12, 18, 'Canvas', 'Oil', 'Portraiture', NULL, '1677518404.jpg', 3699, 0, '2023-02-27 17:20:04', '2023-02-27 17:20:04');
+INSERT INTO `product_table` VALUES (38, 'BETWEEN HEAVEN AND EARTH.', '\"BETWEEN HEAVEN AND EARTH\" is a stunning artwork that captures the ethereal beauty of the natural world. The piece depicts a majestic mountain range rising up towards the sky, with fluffy clouds hovering in the distance. The colors are soft and muted, lending a dreamy quality to the landscape. The painting evokes a sense of awe and wonder, inviting the viewer to contemplate their place in the universe and the delicate balance between the earthly and the divine.', 33, 18, 24, 'Canvas', 'Oil', 'Abstract', NULL, '1677520983.jpg', 18300, 0, '2023-02-27 18:03:03', '2023-02-27 18:03:03');
+INSERT INTO `product_table` VALUES (39, 'Anxiety', '\"Anxiety\" is a deeply moving artwork that conveys the tumultuous emotions and inner turmoil that can come with the experience of anxiety. The piece features a figure hunched over, their face obscured by writhing tendrils of black and grey that seem to represent the overwhelming thoughts and feelings that can consume a person struggling with anxiety. The colors are dark and intense, conveying a sense of unease and distress. The artwork serves as a poignant reminder of the importance of mental health and the struggles that many people face on a daily basis.', 33, 18, 22, 'Canvas', 'Oil', 'Expressionism', NULL, '1677521130.jpg', 16299, 0, '2023-02-27 18:05:30', '2023-02-27 18:05:30');
+INSERT INTO `product_table` VALUES (40, 'Sisa S5 - Lumang Pahina ng Kasaysayan', '\"Sisa S5 - Lumang Pahina ng Kasaysayan\" is a thought-provoking artwork that explores themes of history, memory, and identity. The piece depicts an old and tattered book, open to a page that is partially obscured by a colorful and dynamic abstract composition. The book\'s title, \"Sisa S5,\" is emblazoned on the cover, suggesting a connection to Philippine history and literature. The juxtaposition of the aging book with the vibrant and modern artwork creates a powerful visual contrast, prompting the viewer to consider the interplay between the past and the present, tradition and innovation. Overall, the artwork is a captivating and insightful reflection on the complex relationship between art, history, and culture.', 33, 12, 16, 'Glass', 'Acrylic', 'Expressionism', NULL, '1677521707.jpg', 7500, 0, '2023-02-27 18:15:07', '2023-02-27 18:15:07');
+INSERT INTO `product_table` VALUES (41, 'flower', '\"Flower\" is a simple yet striking artwork that celebrates the beauty of nature. The piece features a single flower, rendered in exquisite detail with delicate petals and vibrant colors. The flower is depicted against a stark white background, emphasizing its purity and radiance. The artwork invites the viewer to appreciate the simple pleasures of life and find joy in the natural world. Through its subtle elegance and understated charm, \"Flower\" reminds us of the power of nature to inspire and uplift the human spirit.', 33, 12, 16, 'Canvas', 'Watercolor', 'Contemporary', NULL, '1677522029.jpg', 16500, 0, '2023-02-27 18:20:29', '2023-02-27 18:20:29');
+INSERT INTO `product_table` VALUES (42, 'Nubian Warriors of the Nile', '\"Nubian Warriors\" is a dynamic and powerful artwork that captures the strength and resilience of the Nubian people. The piece features two warriors, depicted in bold and vivid colors, with intricate patterns adorning their clothing and weapons. The warriors\' expressions are fierce and determined, conveying a sense of confidence and fearlessness in the face of adversity. The artwork is a tribute to the rich cultural heritage of the Nubian people and a celebration of their indomitable spirit. Through its stunning imagery and evocative symbolism, \"Nubian Warriors\" inspires admiration and respect for the enduring legacy of this remarkable civilization.', 33, 18, 24, 'Fine Art Paper', 'Pencil', 'Folk', NULL, '1677522405.jpg', 8450, 0, '2023-02-27 19:15:52', '2023-02-27 18:26:45');
 
 -- ----------------------------
 -- Table structure for transaction_table
@@ -148,7 +215,7 @@ CREATE TABLE `transaction_table`  (
   INDEX `order_item_id`(`order_item_id`) USING BTREE,
   INDEX `payment_method_id`(`payment_method_id`) USING BTREE,
   CONSTRAINT `transaction_table_ibfk_3` FOREIGN KEY (`payment_method_id`) REFERENCES `payment_method_table` (`payment_method_id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `transaction_table_ibfk_4` FOREIGN KEY (`buyer_id`) REFERENCES `users` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  CONSTRAINT `transaction_table_ibfk_4` FOREIGN KEY (`buyer_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -160,7 +227,7 @@ CREATE TABLE `transaction_table`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users`  (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `last_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `first_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `contact_number` varchar(13) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
@@ -174,35 +241,14 @@ CREATE TABLE `users`  (
   `postal_code` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `updated_at` datetime NULL DEFAULT NULL,
   `created_at` datetime NULL DEFAULT NULL,
-  PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+  `profile_picture` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 'Moodie', 'Loren', '09192593278', 'lmoodie0@slashdot.org', 'mnwaVDa', 0, '37 West Drive', 'Shopko', 'Sbikha', 'Davao del Norte', NULL, '2023-02-05 20:31:11', '2020-08-16 05:07:01');
-INSERT INTO `users` VALUES (2, 'Degenhardt', 'Stacie', '09526042064', 'sdegenhardt1@ox.ac.uk', 'nvjhv19', 0, '56 Cherokee Park', 'Becker', 'Heung-hai', 'Rizal', NULL, '2022-03-26 08:53:01', '2019-06-21 18:02:28');
-INSERT INTO `users` VALUES (3, 'Foden', 'Rodd', '09034721175', 'rfoden2@google.com.hk', 'Ok3fTiVSik', 1, '59 Duke Crossing', 'Golf View', 'Leninskiy', 'Cavite', '678944', '2022-05-18 09:45:19', '2021-11-20 13:17:25');
-INSERT INTO `users` VALUES (4, 'MacGibbon', 'Titus', '09856433281', 'tmacgibbon3@gmpg.org', 'A0mYVRm', 0, '44 Longview Point', 'Londonderry', 'Barru', 'Bulacan', NULL, '2022-09-24 12:37:53', '2020-01-09 05:05:42');
-INSERT INTO `users` VALUES (5, 'Tackley', 'Mason', '09019048514', 'mtackley4@answers.com', 'uf0XZGxltG', 0, '07 Southridge Parkway', 'Anthes', 'Oslo', 'Oslo', '0915', '2022-04-23 19:10:09', '2021-12-06 04:59:20');
-INSERT INTO `users` VALUES (6, 'Ovitts', 'Mickie', '09351776419', 'movitts5@printfriendly.com', 'dTivxw7JCOr', 0, '7900 Dapin Terrace', 'Nancy', 'Qingxi', 'Iligan', NULL, '2022-07-19 22:46:17', '2019-01-09 08:33:43');
-INSERT INTO `users` VALUES (7, 'Meni', 'Dennis', '09946899575', 'dmeni6@netvibes.com', 'LhFJy1chtVxO', 0, '6 Morning Trail', 'West', 'San Juan', 'NCR', '6227', '2022-12-25 19:09:26', '2019-09-12 07:28:37');
-INSERT INTO `users` VALUES (8, 'Philipsohn', 'Berrie', '09849141992', 'bphilipsohn7@webmd.com', '04CjxsgbyB', 1, '0 Manufacturers Street', '8th', 'Moncton', 'New Brunswick', 'E1C', '2022-09-10 19:31:07', '2019-08-01 06:06:25');
-INSERT INTO `users` VALUES (9, 'Tremlett', 'Gerti', '09956338939', 'gtremlett8@theglobeandmail.com', 'sheo7IC', 0, '74799 Clyde Gallagher Plaza', 'Nevada', 'Carleton Place', 'Ontario', 'K7C', '2022-07-10 05:22:42', '2019-07-11 11:49:38');
-INSERT INTO `users` VALUES (10, 'Binham', 'Bryanty', '09245847943', 'bbinham9@123-reg.co.uk', 'k0tSWNx', 0, '8851 Ridgeview Circle', 'School', 'Cruzeiro', 'Aveiro', '3700-364', '2022-08-03 02:23:53', '2021-12-15 16:41:45');
-INSERT INTO `users` VALUES (11, 'Queste', 'Fitz', '09757032588', 'fquestea@naver.com', '6nKaH8MSq', 1, '4138 Arkansas Court', 'Packers', 'Vällingby', 'Stockholm', '162 50', '2022-02-15 10:57:25', '2018-12-04 02:13:50');
-INSERT INTO `users` VALUES (12, 'Maltby', 'Ladonna', '09738889957', 'lmaltbyb@washingtonpost.com', 'uXtWXVqe', 1, '969 Johnson Way', 'Sommers', 'Miřetice', 'NCR', '539 55', '2022-06-16 06:00:03', '2021-02-10 22:26:19');
-INSERT INTO `users` VALUES (13, 'Karpinski', 'Humphrey', '09895863590', 'hkarpinskic@springer.com', 'hJJy8TXF', 1, '0 American Trail', 'Bultman', 'Buenaventura', 'Rizal', '764517', '2022-03-25 03:35:19', '2019-11-16 02:00:31');
-INSERT INTO `users` VALUES (14, 'Given', 'Bette-ann', '09757895937', 'bgivend@spiegel.de', '39FYMX', 1, '6 Crest Line Way', 'Russell', 'Nice', 'Provence-Alpes-Côte d\'Azur', '06306 CEDE', '2022-08-23 09:19:11', '2021-09-10 23:43:57');
-INSERT INTO `users` VALUES (15, 'Phare', 'Roley', '09278222534', 'rpharee@imageshack.us', 'a4jkyiP3t', 1, '2 Heffernan Trail', 'Harbort', 'Flen', 'Södermanland', '642 82', '2022-06-24 20:40:10', '2021-08-27 10:23:03');
-INSERT INTO `users` VALUES (16, 'Haack', 'Dara', '09204028665', 'dhaackf@cnn.com', 'vtqtXRTS', 0, '493 Stephen Road', 'Toban', 'Laojieji', 'Davao del Sur', NULL, '2022-12-21 22:55:31', '2020-12-15 04:29:59');
-INSERT INTO `users` VALUES (17, 'Lune', 'Arturo', '09146472956', 'aluneg@canalblog.com', 'dBFQk2f8imD', 0, '8749 Russell Place', 'Cascade', 'Spétses', 'Davao del Norte', NULL, '2022-09-13 06:17:17', '2019-03-27 07:30:00');
-INSERT INTO `users` VALUES (18, 'Beazleigh', 'Deni', '09115939061', 'dbeazleighh@bbb.org', 'Plg4JZO0PSV', 1, '014 Truax Plaza', 'Stephen', 'Sabaneta', 'Bicol', '055457', '2022-03-30 14:42:16', '2021-10-25 10:10:15');
-INSERT INTO `users` VALUES (19, 'Vivians', 'Else', '09411207219', 'eviviansi@squidoo.com', '9UkZNhjUODh', 0, '57332 Calypso Alley', 'Hoffman', 'Llaillay', 'Bicol', NULL, '2022-06-18 16:44:14', '2021-06-09 03:02:51');
-INSERT INTO `users` VALUES (20, 'Raittie', 'Remy', '09178898436', 'rraittiej@nymag.com', 'B2oBp2Jg', 1, '3 Knutson Trail', 'Hovde', 'Bogoroditsk', 'NCR', '301839', '2022-03-25 07:26:53', '2020-07-01 07:04:56');
-INSERT INTO `users` VALUES (26, 'Corotan', 'William Anthony', '09478051730', 'williamcorotan@gmail.com', '$2y$10$VXax4Ms1.E1/Upb52SdzHOCGaFqKZ1YpGoN631OjSmPAH9fA3kn3O', 1, 'test st add', 'brgy', 'city', 'province', '1920', '2023-02-13 05:10:25', '2023-02-13 05:10:25');
-INSERT INTO `users` VALUES (27, 'Corotan', 'William Anthony', '+639478051730', 'test@email.com', '$2y$10$egdWUVzbc/vxj8KXloQizeTRALZ4p7q6ekwKQGIBix6gYiDzBH68S', 0, 'test st add', 'brgy', 'city', 'province', '1920', '2023-02-14 06:07:50', '2023-02-14 06:07:50');
-INSERT INTO `users` VALUES (28, 'Mei', 'Stella', '09123456789', 'stellamei@gmail.com', '$2y$10$nNGfgxB6.alN6cc72f7eHuWVj7U6bkSgxc95laWY1uioGDHjVZkAu', 1, 'st', 'brgy', 'city', 'province', '1001', '2023-02-15 07:42:55', '2023-02-15 07:42:55');
-INSERT INTO `users` VALUES (29, 'buyer', 'buyer', '09123456789', 'buyer@gmail.com', '$2y$10$IDqZmEQ2rC7bHRX4NAMD/.9O9.AT6TMJdWWOewZf0kE6MsvYi7wWe', 0, 'test st add', 'brgy', 'city', 'province', '1920', '2023-02-20 05:03:03', '2023-02-20 05:03:03');
+INSERT INTO `users` VALUES (33, 'Da Von Chi', 'Leo', '09123342231', 'leovon@artist.com', '$2y$10$wqQWiypY9r6TmqLtKMh2qevko/wLoyR0uT/kIK6ZqnA7F8TNAC0li', 1, 'Macanaya District II Highway', 'Lapok', 'Aparri', 'Aparri', '1243', '2023-02-27 17:04:57', '2023-02-27 17:00:28', '1677517497.jpg', NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;
