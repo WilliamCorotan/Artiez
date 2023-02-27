@@ -2,8 +2,8 @@ import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
-import { Link, useForm, usePage } from "@inertiajs/react";
 import { Transition } from "@headlessui/react";
+import { Link, useForm, usePage } from "@inertiajs/react";
 
 export default function UpdateProfileInformation({
     mustVerifyEmail,
@@ -78,6 +78,22 @@ export default function UpdateProfileInformation({
                     <InputError className="mt-2" message={errors.barangay} />
                 </div>
 
+                {/* City field */}
+                <div>
+                    <InputLabel for="city" value="City" />
+
+                    <TextInput
+                        id="city"
+                        type="text"
+                        className="mt-1 block w-full"
+                        value={data.city}
+                        handleChange={(e) => setData("city", e.target.value)}
+                        required
+                    />
+
+                    <InputError className="mt-2" message={errors.city} />
+                </div>
+
                 {/* Province field */}
                 <div>
                     <InputLabel for="province" value="Province" />
@@ -94,22 +110,6 @@ export default function UpdateProfileInformation({
                     />
 
                     <InputError className="mt-2" message={errors.province} />
-                </div>
-
-                {/* Province field */}
-                <div>
-                    <InputLabel for="city" value="City" />
-
-                    <TextInput
-                        id="city"
-                        type="text"
-                        className="mt-1 block w-full"
-                        value={data.city}
-                        handleChange={(e) => setData("city", e.target.value)}
-                        required
-                    />
-
-                    <InputError className="mt-2" message={errors.city} />
                 </div>
 
                 {/* Postal Code field */}

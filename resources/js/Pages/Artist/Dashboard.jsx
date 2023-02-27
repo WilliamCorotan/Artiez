@@ -1,12 +1,11 @@
-import ArtistLayout from "@/Layouts/ArtistLayout";
 import WelcomeBanner from "@/Components/Admin/WelcomeBanner";
+import ArtistLayout from "@/Layouts/ArtistLayout";
 
-import { Head } from "@inertiajs/react";
-import { ArtworkCard } from "../../Components/Admin/ArtworkCard";
-import { Link } from "@inertiajs/react";
 import BarChart01 from "@/Components/Admin/charts/BarChart01";
 import BarChart02 from "@/Components/Admin/charts/BarChart02";
 import BarChart03 from "@/Components/Admin/charts/BarChart03";
+import { Head, Link } from "@inertiajs/react";
+import { ArtworkCard } from "../../Components/Admin/ArtworkCard";
 
 const Dashboard = ({ auth, artworks }) => {
     let soldArtworks = 0;
