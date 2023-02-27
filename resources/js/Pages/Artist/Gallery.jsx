@@ -11,7 +11,11 @@ const Gallery = ({ auth, artworks }) => {
         <>
             <Head title="Dashboard" />
             <ArtistLayout auth={auth}>
-                <div className="px-20 sm:px-6 lg:px-8 py-30 w-4/5 max-w-9xl mx-auto">
+                <h1 className="text-center text-2xl lg:text-4xl py-4">
+                    {" "}
+                    Latest Artworks{" "}
+                </h1>
+                <div className="grid lg:grid-cols-6 gap-8 py-30 w-4/5 mx-auto mb-8">
                     {artworks.map((item) => {
                         return (
                             <ArtworkCard
