@@ -3,9 +3,9 @@ import { Link } from "@inertiajs/react";
 export const Category = () => {
     return (
         <>
-            <section className=" overflow-hidden min-h-96 mb-20">
-                <div className=" justify-items-center">
-                    <h1 className="uppercase text-red-600 text-center font-bold text-4xl pt-14">
+            <section className="relative overflow-hidden h-fit pb-20 bg-rose-600 ">
+                <div className=" justify-items-center text-white">
+                    <h1 className="uppercase  text-center font-bold text-4xl pt-14">
                         How it works
                     </h1>
                     <p className="text-center font-bold uppercase py-2">
@@ -13,7 +13,7 @@ export const Category = () => {
                     </p>
                 </div>
 
-                <div className="grid w-4/5 mx-auto py-10 place-items-center gap-10 md:gap-8 text-gray-900 sm:grid-cols-1 lg:grid-cols-3 uppercase">
+                <div className="grid w-4/5 mx-auto py-10 place-items-center gap-10 md:gap-8 text-gray-900 sm:grid-cols-1 lg:grid-cols-3 uppercase ">
                     <div className="relative shadow-lg shadow-gray-200 duration-300 hover:-translate-y-1 max-w-sm bg-white">
                         <div>
                             <img

@@ -115,6 +115,8 @@ Route::middleware('auth', 'verified', 'user-role:artist')->group(function () {
     })->name('gallery');
     Route::get('/artist/artworks/add', [ArtworkController::class, 'create']);
     Route::post('/artist/artworks/add', [ArtworkController::class, 'store'])->name('artworks.store');
+    Route::get('/artist/artworks/edit/{artwork}', [ArtworkController::class, 'edit'])->name('artworks.edit');
+    Route::post('/artist/artworks/edit/', [ArtworkController::class, 'update'])->name('artworks.update');
 });
 
 Route::get('about', function () {

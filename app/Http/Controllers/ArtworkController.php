@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Product;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class ArtworkController extends Controller
 {
@@ -91,10 +92,9 @@ class ArtworkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $artwork)
     {
-        $product = Product::findOrFail();
-        return Inertia::render('Artwork/Edit', ['product' => $product]);
+        return Inertia::render('Artist/EditArtwork', ['artwork' => $artwork]);
     }
 
     /**
@@ -104,20 +104,21 @@ class ArtworkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $product  = Product::findOrFail($id);
+        
+        $product  = Product::findOrFail($request->product_id);
         $formFields = $request->validate([
-            'product_name' => 'required',
-            'description' => 'required',
-            'width' => 'required',
-            'height' => 'required',
-            'base' => 'required',
-            'medium' => 'required',
-            'art_style' => 'required',
-            'coa' => 'required',
-            'product_preview' => 'required',
-            'price' => 'required'
+            'product_name' => '',
+            'description' => '',
+            'width' => '',
+            'height' => '',
+            'base' => '',
+            'medium' => '',
+            'art_style' => '',
+            'coa' => '',
+            'product_preview' => '',
+            'price' => ''
         ]);
 
 
@@ -131,7 +132,7 @@ class ArtworkController extends Controller
         }
 
         $product->update($formFields);
-        return Inertia::render('test', ['products' => $product]);
+        return Redirect::route('gallery');
     }
 
     /**

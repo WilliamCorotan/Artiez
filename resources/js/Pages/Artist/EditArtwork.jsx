@@ -6,20 +6,25 @@ import TextInput from "@/Components/TextInput";
 import ArtistLayout from "@/Layouts/ArtistLayout";
 import { useState } from "react";
 
-const addArtwork = ({ auth }) => {
+const EditArtwork = ({ auth, artwork }) => {
+    const asset = (path) => `${window.location.origin}/${path}`;
     const { data, setData, post, processing, errors } = useForm({
-        product_name: "",
-        description: "",
-        width: "",
-        height: "",
-        base: "",
-        medium: "",
-        art_style: "",
-        coa: "",
-        product_preview: "",
-        price: 0,
+        product_id: artwork.product_id,
+        product_name: artwork.product_name,
+        description: artwork.description,
+        width: artwork.width,
+        height: artwork.height,
+        base: artwork.base,
+        medium: artwork.medium,
+        art_style: artwork.art_style,
+        coa: artwork.coa,
+        product_preview: artwork.product_preview,
+        price: artwork.price,
     });
-    const [source, setSource] = useState("");
+
+    const [source, setSource] = useState(
+        asset(`assets/artwork/${artwork.product_preview}`)
+    );
     const onHandleChange = (event) => {
         setData(
             event.target.name,
@@ -35,8 +40,8 @@ const addArtwork = ({ auth }) => {
     };
     const submit = (e) => {
         e.preventDefault();
-
-        post(route("artworks.store"));
+        console.log(data);
+        post(route("artworks.update"), [data]);
     };
     return (
         <ArtistLayout auth={auth}>
@@ -230,6 +235,7 @@ const addArtwork = ({ auth }) => {
                                                 name="medium"
                                                 className="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-rose-600 focus:outline-none focus:ring-rose-600 sm:text-sm"
                                                 onInput={onHandleChange}
+                                                defaultValue={artwork.medium}
                                             >
                                                 <option>
                                                     -Please select a medium-
@@ -275,6 +281,7 @@ const addArtwork = ({ auth }) => {
                                                 name="base"
                                                 className="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-rose-600 focus:outline-none focus:ring-rose-600 sm:text-sm"
                                                 onInput={onHandleChange}
+                                                defaultValue={artwork.base}
                                             >
                                                 <option>
                                                     -Please select a base-
@@ -333,6 +340,7 @@ const addArtwork = ({ auth }) => {
                                                 name="art_style"
                                                 className="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-rose-600 focus:outline-none focus:ring-rose-600 sm:text-sm"
                                                 onInput={onHandleChange}
+                                                defaultValue={artwork.art_style}
                                             >
                                                 <option>
                                                     -Please select an art style-
@@ -440,7 +448,7 @@ const addArtwork = ({ auth }) => {
                                         type="submit"
                                         className="inline-flex justify-center rounded-md border border-transparent bg-rose-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-rose-600 focus:outline-none focus:ring-2 focus:ring-rose-600 focus:ring-offset-2"
                                     >
-                                        Save
+                                        Update
                                     </button>
                                 </div>
                             </div>
@@ -458,4 +466,4 @@ const addArtwork = ({ auth }) => {
     );
 };
 
-export default addArtwork;
+export default EditArtwork;
