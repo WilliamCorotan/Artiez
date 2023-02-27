@@ -70,7 +70,7 @@ class Product extends Model
 
     public function scopeCount($query)
     {
-        $query->where('artist_id', '=', auth()->user()->user_id);
+        $query->where('artist_id', '=', auth()->user()->id);
     }
 
 
@@ -88,6 +88,6 @@ class Product extends Model
      */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'artist_id', 'user_id');
+        return $this->belongsTo(User::class, 'artist_id', 'id');
     }
 }

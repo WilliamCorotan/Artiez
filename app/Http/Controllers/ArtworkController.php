@@ -53,20 +53,15 @@ class ArtworkController extends Controller
             'product_preview' => 'required',
             'price' => 'required'
         ]);
-        // dd($request->product_preview);
 
-        // if ($request->hasFile('product_preview')) {
-        //     $formFields['product_preview'] = $request->file('product_preview')->store('assets/artwork', 'public');
-        // }
         $fileName = time() . '.' . $request->product_preview->extension();
         $request->product_preview->move(public_path('assets/artwork'), $fileName);
         $formFields['product_preview'] = $fileName;
-        // dd(Auth::id());
-        //insert user_id from auth()
+
         $formFields['artist_id'] = Auth::id();
 
         $formFields['sold'] = 0;
-        // dd($formFields);
+
         Product::create($formFields);
 
         return to_route('gallery');
@@ -82,9 +77,9 @@ class ArtworkController extends Controller
     {
         // $product = Product::findOrFail($id);
         
-        $artworks = Product::select()->where('artist_id', $product->artist_id)->where('product_id', '!=', $product->product_id)->join('users', 'artist_id', '=', 'user_id')->orderBy('product_table.created_at', 'desc')->get();
+        $artworks = Product::select()->where('artist_id', $product->artist_id)->where('product_id', '!=', $product->product_id)->join('users', 'artist_id', '=', 'id')->orderBy('product_table.created_at', 'desc')->get();
         return Inertia::render('Artwork', 
-        ['artwork' => $product->where('product_id', $product->product_id)->join('users', 'artist_id', '=', 'user_id')->get(),
+        ['artwork' => $product->where('product_id', $product->product_id)->join('users', 'artist_id', '=', 'id')->get(),
         'artworks' => $artworks]);
     }
 
@@ -124,12 +119,7 @@ class ArtworkController extends Controller
         ]);
 
 
-        //insert user_id from auth()
-        // $formFields['artist_id'] = auth()->user_id;
-
-
         $formFields['sold'] = 0;
-        // dd($formFields);
 
         if ($request->hasFile('coa')) {
             $formFields['coa'] = $request->file('coa')->store('assets.coa', 'public');
