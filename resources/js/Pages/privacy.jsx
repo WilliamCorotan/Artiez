@@ -1,7 +1,9 @@
 import React from 'react'
-
+import Layout from '@/Layouts/Layout'
 export const privacy = () => {
   return (
+
+    <Layout auth={auth} className="leading-relaxed">
     <div className="max-w-4xl mx-auto px-4 py-8">
  <h1 className="text-4xl font-bold mb-2">Privacy Policy</h1>
     <p className="text-sm">Last Updated: February 2, 2022</p>
@@ -94,5 +96,6 @@ export const privacy = () => {
  <h3 className="text-2xl font-bold mb-2 mt-2">14. How can you contact us regarding this Privacy Policy?</h3>
  <p>You can contact us via email at privacy@filipinoart.ph. In this case, your information transmitted by email will be stored. If needed, your information will be relayed to our Third-Party partners to for the sole purpose of processing any request by you in the communication.</p>
     </div>
+    </Layout>
   )
 }
