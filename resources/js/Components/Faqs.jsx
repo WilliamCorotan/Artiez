@@ -8,7 +8,10 @@ export const Faqs = () => {
 
     return (
         <>
-            <section className="mx-auto container w-4/5 lg:w-1/2  text-justify my-20">
+            <section
+                id="faq"
+                className="mx-auto container w-4/5 lg:w-1/2  text-justify my-20"
+            >
                 <h1 className="text-5xl p-10 font-bold text-center">FAQ's</h1>
                 <div
                     id="accordion-color"

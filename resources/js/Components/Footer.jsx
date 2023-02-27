@@ -20,33 +20,33 @@ export const Footer = () => {
                             </li>
                             <li className="mb-4">
                                 <Link
+                                    href="artworks"
+                                    className="hover:underline hover:text-rose-600"
+                                >
+                                    Artworks
+                                </Link>
+                            </li>
+                            <li className="mb-4">
+                                <Link
+                                    href="artists"
+                                    className="hover:underline hover:text-rose-600"
+                                >
+                                    Artists
+                                </Link>
+                            </li>
+                            <li className="mb-4">
+                                <Link
                                     href="contact"
                                     className="hover:underline hover:text-rose-600"
                                 >
                                     Contact Us
                                 </Link>
                             </li>
-                            <li className="mb-4">
-                                <a
-                                    href="#"
-                                    className="hover:underline hover:text-rose-600"
-                                >
-                                    Brand Center
-                                </a>
-                            </li>
-                            <li className="mb-4">
-                                <a
-                                    href="#"
-                                    className="hover:underline hover:text-rose-600"
-                                >
-                                    Blog
-                                </a>
-                            </li>
                         </ul>
                     </div>
                     <div className="border-b border-gray-500 pb-4 sm:border-none">
                         <h2 className="mb-6 text-sm font-bold text-rose-600 uppercase">
-                            Help center
+                            Community
                         </h2>
                         <ul className="text-gray-500">
                             <li className="mb-4">
@@ -73,14 +73,6 @@ export const Footer = () => {
                                     Facebook
                                 </a>
                             </li>
-                            <li className="mb-4">
-                                <a
-                                    href="#"
-                                    className="hover:underline hover:text-rose-600"
-                                >
-                                    Contact Us
-                                </a>
-                            </li>
                         </ul>
                     </div>
                     <div className="border-b border-gray-500 pb-4 sm:border-none">
@@ -89,20 +81,12 @@ export const Footer = () => {
                         </h2>
                         <ul className="text-gray-500">
                             <li className="mb-4">
-                                <a
-                                    href="#"
+                                <Link
+                                    href="privacy"
                                     className="hover:underline hover:text-rose-600"
                                 >
                                     Privacy Policy
-                                </a>
-                            </li>
-                            <li className="mb-4">
-                                <a
-                                    href="#"
-                                    className="hover:underline hover:text-rose-600"
-                                >
-                                    Licensing
-                                </a>
+                                </Link>
                             </li>
                             <li className="mb-4">
                                 <Link
@@ -144,12 +128,12 @@ export const Footer = () => {
                                 </a>
                             </li>
                             <li className="mb-4">
-                                <a
-                                    href="#"
+                                <Link
+                                    href="/#faq"
                                     className="hover:underline hover:text-rose-600"
                                 >
                                     FAQs
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>

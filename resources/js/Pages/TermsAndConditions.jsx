@@ -5,15 +5,15 @@ function TermsAndConditions({ auth }) {
     return (
         <>
             <Layout auth={auth}>
-                <section className="w-4/5 container mx-auto text-xs">
+                <section className="w-4/5 py-16 container mx-auto text-xs">
                     <p className=" text-xl my-3">Terms & Conditions</p>
                     <p>EFFECTIVE DATE FOR NEW USERS: FEBRUARY 28, 2023</p>
                     <p>
-                        THESE ARE THE CONDITIONS OF USE OF FILIPINOART.PH--PART
-                        OF PROPERTYASIA.PH--WHICH APPLY TO ALL SERVICES OFFERED
-                        VIA THE WEBSITE. WE ADVISE THAT YOU READ THESE
-                        CONDITIONS OF USE CAREFULLY SO THAT YOU KNOW YOUR RIGHTS
-                        AND OBLIGATIONS IF YOU USE THE SERVICES. BY USING THE
+                        THESE ARE THE CONDITIONS OF USE OF ARTIEZ.PH--PART OF
+                        PROPERTYASIA.PH--WHICH APPLY TO ALL SERVICES OFFERED VIA
+                        THE WEBSITE. WE ADVISE THAT YOU READ THESE CONDITIONS OF
+                        USE CAREFULLY SO THAT YOU KNOW YOUR RIGHTS AND
+                        OBLIGATIONS IF YOU USE THE SERVICES. BY USING THE
                         SERVICES IN ANY WAY WHATSOEVER, YOU DECLARE YOU ARE
                         AWARE OF AND AGREE TO THESE CONDITIONS OF USE.
                     </p>
@@ -52,9 +52,7 @@ function TermsAndConditions({ auth }) {
                                     to Property Asia by a user of the Services
                                     or which is uploaded to the Website
                                 </li>
-                                <li>
-                                    "Website": the website of FilipinoArt.ph.
-                                </li>
+                                <li>"Website": the website of Artiez.ph.</li>
                             </ol>
                         </div>
                         <br />
@@ -65,19 +63,18 @@ function TermsAndConditions({ auth }) {
                                 <li>
                                     In order to use the Services, you must apply
                                     for your own account in the manner described
-                                    on the Website. FilipinoArt.ph can decide at
-                                    its own discretion whether to provide you
-                                    with an account.
+                                    on the Website. Artiez.ph can decide at its
+                                    own discretion whether to provide you with
+                                    an account.
                                 </li>
                                 <li>
-                                    You guarantee FilipinoArt.ph that the
-                                    information you provide to FilipinoArt.ph,
-                                    including your personal details such as name
-                                    and email address, is complete, truthful and
-                                    accurate. You consent to FilipinoArt.ph's
-                                    storing and using your data in connection
-                                    with management of your account. See our
-                                    Privacy Statement.
+                                    You guarantee Artiez.ph that the information
+                                    you provide to Artiez.ph, including your
+                                    personal details such as name and email
+                                    address, is complete, truthful and accurate.
+                                    You consent to Artiez.ph's storing and using
+                                    your data in connection with management of
+                                    your account. See our Privacy Statement.
                                 </li>
                                 <li>
                                     If you are younger than eighteen (18) years
@@ -126,10 +123,10 @@ function TermsAndConditions({ auth }) {
                             <br />
                             <ol className="pl-5 list-decimal">
                                 <li>
-                                    You guarantee FilipinoArt.ph that you are
+                                    You guarantee Artiez.ph that you are
                                     authorised to use the Services and to act in
                                     accordance with these conditions of use. You
-                                    also guarantee FilipinoArt.ph that you will
+                                    also guarantee Artiez.ph that you will
                                     comply with the obligations in these
                                     conditions of use at all times and that you
                                     will obey all laws and regulations
@@ -149,12 +146,11 @@ function TermsAndConditions({ auth }) {
                                             misleading;
                                         </li>
                                         <li>
-                                            infringe the rights of
-                                            FilipinoArt.ph or third parties,
-                                            including copyrights, related
-                                            rights, trademark rights or any
-                                            other intellectual property rights
-                                            or rights related to privacy
+                                            infringe the rights of Artiez.ph or
+                                            third parties, including copyrights,
+                                            related rights, trademark rights or
+                                            any other intellectual property
+                                            rights or rights related to privacy
                                             protection;
                                         </li>
                                         <li>
@@ -171,7 +167,7 @@ function TermsAndConditions({ auth }) {
                                             appropriate such work or data or be
                                             intended to get around any technical
                                             measures to protect the Website or
-                                            FilipinoArt.ph computer systems;
+                                            Artiez.ph computer systems;
                                         </li>
                                         <li>
                                             be aimed at securing unauthorised
@@ -181,7 +177,7 @@ function TermsAndConditions({ auth }) {
                                         </li>
                                         <li>
                                             be of a commercial nature, unless
-                                            FilipinoArt.ph has given written
+                                            Artiez.ph has given written
                                             permission for this; or
                                         </li>
                                         <li>
@@ -193,18 +189,18 @@ function TermsAndConditions({ auth }) {
                                 <li>
                                     You are fully, independently and solely
                                     responsible for all use you make of the
-                                    Services. You are liable to FilipinoArt.ph
-                                    for any use of the Services that is not in
+                                    Services. You are liable to Artiez.ph for
+                                    any use of the Services that is not in
                                     accordance with the provisions of these
                                     conditions of use and you indemnify Property
                                     Asia against all third-party claims in
                                     relation to such.
                                 </li>
                                 <li>
-                                    FilipinoArt.ph does not perform any
-                                    editorial, substantive, technical or other
-                                    type of monitoring of User Content when
-                                    using the Services.
+                                    Artiez.ph does not perform any editorial,
+                                    substantive, technical or other type of
+                                    monitoring of User Content when using the
+                                    Services.
                                 </li>
                             </ol>
                         </div>
@@ -219,8 +215,8 @@ function TermsAndConditions({ auth }) {
                                     All (intellectual) property rights to the
                                     Content, including copyrights, trademark
                                     rights, database rights and trade name
-                                    rights are held exclusively by
-                                    FilipinoArt.ph and/or its licensor(s).
+                                    rights are held exclusively by Artiez.ph
+                                    and/or its licensor(s).
                                 </li>
                                 <li>
                                     Under the conditions stipulated in these
@@ -234,9 +230,9 @@ function TermsAndConditions({ auth }) {
                                     download, copy, alter or publish Content or
                                     use it for direct or indirect commercial
                                     purposes or in any other way than as
-                                    described above, unless FilipinoArt.ph or
-                                    the particular right holder has given
-                                    explicit permission for this.
+                                    described above, unless Artiez.ph or the
+                                    particular right holder has given explicit
+                                    permission for this.
                                 </li>
                                 <li>
                                     Nothing stated in these conditions of use or
@@ -271,10 +267,10 @@ function TermsAndConditions({ auth }) {
                                 </li>
                                 <li>
                                     By making User Content available to
-                                    FilipinoArt.ph (which in these conditions of
-                                    use refers to, among other things: uploading
+                                    Artiez.ph (which in these conditions of use
+                                    refers to, among other things: uploading
                                     User Content), you automatically grant
-                                    FilipinoArt.ph a worldwide, non-exclusive,
+                                    Artiez.ph a worldwide, non-exclusive,
                                     royalty-free, transferable licence (with the
                                     right to sublicence), which is not limited
                                     in time, for any use, re-use, reproduction,
@@ -287,8 +283,8 @@ function TermsAndConditions({ auth }) {
                                 </li>
                                 <li>
                                     The licence referred to in article 5.2 ends
-                                    at the moment that you or FilipinoArt.ph
-                                    removes the particular User Content from the
+                                    at the moment that you or Artiez.ph removes
+                                    the particular User Content from the
                                     Website.
                                 </li>
                                 <li>
@@ -303,13 +299,12 @@ function TermsAndConditions({ auth }) {
                                     make available to Property Asia may be used
                                     by third parties in a manner that is in
                                     violation of or not provided for in these
-                                    conditions of use. FilipinoArt.ph is not
-                                    liable for actions by third parties in
-                                    violation of these conditions of use or in
-                                    breach of any statutory provision or for any
-                                    other unlawful action by third parties in
-                                    relation to the User Content made available
-                                    by you.
+                                    conditions of use. Artiez.ph is not liable
+                                    for actions by third parties in violation of
+                                    these conditions of use or in breach of any
+                                    statutory provision or for any other
+                                    unlawful action by third parties in relation
+                                    to the User Content made available by you.
                                 </li>
                                 <li>
                                     By making User Content available to Property
@@ -358,16 +353,15 @@ function TermsAndConditions({ auth }) {
                                     Content you make available. Property Asia is
                                     not liable for the consequences of any use
                                     of this User Content in accordance with
-                                    these conditions and you indemnify
-                                    FilipinoArt.ph against any third-party
-                                    claims in that respect. All costs incurred
-                                    and damaged suffered by FilipinoArt.ph in
-                                    any way related to such claims will be
-                                    compensated by you.
+                                    these conditions and you indemnify Artiez.ph
+                                    against any third-party claims in that
+                                    respect. All costs incurred and damaged
+                                    suffered by Artiez.ph in any way related to
+                                    such claims will be compensated by you.
                                 </li>
                                 <li>
-                                    FilipinoArt.ph reserves the right to remove
-                                    or block User Content or otherwise render it
+                                    Artiez.ph reserves the right to remove or
+                                    block User Content or otherwise render it
                                     inaccessible if it is in violation of the
                                     provisions of these conditions of use or if
                                     necessary without report of reasons.
@@ -386,9 +380,9 @@ function TermsAndConditions({ auth }) {
                                     of User Content which you may in no event
                                     make available via the Website (in which
                                     respect it applies that exclusively
-                                    FilipinoArt.ph has discretion in deciding
-                                    whether particular User Content is permitted
-                                    or not):
+                                    Artiez.ph has discretion in deciding whether
+                                    particular User Content is permitted or
+                                    not):
                                     <ul className=" list-disc pl-5">
                                         <li>
                                             User Content that is discriminatory
@@ -408,13 +402,13 @@ function TermsAndConditions({ auth }) {
                                             abuse of others;
                                         </li>
                                         <li>
-                                            User Content which in
-                                            FilipinoArt.ph's opinion is immoral
-                                            or distasteful, violent or which
-                                            contains a link to pornographic
-                                            material or pornographic websites or
-                                            which contains pornographic or
-                                            erotic material;
+                                            User Content which in Artiez.ph's
+                                            opinion is immoral or distasteful,
+                                            violent or which contains a link to
+                                            pornographic material or
+                                            pornographic websites or which
+                                            contains pornographic or erotic
+                                            material;
                                         </li>
                                         <li>
                                             User Content in which the personal
@@ -431,7 +425,7 @@ function TermsAndConditions({ auth }) {
                                             User Content which infringes upon
                                             intellectual property rights,
                                             privacy rights or any other rights
-                                            of FilipinoArt.ph or third parties;
+                                            of Artiez.ph or third parties;
                                         </li>
                                         <li>
                                             User Content involving chain
@@ -445,10 +439,9 @@ function TermsAndConditions({ auth }) {
                                             User Content which involves
                                             commercial activities for which
                                             prior written permission from
-                                            FilipinoArt.ph has not been
-                                            obtained, such as advertisements,
-                                            lotteries, competitions or pyramid
-                                            games;
+                                            Artiez.ph has not been obtained,
+                                            such as advertisements, lotteries,
+                                            competitions or pyramid games;
                                         </li>
                                         <li>
                                             User Content containing a photo or
@@ -464,11 +457,10 @@ function TermsAndConditions({ auth }) {
                                     </ul>
                                 </li>
                                 <li>
-                                    FilipinoArt.ph reserves the right to inform
-                                    the competent investigative authorities
-                                    about User Content that is in breach of
-                                    public order or otherwise in violation of
-                                    the law.
+                                    Artiez.ph reserves the right to inform the
+                                    competent investigative authorities about
+                                    User Content that is in breach of public
+                                    order or otherwise in violation of the law.
                                 </li>
                             </ol>
                         </div>
@@ -482,30 +474,29 @@ function TermsAndConditions({ auth }) {
                                     Service is established the moment you place
                                     the order under resolutive condition of
                                     acceptance by Property Asia. If an order is
-                                    not accepted, FilipinoArt.ph will notify you
-                                    of this within ten (10) working days of
-                                    receipt of your order.
+                                    not accepted, Artiez.ph will notify you of
+                                    this within ten (10) working days of receipt
+                                    of your order.
                                 </li>
                                 <li>
                                     The Service will be provided at the moment
-                                    FilipinoArt.ph has received the amount
-                                    listed on the Website for the Service and
-                                    takes effect for the term reported for the
-                                    particular Service on the Website. If you
-                                    opt for payment by automatic debit, the
-                                    agreement will be tacitly renewed for an
-                                    indefinite period after the expiration of
-                                    this term.
+                                    Artiez.ph has received the amount listed on
+                                    the Website for the Service and takes effect
+                                    for the term reported for the particular
+                                    Service on the Website. If you opt for
+                                    payment by automatic debit, the agreement
+                                    will be tacitly renewed for an indefinite
+                                    period after the expiration of this term.
                                 </li>
                                 <li>
                                     After tacit renewal of the agreement in
                                     accordance with article 8.2, you agree to
                                     another term, but may cancel the agreement
                                     with due observance of a notice period of
-                                    one month before the term ends.
-                                    FilipinoArt.ph will notify you at least six
-                                    (6) weeks before the term ends and is bound
-                                    to tacit renewal.
+                                    one month before the term ends. Artiez.ph
+                                    will notify you at least six (6) weeks
+                                    before the term ends and is bound to tacit
+                                    renewal.
                                 </li>
                                 <li>
                                     If you do not wish to purchase a paid
@@ -518,7 +509,7 @@ function TermsAndConditions({ auth }) {
                                     particular invoice amount will be credited
                                     back to your account within 30 days after
                                     receipt of the email, to the extent
-                                    FilipinoArt.ph had already received it.
+                                    Artiez.ph had already received it.
                                 </li>
                             </ol>
                         </div>
@@ -533,15 +524,15 @@ function TermsAndConditions({ auth }) {
                                 <li>
                                     The Services are made available on an 'as
                                     is' basis. Despite the constant care and
-                                    attention devoted by FilipinoArt.ph to the
+                                    attention devoted by Artiez.ph to the
                                     content and composition of the Services, it
                                     gives no guarantees with regard to the
                                     completeness, accuracy or reliability
-                                    thereof, nor does FilipinoArt.ph guarantee
-                                    that the Services will be available at all
-                                    times and without interruption, disruptions
-                                    or errors, that defects will be repaired at
-                                    all times or that the Website and server on
+                                    thereof, nor does Artiez.ph guarantee that
+                                    the Services will be available at all times
+                                    and without interruption, disruptions or
+                                    errors, that defects will be repaired at all
+                                    times or that the Website and server on
                                     which it is held are free from viruses or
                                     other contagious or harmful files. You agree
                                     that Property Asia is not liable for damage
@@ -551,9 +542,9 @@ function TermsAndConditions({ auth }) {
                                 </li>
                                 <li>
                                     In supplement to the other (legal) means at
-                                    FilipinoArt.ph's disposal, FilipinoArt.ph
-                                    has the right at all times, without report
-                                    of reasons and without prior explanation, to
+                                    Artiez.ph's disposal, Artiez.ph has the
+                                    right at all times, without report of
+                                    reasons and without prior explanation, to
                                     (temporarily) limit, suspend or terminate
                                     the provision of one or more Services to
                                     you, to temporarily or permanently stop or
@@ -566,13 +557,12 @@ function TermsAndConditions({ auth }) {
                                             conditions of use;
                                         </li>
                                         <li>
-                                            FilipinoArt.ph believes that your
-                                            actions could cause damage or
-                                            liability to yourself, other users
-                                            or FilipinoArt.ph.
+                                            Artiez.ph believes that your actions
+                                            could cause damage or liability to
+                                            yourself, other users or Artiez.ph.
                                         </li>
-                                        This will not make FilipinoArt.ph liable
-                                        in any event.
+                                        This will not make Artiez.ph liable in
+                                        any event.
                                     </ul>
                                 </li>
                                 <li>
@@ -610,18 +600,18 @@ function TermsAndConditions({ auth }) {
                             <ol className="pl-5 list-decimal">
                                 <li>
                                     The Website contains both Services provided
-                                    by FilipinoArt.ph and Services provided by
-                                    third parties or links to third-party
-                                    websites. The inclusion or availability of
-                                    third-party Services on the Website does not
-                                    imply that Property Asia has approved or
-                                    verified these Services. FilipinoArt.ph is
-                                    not responsible for these third-party
-                                    Services or any use thereof by users of the
-                                    Website. Nor is FilipinoArt.ph responsible
-                                    for (the content of) third-party websites to
-                                    which reference is made on the Website via
-                                    hyperlinks or otherwise.
+                                    by Artiez.ph and Services provided by third
+                                    parties or links to third-party websites.
+                                    The inclusion or availability of third-party
+                                    Services on the Website does not imply that
+                                    Property Asia has approved or verified these
+                                    Services. Artiez.ph is not responsible for
+                                    these third-party Services or any use
+                                    thereof by users of the Website. Nor is
+                                    Artiez.ph responsible for (the content of)
+                                    third-party websites to which reference is
+                                    made on the Website via hyperlinks or
+                                    otherwise.
                                 </li>
                                 <li>
                                     The applicable terms and conditions of these
@@ -654,7 +644,7 @@ function TermsAndConditions({ auth }) {
                                     dealing or usage of trade.
                                 </li>
                                 <li>
-                                    FilipinoArt.ph takes no responsibility and
+                                    Artiez.ph takes no responsibility and
                                     assumes no liability for any User Content or
                                     other content, including links to web pages,
                                     that you or any other user or third party
@@ -666,9 +656,9 @@ function TermsAndConditions({ auth }) {
                                     purpose.
                                 </li>
                                 <li>
-                                    FilipinoArt.ph is not responsible in any way
-                                    for, does not monitor, and does not endorse
-                                    or guarantee anything about any third-party
+                                    Artiez.ph is not responsible in any way for,
+                                    does not monitor, and does not endorse or
+                                    guarantee anything about any third-party
                                     content (including advertisements, offers,
                                     and promotions) that may appear in our Site
                                     or Services.
@@ -682,7 +672,7 @@ function TermsAndConditions({ auth }) {
                             <ol className=" pl-5 list-decimal">
                                 <li>
                                     You agree to defend, indemnify, and hold
-                                    FilipinoArt.ph harmless from and against any
+                                    Artiez.ph harmless from and against any
                                     claims, damages, costs, liabilities, and
                                     expenses (including, but not limited to,
                                     reasonable attorneys' fees) arising out of
@@ -730,7 +720,7 @@ function TermsAndConditions({ auth }) {
                             <br />
                             <ol className=" pl-5 list-decimal">
                                 <li>
-                                    FilipinoArt.ph has the right to change the
+                                    Artiez.ph has the right to change the
                                     Services and these conditions of use at any
                                     moment, without notifying the users. The
                                     amended conditions of use take effect at the

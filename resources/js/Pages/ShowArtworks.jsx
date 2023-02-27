@@ -24,10 +24,21 @@ function ShowArtworks({ auth, artworks }) {
         setData(e.target.name, e.target.value);
     };
     // console.log(medium);
-
+    const submit = (e) => {
+        e.preventDefault();
+        get("/artworks", data.search);
+    };
     const applyFilters = (e) => {
         e.preventDefault();
         get("/artworks", data);
+    };
+    const onHandleChange = (event) => {
+        setData(
+            event.target.name,
+            event.target.type === "checkbox"
+                ? event.target.checked
+                : event.target.value
+        );
     };
     console.log(artworks);
     const ArtworkCards = artworks.data.map((e) => {
@@ -38,7 +49,35 @@ function ShowArtworks({ auth, artworks }) {
     return (
         <Layout auth={auth} className={`py-8 w-4/5 mx-auto`}>
             <div className="2xl:container 2xl:mx-auto">
-                <div className=" md:py-12 lg:px-20 md:px-6 py-9 px-4">
+                <div className="  py-9 px-4">
+                    <div className="relative w-full mb-4">
+                        <form onSubmit={submit}>
+                            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <svg
+                                    className="w-5 h-5 text-gray-600"
+                                    aria-hidden="true"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        fillRule="evenodd"
+                                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                        clipRule="evenodd"
+                                    ></path>
+                                </svg>
+                                <span className="sr-only">Search icon</span>
+                            </div>
+                            <TextInput
+                                type="text"
+                                name="search"
+                                value={data.search}
+                                className="w-full p-2 pl-10 pr-32 text-sm text-gray-900 border border-gray-800 rounded-sm focus:ring-gray-900 focus:border-gray-800"
+                                placeholder="Search"
+                                handleChange={onHandleChange}
+                            />
+                        </form>
+                    </div>
                     <div className=" flex justify-between items-center mb-4">
                         <h2 className=" lg:text-4xl text-3xl lg:leading-9 leading-7 text-gray-800 font-semibold">
                             Artworks
