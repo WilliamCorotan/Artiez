@@ -1,12 +1,9 @@
-import { Footer, Footer } from "@/Components/Footer";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
-import { default as Navbar, default as Navbar } from "@/Components/Navbar";
-import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
-import GuestLayout from "@/Layouts/GuestLayout";
 import Layout from "@/Layouts/Layout";
 import { Head, Link, useForm } from "@inertiajs/react";
+import { useEffect } from "react";
 
 export default function Register(props) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -182,7 +179,7 @@ export default function Register(props) {
                                 </div>
 
                                 {/* Terms and conditions */}
-                                <div className="grid lg:grid-flow-col  text-sm text-gray-900">
+                                <div className="grid lg:grid-flow-col gap-2 text-sm text-gray-900">
                                     <div className="flex gap-1 items-center">
                                         <TextInput
                                             type="checkbox"
@@ -197,18 +194,18 @@ export default function Register(props) {
                                         </p>
                                     </div>
 
-                                    <p>
+                                    <p className="lg:place-self-end">
                                         Already have an account? {""}
                                         <Link
                                             href="/login"
                                             className="underline"
                                         >
-                                            Sign up! as Betch
+                                            Sign up!
                                         </Link>
                                     </p>
                                 </div>
                                 <div className="flex justify-end">
-                                    <button className="bg-blue-500 p-4 rounded py-1 self-center">
+                                    <button className="w-full md:w-fit md:inline-block rounded-lg bg-sky-600 px-5 py-3 text-sm font-medium text-white">
                                         Register
                                     </button>
                                 </div>

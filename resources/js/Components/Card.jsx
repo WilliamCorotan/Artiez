@@ -21,29 +21,35 @@ export const Card = ({ artworks }) => {
                     </div>
 
                     <div className="p-5 max-h-fit grid text-gray-800">
-                        <h5 className="text-lg font-bold mb-2">
+                        <h5 className="text-xl font-bold ">
                             {artworks.product_name}
                         </h5>
-                        <p className="text-xs text-gray-600 mb-2">
+                        <p className="text-xs text-gray-400 mb-2">
                             <span>
                                 {`${artworks.medium} on ${artworks.base},
                                 ${artworks.height}h x ${artworks.width}w in`}
                             </span>
                         </p>
                         <div className="flex items-center justify-between">
-                            <h6 className="text-md text-gray-700 font-bold mb-2">
-                                {artworks.first_name} {artworks.last_name}
-                            </h6>
+                            <Link
+                                href={`${window.location.origin}/artists/${artworks.artist_id}`}
+                                data-mdb-ripple="true"
+                                data-mdb-ripple-color="light"
+                            >
+                                <h6 className="text-md text-gray-600 font-bold">
+                                    {artworks.first_name} {artworks.last_name}
+                                </h6>
+                            </Link>
                         </div>
-                        <div className="text-sm text-gray-600 grid grid-flow-col">
+                        <div className="text-sm text-gray-400 grid grid-flow-col">
                             <span className="self-end">
                                 <i className="fas fa-map-marker-alt fa-sm mt-[3px] mr-1"></i>
                                 {artworks.city}, {artworks.province}
                             </span>
-                            <h4 className="font-bold text-rose-500 text-xl place-self-end">
-                                PHP {artworks.price}
-                            </h4>
                         </div>
+                        <h4 className="font-bold text-rose-500 text-xl place-self-end">
+                            PHP {artworks.price.toLocaleString("en-PH")}
+                        </h4>
                     </div>
                 </Link>
             </div>

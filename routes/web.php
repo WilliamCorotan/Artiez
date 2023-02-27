@@ -141,6 +141,14 @@ Route::get('termsandconditions', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+Route::get('privacy', function () {
+    return Inertia::render('Privacy', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
 
 
 
