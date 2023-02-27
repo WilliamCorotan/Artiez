@@ -14,7 +14,7 @@ function ShowArtists({ auth, artists, artworks }) {
         base: "",
         art_style: "",
     });
-    // console.log(artworks);
+    console.log(artworks);
 
     const handleMediumFilter = (e) => {
         setData(e.target.name, e.target.value);
@@ -30,13 +30,13 @@ function ShowArtists({ auth, artists, artworks }) {
     const ArtistsCards = artists.data.map((artist) => {
         const artistArtworks = [];
         artworks.slice(0, 2).map((artwork) => {
-            if (artwork.artist_id == artist.user_id) {
+            if (artwork.artist_id == artist.id) {
                 artistArtworks.push(artwork);
             }
         });
         return (
             <ArtistCard
-                key={artist.user_id}
+                key={artist.id}
                 artist={artist}
                 artworks={artistArtworks}
             />

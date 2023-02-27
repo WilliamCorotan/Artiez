@@ -2,7 +2,6 @@ import { Link } from "@inertiajs/react";
 
 export const Card = ({ artworks }) => {
     const asset = (path) => `${window.location.origin}/${path}`;
-    console.log(artworks)
     return (
         <>
             <div className="w-full mb-5 transition ease-in-out delay-15 hover:-translate-y-0.5 hover:scale-110 hover:bg-white duration-300 rounded-md shadow-lg border-2">
@@ -36,7 +35,7 @@ export const Card = ({ artworks }) => {
                                 {artworks.first_name} {artworks.last_name}
                             </h6>
                         </div>
-                        <p className="text-sm text-gray-600 grid grid-flow-col">
+                        <div className="text-sm text-gray-600 grid grid-flow-col">
                             <span className="self-end">
                                 <i className="fas fa-map-marker-alt fa-sm mt-[3px] mr-1"></i>
                                 {artworks.city}, {artworks.province}
@@ -44,7 +43,7 @@ export const Card = ({ artworks }) => {
                             <h4 className="font-bold text-rose-500 text-xl place-self-end">
                                 PHP {artworks.price}
                             </h4>
-                        </p>
+                        </div>
                     </div>
                 </Link>
             </div>
