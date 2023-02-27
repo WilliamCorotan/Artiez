@@ -4,6 +4,7 @@ use App\Models\User;
 use Inertia\Inertia;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\ArtworkController;
@@ -58,13 +59,12 @@ Route::get('artists/{artist}' , function (User $artist) {
 
 
 Route::get('artworks', function (Request $request) {
-    // dd($request);
-    $query = new Product;
-
+    $query = Product::query();
+    
     if($request->has('search')){
         $query->where('product_name', 'like', '%' . $request->search . '%');
     }
-
+    
     if($request->has('medium')){
         $query->where('medium', 'like', '%' . $request->medium . '%');
     }
@@ -74,8 +74,8 @@ Route::get('artworks', function (Request $request) {
     if($request->has('art_style')){
         $query->where('art_style', 'like', '%' . $request->art_style . '%');
     }
-    $data = $query->join('users', 'artist_id', '=', 'user_id')->orderBy('product_table.created_at', 'desc')->paginate(9);
-
+    $data = $query->join('users', 'artist_id', '=', 'user_id')->orderBy('product_table.created_at', 'desc')->paginate(10);
+    
     return Inertia::render('ShowArtworks', [
         'artworks' => $data
     ]);
@@ -98,7 +98,7 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 

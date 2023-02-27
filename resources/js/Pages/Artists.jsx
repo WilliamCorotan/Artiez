@@ -2,6 +2,7 @@ import Layout from "@/Layouts/Layout";
 import { RiArtboardLine } from "react-icons/ri";
 import { FaUserCheck } from "react-icons/fa";
 import { Card } from "@/Components/Card";
+import { ArtworkCard } from "@/Components/Admin/ArtworkCard";
 import Pagination from "@/Components/Pagination";
 
 const Artists = ({ auth, artist, artworks }) => {
@@ -9,7 +10,7 @@ const Artists = ({ auth, artist, artworks }) => {
     const date = new Date(artist.created_at);
     console.log(artworks);
     const ArtworkCards = artworks.data.map((e) => {
-        return <Card key={e.artwork_id} artworks={e} />;
+        return <ArtworkCard key={e.artwork_id} artworks={e} />;
     });
     return (
         <>

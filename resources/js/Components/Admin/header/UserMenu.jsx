@@ -18,7 +18,9 @@ function UserMenu({ auth }) {
             >
                 <img
                     className="w-10 h-10 rounded-full"
-                    src={asset(`./assets/profile_picture/temp.jpg`)}
+                    src={asset(
+                        `./assets/profile_picture/${auth.user.profile_picture}`
+                    )}
                     alt="User"
                 />
                 <div className="flex items-center truncate">
