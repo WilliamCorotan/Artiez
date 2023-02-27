@@ -28,7 +28,7 @@ const ArtistCard = ({ artist, artworks }) => {
                         </span>
                     </div>
                     <div className="self-end cursor-pointer py-4 mt-6 hover:bg-gray-700 focus:ring  focus:ring-offset-2 focus:ring-gray-800 w-3/5 lg:w-full mx-auto bg-gray-800 flex text-base leading-4 font-normal text-white justify-center items-center">
-                        <Link href={`artists/${artist.user_id}`} className="">
+                        <Link href={`artists/${artist.id}`} className="">
                             Visit Profile
                         </Link>
                     </div>

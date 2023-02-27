@@ -46,12 +46,10 @@ Route::get('artworks/{product}', [ArtworkController::class, 'show']);
 
 
 Route::get('artists/{artist}' , function (User $artist) {
-    // $product= Product::findOrFail();
-    // $artist = User::select()->where('user_id', $artists->artist_id)->get();
-    // dd($artists);
+
     $product = new Product;
-    $artworks = $product->where('artist_id', $artist->user_id)->orderBy('product_table.created_at', 'desc')->paginate(8);
-    // dd($artworks);
+    $artworks = $product->where('artist_id', $artist->id)->orderBy('product_table.created_at', 'desc')->paginate(8);
+
     return Inertia::render('Artists',  [
         'artist' => $artist,
         'artworks' => $artworks]);
@@ -74,7 +72,7 @@ Route::get('artworks', function (Request $request) {
     if($request->has('art_style')){
         $query->where('art_style', 'like', '%' . $request->art_style . '%');
     }
-    $data = $query->join('users', 'artist_id', '=', 'user_id')->orderBy('product_table.created_at', 'desc')->paginate(10);
+    $data = $query->join('users', 'artist_id', '=', 'id')->orderBy('product_table.created_at', 'desc')->paginate(10);
     
     return Inertia::render('ShowArtworks', [
         'artworks' => $data
@@ -90,7 +88,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
 
-        'products' => Product::select('product_table.product_name','product_table.product_preview','product_table.medium','product_table.base','product_table.height','product_table.width','users.first_name','users.last_name','users.city','users.province','product_table.price')->join('users', 'artist_id', '=', 'user_id')->orderBy('product_table.created_at', 'desc')->get()
+        'products' => Product::select('product_table.product_id','product_table.product_name','product_table.product_preview','product_table.medium','product_table.base','product_table.height','product_table.width','users.first_name','users.last_name','users.city','users.province','product_table.price')->join('users', 'artist_id', '=', 'id')->orderBy('product_table.created_at', 'desc')->get()
 
     ]);
 });
@@ -98,7 +96,8 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('/profile/personal', [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('/profile/address', [ProfileController::class, 'updateAddress'])->name('profile.update.address');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
@@ -106,12 +105,12 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth', 'verified', 'user-role:artist')->group(function () {
     Route::get('/artist/dashboard', function () {
         return Inertia::render('Artist/Dashboard', [
-            'artworks' => Product::latest()->where('artist_id', '=', auth()->user()->user_id)->get()
+            'artworks' => Product::latest()->where('artist_id', '=', auth()->user()->id)->get()
         ]);
     });
     Route::get('/artist/gallery', function () {
         return Inertia::render('Artist/Gallery', [
-            'artworks' => Product::latest()->where('artist_id', '=', auth()->user()->user_id)->get()
+            'artworks' => Product::latest()->where('artist_id', '=', auth()->user()->id)->get()
         ]);
     })->name('gallery');
     Route::get('/artist/artworks/add', [ArtworkController::class, 'create']);
@@ -128,6 +127,14 @@ Route::get('about', function () {
 });
 Route::get('contact', function () {
     return Inertia::render('Contact', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
+Route::get('termsandconditions', function () {
+    return Inertia::render('TermsAndConditions', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,

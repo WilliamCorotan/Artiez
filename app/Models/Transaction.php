@@ -59,6 +59,6 @@ class Transaction extends Model
      */
     public function buyerTable()
     {
-        return $this->belongsTo(Buyer::class, 'buyer_id', 'user_id');
+        return $this->belongsTo(Buyer::class, 'buyer_id', 'id');
     }
 }

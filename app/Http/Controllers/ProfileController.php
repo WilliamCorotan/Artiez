@@ -12,6 +12,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Http\Requests\ProfileAddressUpdateRequest;
 
 class ProfileController extends Controller
 {
@@ -40,6 +41,13 @@ class ProfileController extends Controller
             $request->user()->profile_picture = $fileName;
         }
 
+        $request->user()->save();
+
+        return Redirect::route('profile.edit');
+    }
+    public function updateAddress(ProfileAddressUpdateRequest $request): RedirectResponse
+    {
+        $request->user()->fill($request->validated());
         $request->user()->save();
 
         return Redirect::route('profile.edit');

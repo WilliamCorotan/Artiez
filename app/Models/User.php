@@ -25,7 +25,7 @@ class User extends Authenticatable
      *
      * @var string
      */
-    protected $primaryKey = 'user_id';
+    protected $primaryKey = 'id';
 
     /**
      * @var array
@@ -72,7 +72,7 @@ class User extends Authenticatable
      */
     public function product() : HasMany
     {
-        return $this->hasMany(Product::class, 'user_id', 'artist_id');
+        return $this->hasMany(Product::class, 'id', 'artist_id');
     }
     protected function role(): Attribute
     {
