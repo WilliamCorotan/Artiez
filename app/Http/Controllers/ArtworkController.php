@@ -29,7 +29,7 @@ class ArtworkController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Artist/AddArtwork');
+        return Inertia::render('Artist/addArtwork');
     }
 
     /**
@@ -76,10 +76,12 @@ class ArtworkController extends Controller
     public function show(Product $product)
     {
         // $product = Product::findOrFail($id);
+
         
         $artworks = Product::select()->where('artist_id', $product->artist_id)->where('product_id', '!=', $product->product_id)->join('users', 'artist_id', '=', 'id')->orderBy('product_table.created_at', 'desc')->get();
         return Inertia::render('Artwork', 
         ['artwork' => $product->where('product_id', $product->product_id)->join('users', 'artist_id', '=', 'id')->get(),
+
         'artworks' => $artworks]);
     }
 

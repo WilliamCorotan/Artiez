@@ -1,10 +1,11 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import DeleteUserForm from "./Partials/DeleteUserForm";
-import UpdatePasswordForm from "./Partials/UpdatePasswordForm";
-import UpdateAddressForm from "./Partials/UpdateAddressForm";
-import UpdateProfileInformationForm from "./Partials/UpdateProfileInformationForm";
 import Layout from "@/Layouts/Layout";
+import DeleteUserForm from "./Partials/DeleteUserForm";
+import UpdateAddressForm from "./Partials/UpdateAddressForm";
+import UpdatePasswordForm from "./Partials/UpdatePasswordForm";
+import UpdateProfileInformationForm from "./Partials/UpdateProfileInformationForm";
 
+import ArtistLayout from "@/Layouts/ArtistLayout";
 import { Head, Link } from "@inertiajs/react";
 import { useState } from "react";
 

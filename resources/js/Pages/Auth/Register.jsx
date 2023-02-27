@@ -1,13 +1,12 @@
-import { useEffect } from "react";
-import GuestLayout from "@/Layouts/GuestLayout";
+import { Footer, Footer } from "@/Components/Footer";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
+import { default as Navbar, default as Navbar } from "@/Components/Navbar";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
-import { Head, Link, useForm } from "@inertiajs/react";
-import Navbar from "@/Components/Navbar";
-import { Footer } from "@/Components/Footer";
+import GuestLayout from "@/Layouts/GuestLayout";
 import Layout from "@/Layouts/Layout";
+import { Head, Link, useForm } from "@inertiajs/react";
 
 export default function Register(props) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -198,23 +197,20 @@ export default function Register(props) {
                                         </p>
                                     </div>
 
-                                    <p className="mt-2 ml-2 lg:place-self-end">
+                                    <p>
                                         Already have an account? {""}
                                         <Link
                                             href="/login"
                                             className="underline"
                                         >
-                                            Sign up!
+                                            Sign up! as Betch
                                         </Link>
                                     </p>
                                 </div>
-                                {/* Submit button */}
                                 <div className="flex justify-end">
-                                    <TextInput
-                                        type="submit"
-                                        className="text-lg  text-white bg-rose-600 py-3 px-4 rounded self-center"
-                                        value="Sign up"
-                                    />
+                                    <button className="bg-blue-500 p-4 rounded py-1 self-center">
+                                        Register
+                                    </button>
                                 </div>
                             </form>
                         </div>
