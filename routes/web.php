@@ -134,6 +134,14 @@ Route::get('contact', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+Route::get('termsandconditions', function () {
+    return Inertia::render('TermsAndConditions', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
 
 
 

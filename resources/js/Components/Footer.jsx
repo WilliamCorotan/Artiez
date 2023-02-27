@@ -105,12 +105,12 @@ export const Footer = () => {
                                 </a>
                             </li>
                             <li className="mb-4">
-                                <a
-                                    href="#"
+                                <Link
+                                    href="/termsandconditions"
                                     className="hover:underline hover:text-rose-600"
                                 >
                                     Terms &amp; Conditions
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
