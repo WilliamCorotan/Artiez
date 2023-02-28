@@ -2,7 +2,7 @@ import Layout from "@/Layouts/Layout";
 import { RiArtboardLine } from "react-icons/ri";
 import { FaUserCheck } from "react-icons/fa";
 import { Card } from "@/Components/Card";
-import { ArtworkCard } from "@/Components/Admin/ArtworkCard";
+import { ArtworkCard } from "@/Components/ArtworkCard";
 import Pagination from "@/Components/Pagination";
 
 const Artists = ({ auth, artist, artworks }) => {
