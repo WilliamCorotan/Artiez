@@ -9,6 +9,7 @@ function Artwork({ auth, artworks, artwork }) {
         return <Card key={e.artwork_id} artworks={e} />;
     });
     const artworkDetails = artwork[0];
+    console.log(artwork);
     const price = artworkDetails.price;
     console.log(price.toLocaleString("en-US"));
     return (
