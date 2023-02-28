@@ -200,7 +200,7 @@ export default function Register(props) {
                                             href="/login"
                                             className="underline"
                                         >
-                                            Sign up!
+                                            Sign in!
                                         </Link>
                                     </p>
                                 </div>

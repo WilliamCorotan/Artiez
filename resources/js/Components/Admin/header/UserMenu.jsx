@@ -45,7 +45,7 @@ function UserMenu({ auth }) {
                         <li>
                             <Link
                                 className="font-medium text-lg text-rose-500 hover:text-rose-600 flex items-center py-1 px-3"
-                                href="/profile"
+                                href="profile"
                             >
                                 My Profile
                             </Link>

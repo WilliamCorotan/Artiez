@@ -21,6 +21,7 @@ class ProfileUpdateRequest extends FormRequest
             'contact_number' => 'string|max:13',
             'profile_picture' => '',
             'email' => ['email', 'max:320', Rule::unique(User::class)->ignore($this->user()->id,'id')],
+            'description' => ''
         ];
     }
 }
