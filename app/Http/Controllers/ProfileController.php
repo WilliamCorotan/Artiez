@@ -26,6 +26,13 @@ class ProfileController extends Controller
             'status' => session('status'),
         ]);
     }
+    public function editArtist(Request $request): Response
+    {
+        return Inertia::render('Artist/Profile/Edit', [
+            'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
+            'status' => session('status'),
+        ]);
+    }
 
     /**
      * Update the user's profile information.

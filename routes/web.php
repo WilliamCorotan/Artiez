@@ -103,6 +103,10 @@ Route::middleware('auth')->group(function () {
 
 //routes for artist
 Route::middleware('auth', 'verified', 'user-role:artist')->group(function () {
+    Route::get('artist/profile', [ProfileController::class, 'editArtist'])->name('profile.edit');
+    Route::post('artist/profile/personal', [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('artist/profile/address', [ProfileController::class, 'updateAddress'])->name('profile.update.address');
+    Route::delete('artist/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/artist/dashboard', function () {
         return Inertia::render('Artist/Dashboard', [
             'artworks' => Product::latest()->where('artist_id', '=', auth()->user()->id)->get()
